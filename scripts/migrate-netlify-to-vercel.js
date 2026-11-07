@@ -13,7 +13,7 @@ function replaceInDir(dir) {
       let content = fs.readFileSync(fullPath, 'utf8');
       let changed = false;
       if (content.includes('visroslot.netlify.app')) {
-        content = content.replace(/visroslot\.netlify\.app/g, 'visroslot.vercel.app');
+        content = content.replace(/visroslot\.netlify\.app/g, 'visroslot.pages.dev');
         changed = true;
       }
       if (content.includes('Netlify / .env')) {

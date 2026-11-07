@@ -6,9 +6,9 @@ const edge = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'
 const brainDir = 'C:\\Users\\naiti\\.gemini\\antigravity\\brain\\93afa014-27ef-4d7c-b584-6084ec313363';
 
 const pages = [
-  { url: 'https://visroslot.vercel.app', file: 'final_visroslot_landing.png', height: 1050 },
-  { url: 'https://visroslot.vercel.app/book/demo-salon', file: 'final_visroslot_booking.png', height: 1300 },
-  { url: 'https://visroslot.vercel.app/pricing', file: 'final_visroslot_pricing.png', height: 1050 }
+  { url: 'https://visroslot.pages.dev', file: 'final_visroslot_landing.png', height: 1050 },
+  { url: 'https://visroslot.pages.dev/book/demo-salon', file: 'final_visroslot_booking.png', height: 1300 },
+  { url: 'https://visroslot.pages.dev/pricing', file: 'final_visroslot_pricing.png', height: 1050 }
 ];
 
 for (const p of pages) {

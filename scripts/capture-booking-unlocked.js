@@ -7,14 +7,14 @@ const brainDir = 'C:\\Users\\naiti\\.gemini\\antigravity\\brain\\93afa014-27ef-4
 const out = path.join(brainDir, 'preview_booking_7step_unlocked.png');
 
 try {
-  console.log('Capturing https://visroslot.vercel.app/book/demo-salon -> preview_booking_7step_unlocked.png...');
+  console.log('Capturing https://visroslot.pages.dev/book/demo-salon -> preview_booking_7step_unlocked.png...');
   execFileSync(edge, [
     '--headless',
     '--disable-gpu',
     '--no-sandbox',
     '--window-size=1440,1300',
     `--screenshot=${out}`,
-    'https://visroslot.vercel.app/book/demo-salon'
+    'https://visroslot.pages.dev/book/demo-salon'
   ], { timeout: 20000 });
   const stat = fs.statSync(out);
   console.log(`SUCCESS: Saved preview_booking_7step_unlocked.png (${stat.size} bytes)`);

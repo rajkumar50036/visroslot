@@ -12,7 +12,7 @@ const data = JSON.stringify({
   customerNotes: "Visroslot test appointment"
 });
 
-const req = https.request('https://visroslot.vercel.app/api/book/appointment', {
+const req = https.request('https://visroslot.pages.dev/api/book/appointment', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',

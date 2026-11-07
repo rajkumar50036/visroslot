@@ -1,6 +1,6 @@
 const https = require('https');
 const data = JSON.stringify({ sweepAll: true });
-const req = https.request('https://visroslot.vercel.app/api/subscription/refund-token', {
+const req = https.request('https://visroslot.pages.dev/api/subscription/refund-token', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(data) }
 }, res => {

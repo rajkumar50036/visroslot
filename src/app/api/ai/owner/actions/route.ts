@@ -101,7 +101,7 @@ export async function POST(req: NextRequest) {
         expected_outcome: "Estimated 20-30% rebooking rate among contacted clients (Estimate)",
         action_payload: {
           recipients: targetClients.map((c) => ({ name: c.name, phone: c.phone, lastService: c.service })),
-          draftMessage: `Hi there! We haven't seen you in a while at ${snapshot.businessName}. We have prime slots open this week for your next appointment. Book online anytime: https://${req.headers.get("x-forwarded-host") || req.headers.get("host") || "visroslot.web.app"}/book/${snapshot.businessId}`,
+          draftMessage: `Hi there! We haven't seen you in a while at ${snapshot.businessName}. We have prime slots open this week for your next appointment. Book online anytime: https://${req.headers.get("x-forwarded-host") || req.headers.get("host") || "visroslot.pages.dev"}/book/${snapshot.businessId}`,
         },
         status: "PENDING",
         created_at: nowIso,

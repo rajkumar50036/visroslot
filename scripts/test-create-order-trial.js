@@ -7,7 +7,7 @@ const data = JSON.stringify({
   trial: true
 });
 
-const req = https.request('https://visroslot.vercel.app/api/subscription/create-order', {
+const req = https.request('https://visroslot.pages.dev/api/subscription/create-order', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',

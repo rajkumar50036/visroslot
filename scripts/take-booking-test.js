@@ -7,7 +7,7 @@ const brainDir = 'C:\\Users\\naiti\\.gemini\\antigravity\\brain\\93afa014-27ef-4
 const out = path.join(brainDir, 'verify_firebase_booking.png');
 
 try {
-  console.log('Capturing https://visroslot.vercel.app/book/demo-salon...');
+  console.log('Capturing https://visroslot.pages.dev/book/demo-salon...');
   execFileSync(edge, [
     '--headless',
     '--disable-gpu',
@@ -15,7 +15,7 @@ try {
     '--virtual-time-budget=6000',
     '--window-size=1440,1300',
     `--screenshot=${out}`,
-    'https://visroslot.vercel.app/book/demo-salon'
+    'https://visroslot.pages.dev/book/demo-salon'
   ], { timeout: 30000 });
   const stat = fs.statSync(out);
   console.log(`Saved verify_firebase_booking.png: ${stat.size} bytes`);

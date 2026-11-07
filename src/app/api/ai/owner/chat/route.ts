@@ -134,8 +134,8 @@ export async function POST(req: NextRequest) {
             : "Estimated 20-30% rebooking rate among contacted clients (Estimate)",
           action_payload: {
             draftMessage: lowerMsg.includes("promotion")
-              ? `Hello from ${snapshot.businessName}! Enjoy 15% off any appointment scheduled this Wednesday or Thursday. Book online: https://${req.headers.get("x-forwarded-host") || req.headers.get("host") || "visroslot.web.app"}/book/${snapshot.businessId}`
-              : `Hello! We missed you at ${snapshot.businessName}. Your preferred service is available this week. Book your next visit here: https://${req.headers.get("x-forwarded-host") || req.headers.get("host") || "visroslot.web.app"}/book/${snapshot.businessId}`,
+              ? `Hello from ${snapshot.businessName}! Enjoy 15% off any appointment scheduled this Wednesday or Thursday. Book online: https://${req.headers.get("x-forwarded-host") || req.headers.get("host") || "visroslot.pages.dev"}/book/${snapshot.businessId}`
+              : `Hello! We missed you at ${snapshot.businessName}. Your preferred service is available this week. Book your next visit here: https://${req.headers.get("x-forwarded-host") || req.headers.get("host") || "visroslot.pages.dev"}/book/${snapshot.businessId}`,
             recipientsCount: Math.min(5, snapshot.customers.inactiveOver30Days.length),
           },
           status: "PENDING",

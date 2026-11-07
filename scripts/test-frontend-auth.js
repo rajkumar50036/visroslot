@@ -7,8 +7,8 @@ const brainDir = 'C:\\Users\\naiti\\.gemini\\antigravity\\brain\\93afa014-27ef-4
 // We will run Edge with remote debugging or check DOM
 console.log('Testing page responses...');
 const urls = [
-  'https://visroslot.vercel.app/login',
-  'https://visroslot.vercel.app/register'
+  'https://visroslot.pages.dev/login',
+  'https://visroslot.pages.dev/register'
 ];
 
 for (const url of urls) {

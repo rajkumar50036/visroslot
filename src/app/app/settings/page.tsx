@@ -715,7 +715,7 @@ export default function SettingsPage() {
                 </label>
                 <div className="flex items-center">
                   <span className="px-3 py-2.5 text-xs font-mono bg-slate-100 dark:bg-navy-950 text-slate-500 border border-r-0 border-slate-200 dark:border-navy-700 rounded-l-xl">
-                    {typeof window !== "undefined" ? window.location.host : "visroslot.web.app"}/book/
+                    {typeof window !== "undefined" ? window.location.host : "visroslot.pages.dev"}/book/
                   </span>
                   <input
                     type="text"

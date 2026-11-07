@@ -59,7 +59,7 @@ export async function callVisroSlotAI({
     headers: {
       "Authorization": `Bearer ${apiKey}`,
       "Content-Type": "application/json",
-      "HTTP-Referer": process.env.NEXT_PUBLIC_APP_URL || "https://visroslot.web.app",
+      "HTTP-Referer": process.env.NEXT_PUBLIC_APP_URL || "https://visroslot.pages.dev",
       "X-Title": "VISROSLOT SaaS Platform",
     },
     body: JSON.stringify({

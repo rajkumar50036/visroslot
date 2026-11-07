@@ -278,7 +278,7 @@ export default function PublicBookingPage({ params }: { params: { slug: string }
   // Generate QR Code upon confirmation
   useEffect(() => {
     if (confirmationData && confirmationData.managementToken) {
-      const manageUrl = `${typeof window !== "undefined" ? window.location.origin : "https://visroslot.web.app"}/book/manage/${confirmationData.managementToken}`;
+      const manageUrl = `${typeof window !== "undefined" ? window.location.origin : "https://visroslot.pages.dev"}/book/manage/${confirmationData.managementToken}`;
       QRCode.toDataURL(manageUrl, { width: 220, margin: 2 }, (err, url) => {
         if (!err && url) {
           setQrDataUrl(url);

@@ -170,7 +170,7 @@ export async function POST(req: NextRequest) {
     }
 
     const nowIso = new Date().toISOString();
-    const reqHost = req.headers.get("x-forwarded-host") || req.headers.get("host") || "visroslot.web.app";
+    const reqHost = req.headers.get("x-forwarded-host") || req.headers.get("host") || "visroslot.pages.dev";
     const reqProto = req.headers.get("x-forwarded-proto") || "https";
     const bookingUrl = `${reqProto}://${reqHost}/book/${cleanSlug}`;
 

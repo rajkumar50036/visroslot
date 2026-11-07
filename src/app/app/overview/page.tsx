@@ -370,7 +370,7 @@ export default function OverviewPage() {
     typeof window !== "undefined" && business?.slug
       ? `${window.location.origin}/book/${business.slug}`
       : business?.slug
-      ? `https://visroslot.web.app/book/${business.slug}`
+      ? `https://visroslot.pages.dev/book/${business.slug}`
       : "";
 
   const handleNativeShare = async () => {

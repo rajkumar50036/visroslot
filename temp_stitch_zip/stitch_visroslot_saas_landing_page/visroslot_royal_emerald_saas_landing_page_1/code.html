@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VISROSLOT — Every Slot. Simplified. | Enterprise Appointment Scheduling</title>
+<!-- Material Symbols & Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface": "#0b1f19",
+            "inverse-on-surface": "#dff6ec",
+            "surface-container-low": "#e1f9ef",
+            "on-tertiary": "#ffffff",
+            "error": "#ba1a1a",
+            "outline": "#707974",
+            "tertiary-fixed": "#d2e8d9",
+            "surface-container-lowest": "#ffffff",
+            "surface-bright": "#e7fff5",
+            "on-error": "#ffffff",
+            "on-secondary-container": "#006f67",
+            "inverse-primary": "#95d3ba",
+            "on-secondary-fixed-variant": "#00504a",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#35483d",
+            "inverse-surface": "#20342e",
+            "secondary": "#006a63",
+            "on-surface-variant": "#404944",
+            "primary-fixed": "#b0f0d6",
+            "surface-container-highest": "#d0e8de",
+            "primary-container": "#064e3b",
+            "on-primary-fixed": "#002117",
+            "surface-container-high": "#d6ede4",
+            "background": "#e7fff5",
+            "secondary-fixed": "#9cf2e8",
+            "on-tertiary-fixed-variant": "#384b40",
+            "surface-dim": "#c8dfd6",
+            "primary-fixed-dim": "#95d3ba",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#80bea6",
+            "surface-tint": "#2b6954",
+            "on-tertiary-container": "#a1b6a8",
+            "secondary-fixed-dim": "#80d5cb",
+            "on-background": "#0b1f19",
+            "on-primary-fixed-variant": "#0b513d",
+            "tertiary-fixed-dim": "#b6ccbd",
+            "surface-container": "#dcf3e9",
+            "tertiary": "#1f3228",
+            "outline-variant": "#bfc9c3",
+            "secondary-container": "#99efe5",
+            "surface-variant": "#d0e8de",
+            "on-tertiary-fixed": "#0d1f16",
+            "on-secondary-fixed": "#00201d",
+            "on-secondary": "#ffffff",
+            "on-error-container": "#93000a",
+            "surface": "#e7fff5",
+            "primary": "#003527"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter-sm": "1rem",
+            "margin-sm": "1rem",
+            "space-md": "1rem",
+            "gutter-lg": "2rem",
+            "margin": "2rem",
+            "margin-lg": "3rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem",
+            "space-xl": "2rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Manrope"],
+            "body-sm": ["Inter"],
+            "headline-sm": ["Manrope"],
+            "label-md": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg-mobile": ["Manrope"],
+            "display-lg": ["Manrope"],
+            "body-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-xl": ["Manrope"],
+            "headline-xl-mobile": ["Manrope"],
+            "headline-md": ["Manrope"]
+          },
+          "fontSize": {
+            "headline-lg": ["1.75rem", { lineHeight: "2.25rem", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "body-sm": ["0.8125rem", { lineHeight: "1.25rem", letterSpacing: "0.005em", fontWeight: "400" }],
+            "headline-sm": ["1.125rem", { lineHeight: "1.625rem", letterSpacing: "-0.005em", fontWeight: "600" }],
+            "label-md": ["0.75rem", { lineHeight: "1rem", letterSpacing: "0.02em", fontWeight: "600" }],
+            "body-md": ["0.875rem", { lineHeight: "1.375rem", letterSpacing: "0em", fontWeight: "400" }],
+            "display-lg-mobile": ["2rem", { lineHeight: "2.5rem", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "display-lg": ["3rem", { lineHeight: "3.5rem", letterSpacing: "-0.025em", fontWeight: "700" }],
+            "body-lg": ["1rem", { lineHeight: "1.5rem", letterSpacing: "0em", fontWeight: "400" }],
+            "label-sm": ["0.6875rem", { lineHeight: "0.875rem", letterSpacing: "0.03em", fontWeight: "500" }],
+            "label-lg": ["0.875rem", { lineHeight: "1.25rem", letterSpacing: "0.01em", fontWeight: "600" }],
+            "headline-xl": ["2.25rem", { lineHeight: "2.75rem", letterSpacing: "-0.02em", fontWeight: "600" }],
+            "headline-xl-mobile": ["1.75rem", { lineHeight: "2.25rem", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "headline-md": ["1.375rem", { lineHeight: "1.875rem", letterSpacing: "-0.01em", fontWeight: "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      height: 6px;
+      width: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #f1f5f3;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #bfc9c3;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container font-body-md text-body-md">
+<!-- ================= TOP NAV BAR (Shared Component Execution) ================= -->
+<header class="sticky top-0 w-full z-50 bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline">
+<div class="max-w-7xl mx-auto px-6 md:px-8 h-20 flex items-center justify-between">
+<!-- Logo Lockup -->
+<a class="flex items-center gap-3 group" href="#">
+<img alt="VISROSLOT Emblem" class="w-10 h-10 object-contain rounded-full shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5yFG-1aJgE_2kAOnsze25FZXbhFKDQnK5CKgZW5aRurgDVo3buXVgydsbVKRIGKVKjvGN27cBYhoY2QlXllh0fFgyLMLO4p5ZDV6c219x7kAgzorV9l28pv8l1GLu3VABNG0czd9dniGJd8AAxvt-ByQlvRd9HzzPeYhQo4RYqWZoPedTfmA5qh3D4qi-l8Ak9a_p-t1uVEaAV5dkSmZu63LuxQd7zFdHI8uChcit9SsQVXN8ATyOSA"/>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md font-bold tracking-tight text-primary dark:text-inverse-primary leading-none">VISROSLOT</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase mt-1">Every Slot. Simplified.</span>
+</div>
+</a>
+<!-- Desktop Nav Links -->
+<nav class="hidden lg:flex items-center space-x-8">
+<a class="text-on-surface-variant dark:text-inverse-on-surface font-medium hover:text-primary dark:hover:text-inverse-primary transition-colors text-label-lg font-label-lg" href="#features">Features</a>
+<a class="text-on-surface-variant dark:text-inverse-on-surface font-medium hover:text-primary dark:hover:text-inverse-primary transition-colors text-label-lg font-label-lg" href="#solutions">Solutions</a>
+<a class="text-primary dark:text-inverse-primary font-semibold border-b-2 border-primary dark:border-inverse-primary pb-1 text-label-lg font-label-lg" href="#calendar-matrix">Calendar Matrix</a>
+<a class="text-on-surface-variant dark:text-inverse-on-surface font-medium hover:text-primary dark:hover:text-inverse-primary transition-colors text-label-lg font-label-lg" href="#pricing">Pricing</a>
+<a class="text-on-surface-variant dark:text-inverse-on-surface font-medium hover:text-primary dark:hover:text-inverse-primary transition-colors text-label-lg font-label-lg" href="#faq">FAQ</a>
+</nav>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center space-x-4">
+<a class="hidden xl:flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="tel:+919391354003">
+<span class="material-symbols-outlined text-[18px]">call</span>
+<span>+91 93913 54003</span>
+</a>
+<a class="text-on-surface-variant dark:text-inverse-on-surface font-medium hover:text-primary dark:hover:text-inverse-primary transition-colors font-label-lg text-label-lg px-2" href="#signin">Sign In</a>
+<a class="bg-primary-container text-on-primary hover:bg-secondary transition-all duration-150 rounded-lg px-4 py-2.5 font-label-lg text-label-lg shadow-sm active:scale-95 text-center" href="#pricing">
+          Start 7-Day Free Trial
+        </a>
+</div>
+</div>
+</header>
+<!-- ================= HERO SECTION (50/50 Desktop) ================= -->
+<section class="relative bg-surface-container-lowest border-b border-outline-variant py-16 lg:py-24 overflow-hidden">
+<div class="max-w-7xl mx-auto px-6 md:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+<!-- Left Content -->
+<div class="lg:col-span-6 space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-sm text-label-sm tracking-wide uppercase font-semibold">Enterprise Appointment Architecture</span>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface tracking-tight font-bold">
+            Your Business. Your Time. <span class="text-secondary">Better Bookings.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+            Take control of appointments, staff schedules, and customer relationships with an executive-grade platform engineered for flawless daily operations.
+          </p>
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+<a class="inline-flex justify-center items-center px-6 py-3.5 rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg hover:bg-secondary transition-colors shadow-sm active:scale-95 text-center" href="#pricing">
+              Start 7-Day Free Trial
+            </a>
+<a class="inline-flex justify-center items-center px-6 py-3.5 rounded-lg bg-surface-container-lowest text-primary-container border border-outline-variant font-label-lg text-label-lg hover:bg-surface-container hover:border-secondary transition-colors text-center" href="#calendar-matrix">
+              Explore Live Console
+            </a>
+</div>
+<!-- Trust Signals -->
+<div class="pt-6 border-t border-outline-variant/60 grid grid-cols-3 gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Frictionless Onboarding</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">shield_lock</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Automated Conflict Lock</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">database</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">100% Data Sovereignty</span>
+</div>
+</div>
+</div>
+<!-- Right Web Dashboard Application Preview -->
+<div class="lg:col-span-6">
+<div class="relative rounded-xl border border-outline-variant bg-surface-container-lowest shadow-xl overflow-hidden">
+<!-- Simulated Browser Chrome -->
+<div class="bg-surface-container px-4 py-2.5 border-b border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-outline-variant"></div>
+<div class="w-3 h-3 rounded-full bg-outline-variant"></div>
+<div class="w-3 h-3 rounded-full bg-outline-variant"></div>
+<span class="ml-3 font-body-sm text-body-sm text-on-surface-variant font-mono text-[11px] bg-surface-container-lowest px-3 py-0.5 rounded border border-outline-variant">visroslot.com/app/overview</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm font-semibold text-secondary">LIVE SYNC: ACTIVE</span>
+</div>
+</div>
+<!-- Dashboard Internal Mockup -->
+<div class="p-6 space-y-5 bg-surface-container-lowest">
+<!-- KPI Metric Cards -->
+<div class="grid grid-cols-3 gap-3">
+<div class="p-3.5 rounded-lg border border-outline-variant bg-surface-container-lowest">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Today's Bookings</div>
+<div class="font-headline-lg text-headline-lg font-bold text-primary-container mt-1">14</div>
+<div class="font-label-sm text-label-sm text-secondary flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +18% vs avg
+                  </div>
+</div>
+<div class="p-3.5 rounded-lg border border-outline-variant bg-surface-container-lowest">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Active Staff</div>
+<div class="font-headline-lg text-headline-lg font-bold text-primary-container mt-1">3 <span class="text-sm font-normal text-on-surface-variant">Spec.</span></div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Rosters Synced</div>
+</div>
+<div class="p-3.5 rounded-lg border border-outline-variant bg-surface-container-lowest">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Audio Alerts</div>
+<div class="font-headline-lg text-headline-lg font-bold text-secondary mt-1">ON</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Active Chime</div>
+</div>
+</div>
+<!-- Realtime Stream Timeline -->
+<div class="space-y-2.5">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">
+<span>Current Schedule Stream</span>
+<span>Timeline Status</span>
+</div>
+<!-- Appointment Item 1 -->
+<div class="p-3 rounded-lg border border-outline-variant flex items-center justify-between hover:bg-surface-container/50 transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center font-bold text-primary-container text-xs">
+                      10:00
+                    </div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold text-sm">Priya Sharma</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant text-xs">Hair Spa &amp; Revitalize • Kavita S.</div>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-surface-container border border-outline-variant text-primary-container">Confirmed ₹1,450</span>
+</div>
+</div>
+<!-- Appointment Item 2 -->
+<div class="p-3 rounded-lg border border-outline-variant bg-surface-container/20 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-bold text-xs">
+                      11:15
+                    </div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold text-sm">Rahul Mehta</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant text-xs">Executive Consultation • Rahul M.</div>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-secondary/10 border border-secondary/20 text-secondary">In Progress ₹950</span>
+</div>
+</div>
+<!-- Appointment Item 3 -->
+<div class="p-3 rounded-lg border border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center font-bold text-primary-container text-xs">
+                      12:30
+                    </div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold text-sm">Dr. Ananya Rao</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant text-xs">Clinical Assessment • Specialist Suite 2</div>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-surface-container border border-outline-variant text-on-surface-variant">Scheduled ₹2,200</span>
+</div>
+</div>
+</div>
+<!-- Sub-bar alert banner -->
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-between text-xs">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span class="font-medium">Instant client SMS &amp; WhatsApp dispatches enabled</span>
+</div>
+<span class="font-semibold text-primary-container">ZERO OVERLAPS</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= MANDATE BRAND STATEMENT ================= -->
+<section class="bg-surface-container border-b border-outline-variant py-10">
+<div class="max-w-7xl mx-auto px-6 md:px-8 text-center space-y-6">
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface max-w-3xl mx-auto">
+        Everything your appointment-based enterprise requires, synchronized in real time.
+      </h2>
+<div class="flex flex-wrap items-center justify-center gap-2 md:gap-3 pt-2">
+<span class="px-4 py-1.5 rounded-full bg-surface-container-lowest border border-outline-variant font-label-md text-label-md text-on-surface font-medium hover:border-secondary transition-colors cursor-default">
+          Salons &amp; Grooming
+        </span>
+<span class="px-4 py-1.5 rounded-full bg-surface-container-lowest border border-outline-variant font-label-md text-label-md text-on-surface font-medium hover:border-secondary transition-colors cursor-default">
+          Dental &amp; Clinical
+        </span>
+<span class="px-4 py-1.5 rounded-full bg-surface-container-lowest border border-outline-variant font-label-md text-label-md text-on-surface font-medium hover:border-secondary transition-colors cursor-default">
+          Spas &amp; Wellness
+        </span>
+<span class="px-4 py-1.5 rounded-full bg-surface-container-lowest border border-outline-variant font-label-md text-label-md text-on-surface font-medium hover:border-secondary transition-colors cursor-default">
+          Private Athletic Studios
+        </span>
+<span class="px-4 py-1.5 rounded-full bg-surface-container-lowest border border-outline-variant font-label-md text-label-md text-on-surface font-medium hover:border-secondary transition-colors cursor-default">
+          Advisory &amp; Consultancies
+        </span>
+</div>
+</div>
+</section>
+<!-- ================= BROWSER SHOWCASE - SCHEDULE MATRIX ================= -->
+<section class="py-20 lg:py-28 bg-surface-container-lowest border-b border-outline-variant" id="calendar-matrix">
+<div class="max-w-7xl mx-auto px-6 md:px-8 space-y-12">
+<!-- Section Header -->
+<div class="text-center max-w-3xl mx-auto space-y-4">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container border border-outline-variant font-label-sm text-label-sm text-secondary font-semibold uppercase">
+          Precision Schedule Engine
+        </div>
+<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl font-bold text-on-surface">
+          Total operational control. Zero administrative friction.
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Manage parallel service bays, staggered breaks, and buffer intervals simultaneously from one dense, readable timeline.
+        </p>
+</div>
+<!-- Massive Application Frame: Calendar Matrix -->
+<div class="rounded-xl border border-outline-variant bg-surface-container-lowest shadow-xl overflow-hidden">
+<!-- Matrix Top Action Bar -->
+<div class="p-4 md:p-6 bg-surface-container border-b border-outline-variant flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">calendar_today</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Wednesday, 25 October</span>
+</div>
+<span class="px-2.5 py-1 rounded bg-surface-container-lowest border border-outline-variant font-label-sm text-label-sm text-secondary font-semibold">
+              Live Today
+            </span>
+</div>
+<div class="flex items-center gap-3">
+<div class="hidden sm:flex items-center gap-2 text-xs text-on-surface-variant border-r border-outline-variant pr-4">
+<span class="material-symbols-outlined text-[16px] text-secondary">lock_clock</span>
+<span>15m Buffer Lock</span>
+</div>
+<div class="hidden sm:flex items-center gap-2 text-xs text-on-surface-variant border-r border-outline-variant pr-4">
+<span class="material-symbols-outlined text-[16px] text-secondary">notifications_active</span>
+<span>Chimes On</span>
+</div>
+<button class="px-3.5 py-1.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md hover:bg-secondary transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>+ New Slot</span>
+</button>
+</div>
+</div>
+<!-- Schedule Matrix Grid -->
+<div class="overflow-x-auto custom-scroll">
+<div class="min-w-[760px] p-6">
+<div class="grid grid-cols-4 gap-4 pb-4 border-b border-outline-variant font-label-md text-label-md text-on-surface-variant">
+<div class="font-semibold text-on-surface">Time Window</div>
+<div class="flex items-center gap-2 font-semibold text-on-surface">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span>Kavita Sharma (Senior Stylist)</span>
+</div>
+<div class="flex items-center gap-2 font-semibold text-on-surface">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+<span>Rahul Mehta (Director Barber)</span>
+</div>
+<div class="flex items-center gap-2 font-semibold text-on-surface">
+<span class="w-2.5 h-2.5 rounded-full bg-outline"></span>
+<span>Dr. Ananya Rao (Specialist Consultant)</span>
+</div>
+</div>
+<!-- Row 1: 09:00 AM -->
+<div class="grid grid-cols-4 gap-4 py-3 border-b border-outline-variant/60 items-center">
+<div class="font-mono text-xs font-semibold text-on-surface-variant">09:00 AM – 10:00 AM</div>
+<!-- Col 1 -->
+<div class="p-2.5 rounded-lg bg-surface-container border border-outline-variant text-xs">
+<div class="font-semibold text-on-surface">Client: Vikram Sethi</div>
+<div class="text-on-surface-variant text-[11px]">Precision Fade &amp; Beard Sculpt</div>
+<div class="text-secondary font-semibold text-[10px] mt-1">Confirmed • ₹950</div>
+</div>
+<!-- Col 2 -->
+<div class="p-2.5 rounded-lg bg-primary-container text-on-primary text-xs">
+<div class="font-semibold">Client: Arvind K.</div>
+<div class="text-white/80 text-[11px]">Executive Styling &amp; Hair Wash</div>
+<div class="text-white/90 font-semibold text-[10px] mt-1">Confirmed • ₹1,200</div>
+</div>
+<!-- Col 3 -->
+<div class="p-2.5 rounded-lg border border-dashed border-outline-variant text-center text-xs text-on-surface-variant hover:border-secondary transition-colors cursor-pointer">
+                + Available for Booking
+              </div>
+</div>
+<!-- Row 2: 10:00 AM -->
+<div class="grid grid-cols-4 gap-4 py-3 border-b border-outline-variant/60 items-center">
+<div class="font-mono text-xs font-semibold text-on-surface-variant">10:00 AM – 11:00 AM</div>
+<!-- Col 1 -->
+<div class="p-2.5 rounded-lg bg-primary-container text-on-primary text-xs">
+<div class="font-semibold">Client: Priya Sharma</div>
+<div class="text-white/80 text-[11px]">Organic Hair Spa &amp; Keratin</div>
+<div class="text-white/90 font-semibold text-[10px] mt-1">In Progress • ₹1,450</div>
+</div>
+<!-- Col 2 -->
+<div class="p-2.5 rounded-lg bg-surface-container border border-outline-variant text-xs flex items-center justify-between">
+<div>
+<div class="font-semibold text-on-surface">Mandatory 15m Buffer &amp; Rest</div>
+<div class="text-on-surface-variant text-[11px]">Auto-locked by System</div>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline">lock</span>
+</div>
+<!-- Col 3 -->
+<div class="p-2.5 rounded-lg bg-surface-container border border-outline-variant text-xs">
+<div class="font-semibold text-on-surface">Patient: S. Narayanan</div>
+<div class="text-on-surface-variant text-[11px]">Initial Clinical Assessment</div>
+<div class="text-secondary font-semibold text-[10px] mt-1">Confirmed • ₹2,200</div>
+</div>
+</div>
+<!-- Row 3: 11:00 AM -->
+<div class="grid grid-cols-4 gap-4 py-3 border-b border-outline-variant/60 items-center">
+<div class="font-mono text-xs font-semibold text-on-surface-variant">11:00 AM – 12:00 PM</div>
+<!-- Col 1 -->
+<div class="p-2.5 rounded-lg border border-dashed border-outline-variant text-center text-xs text-on-surface-variant hover:border-secondary transition-colors cursor-pointer">
+                + Available for Booking
+              </div>
+<!-- Col 2 -->
+<div class="p-2.5 rounded-lg bg-surface-container border border-outline-variant text-xs">
+<div class="font-semibold text-on-surface">Client: Tushar Singhania</div>
+<div class="text-on-surface-variant text-[11px]">Royal Shave &amp; Head Massage</div>
+<div class="text-secondary font-semibold text-[10px] mt-1">Confirmed • ₹850</div>
+</div>
+<!-- Col 3 -->
+<div class="p-2.5 rounded-lg bg-primary-container text-on-primary text-xs">
+<div class="font-semibold">Patient: Divya Sen</div>
+<div class="text-white/80 text-[11px]">Routine Follow-up &amp; Therapy</div>
+<div class="text-white/90 font-semibold text-[10px] mt-1">Scheduled • ₹1,800</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Matrix Footer Info Bar -->
+<div class="bg-surface-container px-6 py-3 border-t border-outline-variant flex flex-wrap items-center justify-between text-xs text-on-surface-variant">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-primary-container"></span> Booked / Active</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-secondary"></span> Confirmed</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full border border-outline-variant bg-surface-container-lowest"></span> Available</span>
+</div>
+<span class="font-mono text-[11px]">Latency: 28ms to visroslot node</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= ASYMMETRIC 3-PART FEATURE SUITE ================= -->
+<section class="py-20 lg:py-28 bg-surface-container border-b border-outline-variant" id="features">
+<div class="max-w-7xl mx-auto px-6 md:px-8 space-y-20">
+<!-- Section Title -->
+<div class="max-w-2xl space-y-3">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest border border-outline-variant font-label-sm text-label-sm text-secondary font-semibold uppercase">
+          Engineered Architecture
+        </div>
+<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl font-bold text-on-surface">
+          Core Platform Capabilities
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Practical tools designed to save hours of manual coordination every single week.
+        </p>
+</div>
+<!-- Feature Part A: Frictionless Online Booking -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-6 space-y-5">
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest border border-outline-variant flex items-center justify-center text-primary-container shadow-sm">
+<span class="material-symbols-outlined text-[26px]">public</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface">
+            Make online booking effortless for repeat &amp; new clients.
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Provide a dedicated 24/7 self-service booking link that operates flawlessly across any smartphone browser with zero forced app installation or passwords.
+          </p>
+<ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+<span>Eliminate phone-tag during busy service hours</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+<span>Automated WhatsApp &amp; SMS calendar confirmation delivery</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+<span>Custom brand QR codes ready for front-desk counters and window decals</span>
+</li>
+</ul>
+</div>
+<div class="lg:col-span-6 flex justify-center">
+<!-- Client Mobile Booking Mockup Frame -->
+<div class="w-full max-w-sm rounded-2xl border border-outline-variant bg-surface-container-lowest p-5 shadow-lg space-y-4">
+<div class="flex items-center justify-between border-b border-outline-variant pb-3">
+<div>
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface text-sm">Aura Salon &amp; Studio</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Online Appointment Portal</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-[11px] font-semibold text-secondary">Verified</span>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium">Select Specialist</label>
+<div class="p-2.5 rounded-lg border border-secondary bg-surface-container/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-primary-container text-white flex items-center justify-center text-xs font-bold">K</div>
+<span class="text-xs font-semibold text-on-surface">Kavita Sharma (Master Stylist)</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium">Select Available Slot</label>
+<div class="grid grid-cols-3 gap-2">
+<div class="p-2 rounded border border-outline-variant text-center text-xs hover:border-secondary cursor-pointer">10:00 AM</div>
+<div class="p-2 rounded bg-primary-container text-on-primary text-center text-xs font-semibold">11:15 AM</div>
+<div class="p-2 rounded bg-surface-container text-outline text-center text-xs cursor-not-allowed">01:00 PM</div>
+</div>
+</div>
+<div class="pt-2 border-t border-outline-variant flex items-center justify-between text-xs">
+<span class="text-on-surface-variant">Service Total</span>
+<span class="font-bold text-primary-container text-sm">₹1,450</span>
+</div>
+<button class="w-full py-2.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md hover:bg-secondary transition-colors font-semibold">
+              Confirm Instant Booking
+            </button>
+</div>
+</div>
+</div>
+<!-- Feature Part B: Intelligent Shift Rosters & Conflict Prevention Engine -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-6 order-2 lg:order-1 flex justify-center">
+<div class="w-full max-w-md rounded-xl border border-outline-variant bg-surface-container-lowest p-6 shadow-lg space-y-5">
+<div class="flex items-center justify-between">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface">Conflict Prevention Engine</div>
+<span class="material-symbols-outlined text-secondary">security</span>
+</div>
+<div class="p-4 rounded-lg bg-surface-container border border-outline-variant space-y-2">
+<div class="flex items-center justify-between text-xs font-semibold text-on-surface">
+<span>Inter-Appointment Buffer</span>
+<span class="text-secondary">15 Minutes Active</span>
+</div>
+<div class="w-full bg-outline-variant/60 h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-2/3"></div>
+</div>
+<div class="text-[11px] text-on-surface-variant flex justify-between">
+<span>5m</span>
+<span>15m Standard</span>
+<span>30m Intensive</span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-start gap-3 p-3 rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">verified_user</span>
+<div>
+<div class="text-xs font-semibold text-on-surface">Zero Double-Booking Guarantee</div>
+<div class="text-[11px] text-on-surface-variant">Autonomous lock prevents parallel slot allocations during active sessions.</div>
+</div>
+</div>
+<div class="flex items-start gap-3 p-3 rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">timelapse</span>
+<div>
+<div class="text-xs font-semibold text-on-surface">Staff Fatigue Mitigation</div>
+<div class="text-[11px] text-on-surface-variant">Enforces mandatory lunch breakouts and post-service tool sterilizations.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-6 order-1 lg:order-2 space-y-5">
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest border border-outline-variant flex items-center justify-center text-primary-container shadow-sm">
+<span class="material-symbols-outlined text-[26px]">manage_history</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface">
+            Intelligent shift rosters &amp; autonomous conflict locks.
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Set unique individual shifts, personal break times, and specialist service allowances per practitioner without spreadsheets.
+          </p>
+<ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+<span>Fair workload distribution across specialized teams</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+<span>Individual staff logins with restricted role permissions</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+<span>Automated schedule sync directly to Apple Calendar &amp; Google</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Feature Part C: Client CRM Directory & Retention Analytics -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-6 space-y-5">
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest border border-outline-variant flex items-center justify-center text-primary-container shadow-sm">
+<span class="material-symbols-outlined text-[26px]">contacts</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface">
+            Keep customer profiles, preferences, and visit records organized.
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Maintain high-touch private client records complete with historical treatment timelines, private clinical or styling notes, and lifetime valuation metrics.
+          </p>
+<ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+<span>Tailored service delivery for high-value repeat clientele</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+<span>Private formulation recipes, allergies, and preference tags</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+<span>Zero client data sharing—your customer roster belongs 100% to you</span>
+</li>
+</ul>
+</div>
+<div class="lg:col-span-6 flex justify-center">
+<div class="w-full max-w-md rounded-xl border border-outline-variant bg-surface-container-lowest p-6 shadow-lg space-y-4">
+<div class="flex items-center justify-between border-b border-outline-variant pb-4">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-full bg-surface-container text-primary-container font-bold flex items-center justify-center text-sm">
+                  PS
+                </div>
+<div>
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface text-sm">Priya Sharma</div>
+<div class="text-[11px] text-on-surface-variant">VIP Tier • Client ID: AVS-8902</div>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded bg-surface-container font-label-sm text-label-sm text-primary-container font-semibold">
+                LTV: ₹18,400
+              </span>
+</div>
+<div class="grid grid-cols-2 gap-3 text-xs">
+<div class="p-3 rounded-lg bg-surface-container/40 border border-outline-variant">
+<div class="text-on-surface-variant">Completed Visits</div>
+<div class="font-bold text-on-surface text-base mt-0.5">14 Visits</div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container/40 border border-outline-variant">
+<div class="text-on-surface-variant">Preferred Specialist</div>
+<div class="font-bold text-on-surface text-base mt-0.5">Kavita Sharma</div>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant text-xs space-y-1">
+<div class="font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-secondary">notes</span>
+<span>Private Formulation Notes</span>
+</div>
+<p class="text-on-surface-variant text-[11px] italic">
+                "Prefers organic sulfate-free mask. Scalp sensitivity on right crown. Prefers silent relaxation session without background talk."
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Supporting 3-column micro-features row -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+<div class="p-6 rounded-lg bg-surface-container-lowest border border-outline-variant space-y-2">
+<div class="flex items-center gap-2 text-primary-container font-headline-sm text-headline-sm font-bold text-sm">
+<span class="material-symbols-outlined text-secondary">volume_up</span>
+<span>Device Audio Chimes</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Instant audible chime notifies your reception counter when appointments are booked or modified in real time.
+          </p>
+</div>
+<div class="p-6 rounded-lg bg-surface-container-lowest border border-outline-variant space-y-2">
+<div class="flex items-center gap-2 text-primary-container font-headline-sm text-headline-sm font-bold text-sm">
+<span class="material-symbols-outlined text-secondary">tune</span>
+<span>Buffer Automation (5-30m)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Customizable turnaround buffers give staff breathing room between complex procedures and clients.
+          </p>
+</div>
+<div class="p-6 rounded-lg bg-surface-container-lowest border border-outline-variant space-y-2">
+<div class="flex items-center gap-2 text-primary-container font-headline-sm text-headline-sm font-bold text-sm">
+<span class="material-symbols-outlined text-secondary">qr_code_2</span>
+<span>Storefront QR Generator</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Export print-ready vectors and counter stand designs in high resolution for walk-in self-booking.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= CURATED INDUSTRY SHOWCASE (Horizontal Image-Led Cards) ================= -->
+<section class="py-20 lg:py-28 bg-surface-container-lowest border-b border-outline-variant" id="solutions">
+<div class="max-w-7xl mx-auto px-6 md:px-8 space-y-12">
+<div class="text-center max-w-3xl mx-auto space-y-3">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container border border-outline-variant font-label-sm text-label-sm text-secondary font-semibold uppercase">
+          Sector Adaptations
+        </div>
+<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl font-bold text-on-surface">
+          Tailored for Appointment-Driven Practices
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          VISROSLOT adapts with customized slot intervals, treatment buffers, and staff rosters tailored to your domain.
+        </p>
+</div>
+<!-- Industry Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1: Salons & Grooming -->
+<div class="rounded-xl border border-outline-variant overflow-hidden bg-surface-container-lowest flex flex-col group hover:border-secondary transition-colors">
+<div class="h-48 overflow-hidden relative">
+<img alt="Luxury Salon Interior" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1UoP9ppPTo-pqeRQgTji1AC6HvA2hfjEJSla6zLv2GMrKCtAo4OiRAEEts5V8xiDrihq3MEKHjNWER6aMJOG1tbA8MTd9FAWUU9O_GtTuAMpt9KuHLPM2ms4uV1lF8k-V2Poz-45BCpanTNqHMTGCrTMhG_UoeB5OpSyL4kdFAxBQVtIiK4UcE-1kj9yZMIBgnXiPScL9mordenkSuXTLF7R2wNq2ECi4_Bmjs3ceYQbg"/>
+<div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-primary-container/90 text-on-primary font-label-sm text-label-sm font-semibold">
+              Salons &amp; Barbershops
+            </div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Salons and Barbershops</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+                Manage styling bay queues, chemical wash buffers, client hair formulas, and individual stylist commissions seamlessly.
+              </p>
+</div>
+<div class="pt-3 border-t border-outline-variant flex items-center justify-between text-xs text-secondary font-semibold">
+<span>View Salon Architecture</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Clinics & Dental -->
+<div class="rounded-xl border border-outline-variant overflow-hidden bg-surface-container-lowest flex flex-col group hover:border-secondary transition-colors">
+<div class="h-48 overflow-hidden relative">
+<img alt="Modern Dental Clinic" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1UgwKnRHORyxs9TGzuxPmujs8wEJmLg96BK8Mg-onGCsH5tr-uKahFQhJX_aIc6y3xVwsDJ8YXeBYiVqLMyLF1JxIhDaVkDxBGl853tDsdkvq7W64oMZRvcWHfEDoisHXkt-cuZJbwhIjgt0cOnoo09ZZoxW9FpJT4l7cZkj6dA01fv4GeXw_eozjURQfj0kdyOBy2bVrZXkVEa4vVyYDMZMyAOAkPxSS3iQSGvAJSzGg"/>
+<div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-primary-container/90 text-on-primary font-label-sm text-label-sm font-semibold">
+              Dental &amp; Clinical
+            </div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Clinics &amp; Dental Practices</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+                Coordinate operatory rooms, doctor consulting windows, hygiene follow-ups, and sterilized chair turnaround intervals.
+              </p>
+</div>
+<div class="pt-3 border-t border-outline-variant flex items-center justify-between text-xs text-secondary font-semibold">
+<span>View Clinic Architecture</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Spas & Wellness -->
+<div class="rounded-xl border border-outline-variant overflow-hidden bg-surface-container-lowest flex flex-col group hover:border-secondary transition-colors">
+<div class="h-48 overflow-hidden relative">
+<img alt="Luxury Spa Suite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1VTiBH5x0i5EJkOEerplM1Q2eDYzjD5rXeHPhq7TjikoLPrgJGI0Te94_gbkzxhULY8nxekTS8nEDMOOOIrAhO_RcYCDLjeawKwxYMMeMijs6iCcBIB2wM8kpRPcbVjWc2xI3uQGV9lLsNYfUA0tQdC-lrk9HGKMDXBGwMPSwM6jSP8HgAawImCOzeWDRdLJbzCNGFBlq_Xxfrb9YkjbXqwVqw-g8GMMMWyCO20bY399g"/>
+<div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-primary-container/90 text-on-primary font-label-sm text-label-sm font-semibold">
+              Spas &amp; Wellness
+            </div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Spas &amp; Wellness Centres</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+                Coordinate therapy suites, aroma treatment intervals, massage room cleanings, and curated private guest preferences.
+              </p>
+</div>
+<div class="pt-3 border-t border-outline-variant flex items-center justify-between text-xs text-secondary font-semibold">
+<span>View Spa Architecture</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Card 4: Fitness Studios -->
+<div class="rounded-xl border border-outline-variant overflow-hidden bg-surface-container-lowest flex flex-col group hover:border-secondary transition-colors">
+<div class="h-48 overflow-hidden relative">
+<img alt="Pilates Studio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1Wzwhv6qFQBw-ozCcr9UDnl6zv2f_c6isHy6ImWN2MCrxYe_P7-K2a3g7apZAbcvt1pfz9xuMobKA0BZgfd8NgAQJJfGJVECRhd3cISFZKraqV3cahqa6P9qnWgZfzQlI9gwIbul6-I4qdD-mPtqjC6ncjK193V-9xIJLUBaKxsfVcSyHuJc4O3xMcMuUDADZQ-uvdReMBJaq6Z3LBmYkPEFX2BG0ffnbxRIkE0oS8c"/>
+<div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-primary-container/90 text-on-primary font-label-sm text-label-sm font-semibold">
+              Athletic Studios
+            </div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Fitness Studios &amp; Trainers</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+                Coordinate private reformer sessions, personal training time slots, equipment sanitization intervals, and recurring subscriptions.
+              </p>
+</div>
+<div class="pt-3 border-t border-outline-variant flex items-center justify-between text-xs text-secondary font-semibold">
+<span>View Studio Architecture</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Card 5: Consultants & Advisory -->
+<div class="rounded-xl border border-outline-variant overflow-hidden bg-surface-container-lowest flex flex-col group hover:border-secondary transition-colors md:col-span-2 lg:col-span-2">
+<div class="h-48 overflow-hidden relative">
+<img alt="Executive Boardroom Consultation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1V9LMNHNQOnBdC2Llrk33fdfdKQj-quNGbB8WzNJ-AfCGtolBwh_1_YDl8nU36Ghi4ibEWWre6-Yo4PrTCkEW9DkrY05TKXhyvkcgbj9C4lF50bM4_y0skSxhoUylMm8Xrx-rQXSVi-iouf1WGsXVC2KtXmQ1h_N34ljU9LRtow5mO1KYNLl2pN4p65kuhCpQd_lhqRi4iLuldGC3-Sm2nNkPhSvqLGkoTW76BNVOgv-w"/>
+<div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-primary-container/90 text-on-primary font-label-sm text-label-sm font-semibold">
+              Advisory &amp; Legal
+            </div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Consultants &amp; Advisory Suites</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+                Enable high-net-worth clients to self-book confidential advisory, legal consultations, and portfolio reviews with calendar synchronization.
+              </p>
+</div>
+<div class="pt-3 border-t border-outline-variant flex items-center justify-between text-xs text-secondary font-semibold">
+<span>View Executive Architecture</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= THREE-STEP ONBOARDING PROCESS ================= -->
+<section class="py-20 bg-surface-container border-b border-outline-variant">
+<div class="max-w-7xl mx-auto px-6 md:px-8 space-y-12">
+<div class="text-center max-w-2xl mx-auto space-y-3">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest border border-outline-variant font-label-sm text-label-sm text-secondary font-semibold uppercase">
+          Instant Deployment
+        </div>
+<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl font-bold text-on-surface">
+          Get started in three simple steps
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Set up your online appointment booking system in minutes with zero technical overhead.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+<!-- Step 1 -->
+<div class="p-8 rounded-xl bg-surface-container-lowest border border-outline-variant space-y-4 shadow-sm relative">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary font-headline-sm text-headline-sm font-bold flex items-center justify-center">
+            01
+          </div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Establish Business Profile</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Input business hours, salon or clinic address, and contact details to generate your verified tenant instance.
+          </p>
+</div>
+<!-- Step 2 -->
+<div class="p-8 rounded-xl bg-surface-container-lowest border border-outline-variant space-y-4 shadow-sm relative">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary font-headline-sm text-headline-sm font-bold flex items-center justify-center">
+            02
+          </div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Configure Services &amp; Staff</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Define your service menu, pricing tiers, buffer minutes, and assign specialists to specific roster categories.
+          </p>
+</div>
+<!-- Step 3 -->
+<div class="p-8 rounded-xl bg-surface-container-lowest border border-outline-variant space-y-4 shadow-sm relative">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary font-headline-sm text-headline-sm font-bold flex items-center justify-center">
+            03
+          </div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Distribute Booking URL &amp; QR</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Embed your public link into your Instagram Bio, Google Business Profile, and display the counter QR code for walk-ins.
+          </p>
+</div>
+</div>
+<div class="text-center pt-4">
+<a class="inline-flex items-center px-8 py-3.5 rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg hover:bg-secondary transition-colors shadow-sm active:scale-95" href="#pricing">
+          Initialize 7-Day Free Trial
+        </a>
+</div>
+</div>
+</section>
+<!-- ================= PREDICTABLE DUAL-TIER PRICING ================= -->
+<section class="py-20 lg:py-28 bg-surface-container-lowest border-b border-outline-variant" id="pricing">
+<div class="max-w-7xl mx-auto px-6 md:px-8 space-y-16">
+<!-- Section Header -->
+<div class="text-center max-w-2xl mx-auto space-y-3">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container border border-outline-variant font-label-sm text-label-sm text-secondary font-semibold uppercase">
+          Fixed Institutional Pricing
+        </div>
+<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl font-bold text-on-surface">
+          Predictable Investment for Growing Service Practices
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Both enterprise packages include our comprehensive 7-day risk-free evaluation. No hidden commissions.
+        </p>
+</div>
+<!-- Pricing Dual Cards -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
+<!-- Tier 1: Professional -->
+<div class="p-8 rounded-xl border border-outline-variant bg-surface-container-lowest flex flex-col justify-between space-y-8 shadow-sm">
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface">Professional</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Suitable for growing businesses and solo professionals</p>
+</div>
+<span class="px-3 py-1 rounded bg-surface-container font-label-sm text-label-sm font-semibold text-on-surface">STANDARD</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl font-bold text-primary-container">₹499</span>
+<span class="font-body-md text-body-md text-on-surface-variant">/ month</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant text-xs text-on-surface font-medium">
+              ✓ Includes 7-Day Free Trial • Cancel Anytime
+            </div>
+<div class="space-y-3 pt-2">
+<div class="flex items-center justify-between py-2 border-b border-outline-variant/60 font-body-sm text-body-sm">
+<span class="text-on-surface-variant">Staff Capacity</span>
+<span class="font-semibold text-on-surface">Up to 3 Staff Members</span>
+</div>
+<div class="flex items-center justify-between py-2 border-b border-outline-variant/60 font-body-sm text-body-sm">
+<span class="text-on-surface-variant">Monthly Bookings</span>
+<span class="font-semibold text-on-surface">300 Bookings / mo</span>
+</div>
+<div class="flex items-center gap-2.5 text-body-sm text-body-sm text-on-surface-variant pt-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+<span>Dedicated public booking page &amp; QR code</span>
+</div>
+<div class="flex items-center gap-2.5 text-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+<span>Automated conflict lock &amp; calendar matrix</span>
+</div>
+<div class="flex items-center gap-2.5 text-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+<span>Customer management directory</span>
+</div>
+<div class="flex items-center gap-2.5 text-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+<span>Owner AI with Professional usage tier</span>
+</div>
+</div>
+</div>
+<a class="w-full py-3.5 rounded-lg border border-outline-variant bg-surface-container-lowest text-primary-container font-label-lg text-label-lg hover:bg-surface-container hover:border-secondary transition-colors text-center font-semibold" href="#register">
+            Get Started with Professional
+          </a>
+</div>
+<!-- Tier 2: Business (Featured) -->
+<div class="p-8 rounded-xl border-2 border-primary-container bg-surface-container-lowest flex flex-col justify-between space-y-8 shadow-xl relative">
+<div class="absolute -top-3.5 right-8 px-4 py-1 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold tracking-wide">
+            MOST POPULAR • UNLIMITED
+          </div>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface">Business</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Suitable for established businesses and growing teams</p>
+</div>
+<span class="px-3 py-1 rounded bg-secondary/15 font-label-sm text-label-sm font-bold text-secondary">UNLIMITED</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl font-bold text-primary-container">₹999</span>
+<span class="font-body-md text-body-md text-on-surface-variant">/ month</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant text-xs text-on-surface font-medium">
+              ✓ Includes 7-Day Free Trial • Unlimited Appointments
+            </div>
+<div class="space-y-3 pt-2">
+<div class="flex items-center justify-between py-2 border-b border-outline-variant/60 font-body-sm text-body-sm">
+<span class="text-on-surface-variant">Staff Capacity</span>
+<span class="font-semibold text-on-surface">Up to 10 Staff Members</span>
+</div>
+<div class="flex items-center justify-between py-2 border-b border-outline-variant/60 font-body-sm text-body-sm">
+<span class="text-on-surface-variant">Appointment Limits</span>
+<span class="font-bold text-secondary">UNLIMITED (No Cap)</span>
+</div>
+<div class="flex items-center gap-2.5 text-body-sm text-body-sm text-on-surface-variant pt-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+<span>Everything included in Professional</span>
+</div>
+<div class="flex items-center gap-2.5 text-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+<span>Advanced CRM with private formulation notes</span>
+</div>
+<div class="flex items-center gap-2.5 text-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+<span>Operational retention analytics &amp; reporting</span>
+</div>
+<div class="flex items-center gap-2.5 text-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+<span>Dedicated priority phone helpline support</span>
+</div>
+</div>
+</div>
+<a class="w-full py-3.5 rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg hover:bg-secondary transition-colors text-center font-semibold shadow-md active:scale-95" href="#register">
+            Get Started with Business
+          </a>
+</div>
+</div>
+<!-- Trust Strip -->
+<div class="max-w-4xl mx-auto p-4 rounded-lg bg-surface-container border border-outline-variant text-center font-label-sm text-label-sm text-on-surface-variant flex flex-wrap items-center justify-around gap-4">
+<span>Bank-Grade 256-Bit Cryptographic Security</span>
+<span>•</span>
+<span>No Hidden Percentage Commissions</span>
+<span>•</span>
+<span>100% Private Data Ownership</span>
+<span>•</span>
+<span>1-Click Cancel Anytime</span>
+</div>
+</div>
+</section>
+<!-- ================= FREQUENTLY ASKED QUESTIONS ================= -->
+<section class="py-20 bg-surface-container border-b border-outline-variant" id="faq">
+<div class="max-w-4xl mx-auto px-6 md:px-8 space-y-12">
+<div class="text-center space-y-3">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest border border-outline-variant font-label-sm text-label-sm text-secondary font-semibold uppercase">
+          Platform Inquiries
+        </div>
+<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl font-bold text-on-surface">
+          Frequently Asked Questions
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Everything you need to know about VISROSLOT and the 7-day risk-free trial.
+        </p>
+</div>
+<!-- FAQ Items -->
+<div class="space-y-4">
+<details class="group p-6 rounded-xl bg-surface-container-lowest border border-outline-variant open:border-secondary transition-colors">
+<summary class="flex items-center justify-between cursor-pointer font-headline-sm text-headline-sm font-semibold text-on-surface list-none">
+<span>What is VISROSLOT?</span>
+<span class="material-symbols-outlined text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4 pt-4 border-t border-outline-variant">
+            VISROSLOT is a dedicated appointment booking and customer scheduling platform built for service businesses like salons, dental clinics, spas, fitness studios, and independent consultants. It replaces phone-call coordination with an automated booking link, staff scheduling calendar, and customer directory.
+          </p>
+</details>
+<details class="group p-6 rounded-xl bg-surface-container-lowest border border-outline-variant open:border-secondary transition-colors">
+<summary class="flex items-center justify-between cursor-pointer font-headline-sm text-headline-sm font-semibold text-on-surface list-none">
+<span>How does the 7-day free trial operate?</span>
+<span class="material-symbols-outlined text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4 pt-4 border-t border-outline-variant">
+            Eligible businesses receive 7 full days of platform access. This allows you to test client bookings, configure service durations, invite specialists, and verify SMS alerts in real time with zero upfront payment obligations.
+          </p>
+</details>
+<details class="group p-6 rounded-xl bg-surface-container-lowest border border-outline-variant open:border-secondary transition-colors">
+<summary class="flex items-center justify-between cursor-pointer font-headline-sm text-headline-sm font-semibold text-on-surface list-none">
+<span>Can I use my public booking link on WhatsApp or Instagram?</span>
+<span class="material-symbols-outlined text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4 pt-4 border-t border-outline-variant">
+            Yes. Your assigned tenant URL operates across any browser without requiring an application download. You can paste it into your Instagram bio, WhatsApp catalog button, or Google Maps appointment button.
+          </p>
+</details>
+<details class="group p-6 rounded-xl bg-surface-container-lowest border border-outline-variant open:border-secondary transition-colors">
+<summary class="flex items-center justify-between cursor-pointer font-headline-sm text-headline-sm font-semibold text-on-surface list-none">
+<span>Are customer records and appointments stored securely?</span>
+<span class="material-symbols-outlined text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4 pt-4 border-t border-outline-variant">
+            All data is encrypted in transit and at rest using bank-grade cryptographic protocols. We maintain a zero-monetization policy regarding your proprietary client logs and booking records.
+          </p>
+</details>
+</div>
+</div>
+</section>
+<!-- ================= PRE-FOOTER CONVERSION BANNER ================= -->
+<section class="py-20 bg-primary-container text-on-primary border-b border-outline-variant">
+<div class="max-w-7xl mx-auto px-6 md:px-8 text-center space-y-8">
+<div class="max-w-3xl mx-auto space-y-4">
+<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl font-bold tracking-tight text-white">
+          Appointments Made Simple for Your Business.
+        </h2>
+<p class="font-body-lg text-body-lg text-white/80 max-w-2xl mx-auto">
+          Join salon owners, medical clinics, wellness spas, and consultants saving hours every week with automated online scheduling.
+        </p>
+</div>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<a class="w-full sm:w-auto px-8 py-4 rounded-lg bg-white text-primary-container font-label-lg text-label-lg hover:bg-surface-container-low transition-colors font-bold shadow-md active:scale-95" href="#pricing">
+          Start 7-Day Free Trial
+        </a>
+<a class="w-full sm:w-auto px-8 py-4 rounded-lg border border-white/30 text-white font-label-lg text-label-lg hover:bg-white/10 transition-colors flex items-center justify-center gap-2" href="tel:+919391354003">
+<span class="material-symbols-outlined text-[18px]">call</span>
+<span>Call +91 93913 54003</span>
+</a>
+</div>
+<div class="pt-4 flex flex-wrap items-center justify-center gap-6 text-xs text-white/70">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-white">check</span> 7-Day Free Trial Included</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-white">check</span> Zero Setup Fees</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-white">check</span> Dedicated Booking Link &amp; QR Code</span>
+</div>
+</div>
+</section>
+<!-- ================= EXECUTIVE FOOTER (Shared Component Execution) ================= -->
+<footer class="w-full bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant dark:border-outline">
+<div class="max-w-7xl mx-auto px-6 md:px-8 py-16 space-y-12">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+<!-- Brand Info Lockup -->
+<div class="lg:col-span-2 space-y-4">
+<div class="flex items-center gap-3">
+<img alt="VISROSLOT Emblem" class="w-10 h-10 object-contain rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5yFG-1aJgE_2kAOnsze25FZXbhFKDQnK5CKgZW5aRurgDVo3buXVgydsbVKRIGKVKjvGN27cBYhoY2QlXllh0fFgyLMLO4p5ZDV6c219x7kAgzorV9l28pv8l1GLu3VABNG0czd9dniGJd8AAxvt-ByQlvRd9HzzPeYhQo4RYqWZoPedTfmA5qh3D4qi-l8Ak9a_p-t1uVEaAV5dkSmZu63LuxQd7zFdHI8uChcit9SsQVXN8ATyOSA"/>
+<div>
+<span class="font-headline-md text-headline-md font-bold tracking-tight text-primary dark:text-inverse-primary leading-none">VISROSLOT</span>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-1">Every Slot. Simplified.</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-inverse-on-surface max-w-sm">
+            Institutional scheduling logistics platform for enterprise appointment coordination, client operations, and executive rosters.
+          </p>
+<div class="pt-2">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Helpline Support</div>
+<a class="font-headline-sm text-headline-sm font-bold text-primary dark:text-inverse-primary hover:text-secondary transition-colors" href="tel:+919391354003">
+              +91 93913 54003
+            </a>
+</div>
+</div>
+<!-- Architecture Links -->
+<div class="space-y-3">
+<div class="font-headline-sm text-headline-sm font-semibold text-primary dark:text-inverse-primary text-sm">Platform Architecture</div>
+<ul class="space-y-2 font-body-sm text-body-sm">
+<li><a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#features">Calendar Matrix</a></li>
+<li><a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#features">Staff Roster Engine</a></li>
+<li><a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#features">Buffer Automation</a></li>
+<li><a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#features">Client CRM Directory</a></li>
+</ul>
+</div>
+<!-- Solutions Links -->
+<div class="space-y-3">
+<div class="font-headline-sm text-headline-sm font-semibold text-primary dark:text-inverse-primary text-sm">Enterprise Solutions</div>
+<ul class="space-y-2 font-body-sm text-body-sm">
+<li><a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#solutions">Salons &amp; Barbershops</a></li>
+<li><a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#solutions">Clinics &amp; Dental</a></li>
+<li><a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#solutions">Spas &amp; Wellness</a></li>
+<li><a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#solutions">Executive Advisory</a></li>
+</ul>
+</div>
+<!-- Governance & Security -->
+<div class="space-y-3">
+<div class="font-headline-sm text-headline-sm font-semibold text-primary dark:text-inverse-primary text-sm">Security &amp; Compliance</div>
+<ul class="space-y-2 font-body-sm text-body-sm">
+<li><a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#compliance">SOC 2 Certification</a></li>
+<li><a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#compliance">HIPAA Alignment</a></li>
+<li><a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#compliance">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#compliance">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<!-- Copyright strip -->
+<div class="pt-8 border-t border-outline-variant dark:border-outline flex flex-col md:flex-row items-center justify-between text-xs text-on-surface-variant dark:text-inverse-on-surface gap-4">
+<div>
+          © 2025 VISROSLOT Enterprise Technologies. All rights reserved. Helpline: +91 93913 54003
+        </div>
+<div class="flex items-center space-x-6">
+<a class="hover:text-primary transition-colors" href="#privacy">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#terms">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#support">Executive Support</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

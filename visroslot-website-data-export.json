@@ -1,0 +1,205 @@
+{
+  "_metadata": {
+    "platform": "VISROSLOT Smart Appointment Management Platform",
+    "project_id": "visroslot",
+    "exported_at": "2026-11-05T19:23:00.000Z",
+    "author": "Antigravity Assistant",
+    "version": "2.0.0"
+  },
+  "businesses": [
+    {
+      "id": "2715CnLUsE7SU6ylo9EU",
+      "name": "VISROSLOT Demo Salon & Wellness",
+      "slug": "demo-salon",
+      "category": "Salon & Wellness",
+      "description": "Premier styling salon offering precision haircuts, luxury beard grooming, therapeutic facials, and complete aesthetic care.",
+      "phone": "+91 98765 43210",
+      "email": "demo@visroslot.com",
+      "address": "Suite 101, Luxury Boulevard, Bangalore",
+      "location": {
+        "address": "Suite 101, Luxury Boulevard, Bangalore",
+        "city": "Bangalore",
+        "state": "Karnataka",
+        "postalCode": "560001",
+        "latitude": 12.9716,
+        "longitude": 77.5946
+      },
+      "is_active": true,
+      "lifetime_free": true,
+      "payment_verified": true,
+      "is_paid": true,
+      "subscription_status": "active",
+      "plan": "business",
+      "owner_id": "vMZQTGlYSfM8adohQAZmSE3cNX02",
+      "owner_email": "rajkumar50036@gmail.com",
+      "buffer_time_mins": 15,
+      "advance_notice_hours": 1,
+      "booking_window_days": 30,
+      "cancellation_buffer_hours": 2,
+      "working_hours": {
+        "monday": { "isOpen": true, "open": "09:00", "close": "20:00" },
+        "tuesday": { "isOpen": true, "open": "09:00", "close": "20:00" },
+        "wednesday": { "isOpen": true, "open": "09:00", "close": "20:00" },
+        "thursday": { "isOpen": true, "open": "09:00", "close": "20:00" },
+        "friday": { "isOpen": true, "open": "09:00", "close": "21:00" },
+        "saturday": { "isOpen": true, "open": "09:00", "close": "21:00" },
+        "sunday": { "isOpen": true, "open": "10:00", "close": "18:00" }
+      }
+    },
+    {
+      "id": "rajkumar-founder-hq",
+      "name": "VISROSLOT Founder Studio & Clinic",
+      "slug": "rajkumar-hq",
+      "category": "Clinic & Spa",
+      "description": "Official VISROSLOT flagship headquarters for premier aesthetic appointments and private consultations.",
+      "phone": "+91 93913 54003",
+      "email": "rajkumar50036@gmail.com",
+      "address": "VISROSLOT Tower, Central Tech Park, Hyderabad",
+      "is_active": true,
+      "lifetime_free": true,
+      "payment_verified": true,
+      "is_paid": true,
+      "subscription_status": "active",
+      "plan": "business",
+      "owner_id": "vMZQTGlYSfM8adohQAZmSE3cNX02",
+      "owner_email": "rajkumar50036@gmail.com",
+      "buffer_time_mins": 15,
+      "advance_notice_hours": 1,
+      "booking_window_days": 30,
+      "cancellation_buffer_hours": 2
+    }
+  ],
+  "services": [
+    {
+      "id": "srv-demo-1",
+      "business_id": "2715CnLUsE7SU6ylo9EU",
+      "name": "Precision Haircut & Styling",
+      "duration": 35,
+      "price": 500,
+      "description": "Consultation, precision scissor & clipper cut, wash, and luxury finish styling.",
+      "category": "Hair Care",
+      "is_active": true
+    },
+    {
+      "id": "srv-demo-2",
+      "business_id": "2715CnLUsE7SU6ylo9EU",
+      "name": "Luxury Beard Grooming & Hot Towel",
+      "duration": 30,
+      "price": 350,
+      "description": "Razor shaping, beard oil conditioning, and soothing hot towel relaxation.",
+      "category": "Grooming",
+      "is_active": true
+    },
+    {
+      "id": "srv-demo-3",
+      "business_id": "2715CnLUsE7SU6ylo9EU",
+      "name": "Deep Cleansing & Glowing Facial",
+      "duration": 60,
+      "price": 1200,
+      "description": "Skin exfoliation, blackhead extraction, rejuvenating massage, and organic gold mask.",
+      "category": "Facial & Skin",
+      "is_active": true
+    },
+    {
+      "id": "srv-demo-4",
+      "business_id": "2715CnLUsE7SU6ylo9EU",
+      "name": "Complete Royal Spa & Grooming Package",
+      "duration": 90,
+      "price": 2499,
+      "description": "Haircut, luxury facial, beard grooming, and head massage experience.",
+      "category": "Package",
+      "is_active": true
+    }
+  ],
+  "staff": [
+    {
+      "id": "staff-demo-1",
+      "business_id": "2715CnLUsE7SU6ylo9EU",
+      "name": "Priya Sharma",
+      "role": "Senior Stylist & Skin Specialist",
+      "email": "priya.stylist@visroslot.com",
+      "phone": "+91 98765 11111",
+      "is_active": true
+    },
+    {
+      "id": "staff-demo-2",
+      "business_id": "2715CnLUsE7SU6ylo9EU",
+      "name": "Rahul Verma",
+      "role": "Master Barber & Grooming Expert",
+      "email": "rahul.barber@visroslot.com",
+      "phone": "+91 98765 22222",
+      "is_active": true
+    },
+    {
+      "id": "staff-demo-3",
+      "business_id": "2715CnLUsE7SU6ylo9EU",
+      "name": "Dr. Ananya Rao",
+      "role": "Clinical Aesthetics Consultant",
+      "email": "ananya.rao@visroslot.com",
+      "phone": "+91 98765 33333",
+      "is_active": true
+    }
+  ],
+  "plans": [
+    {
+      "id": "plan_professional",
+      "name": "Professional",
+      "price": 499,
+      "period": "monthly",
+      "staff_limit": 3,
+      "booking_limit": 300,
+      "features": [
+        "Maximum 3 staff members with individual rosters",
+        "Maximum 300 successful appointments / month",
+        "Dedicated public booking page & QR code",
+        "Online appointment management & calendar",
+        "Customer management directory & booking history",
+        "Owner AI & Customer AI with Professional allowance"
+      ]
+    },
+    {
+      "id": "plan_business",
+      "name": "Business Suite",
+      "price": 999,
+      "period": "monthly",
+      "staff_limit": 10,
+      "booking_limit": -1,
+      "features": [
+        "Maximum 10 staff members with independent rosters",
+        "Unlimited appointment bookings (Zero monthly caps)",
+        "Everything in Professional included",
+        "Advanced CRM with customer retention private notes",
+        "Advanced operational analytics & performance metrics",
+        "Dedicated priority phone & email support"
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rev-demo-1",
+      "business_id": "2715CnLUsE7SU6ylo9EU",
+      "customer_name": "Ananya Roy",
+      "rating": 5,
+      "comment": "Super fast booking with VISROSLOT! Loved the precision haircut and smooth slot confirmation.",
+      "is_verified": true
+    },
+    {
+      "id": "rev-demo-2",
+      "business_id": "2715CnLUsE7SU6ylo9EU",
+      "customer_name": "Vikram Malhotra",
+      "rating": 5,
+      "comment": "Clean hygiene gap buffer protocol observed. Professional beard styling.",
+      "is_verified": true
+    }
+  ],
+  "platform_settings": {
+    "platform_name": "VISROSLOT",
+    "helpline": "+91 93913 54003",
+    "support_email": "support@visroslot.com",
+    "trial_days": 7,
+    "autopay_verification_fee": 0,
+    "buffer_protocol": "15-min Hygiene Gap",
+    "cancellation_window_hours": 2,
+    "mode": "Pay at Salon"
+  }
+}

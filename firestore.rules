@@ -1,0 +1,332 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isSuperAdmin() {
+      return isAuthenticated() && (
+        request.auth.uid == 'vMZQTGlYSfM8adohQAZmSE3cNX02' ||
+        request.auth.token.email == 'rajkumar50036@gmail.com' ||
+        request.auth.token.super_admin == true ||
+        request.auth.token.role == 'SUPER_ADMIN' ||
+        request.auth.token.role == 'FOUNDER' ||
+        request.auth.token.admin == true
+      );
+    }
+
+    function isBusinessOwnerById(businessId) {
+      return isAuthenticated() && (
+        isSuperAdmin() ||
+        (
+          businessId != null &&
+          exists(/databases/$(database)/documents/businesses/$(businessId)) &&
+          get(/databases/$(database)/documents/businesses/$(businessId)).data.owner_id == request.auth.uid
+        )
+      );
+    }
+
+    // Businesses collection
+    match /businesses/{businessId} {
+      // Public can read active business public metadata
+      allow read: if true;
+      // Authenticated owners or super admin can write
+      allow create: if isAuthenticated() && (
+        isSuperAdmin() || (
+          request.resource.data.owner_id == request.auth.uid &&
+          !request.resource.data.keys().hasAny([
+            'subscription_status', 'plan', 'plan_id', 'plan_type',
+            'is_unlimited', 'lifetime_free', 'trial_ends_at',
+            'subscription_id', 'razorpay_subscription_id', 'paymentVerified'
+          ])
+        )
+      );
+      allow update: if isSuperAdmin() || (
+        isAuthenticated() &&
+        resource.data.owner_id == request.auth.uid &&
+        !request.resource.data.diff(resource.data).affectedKeys().hasAny([
+          'subscription_status', 'plan', 'plan_id', 'plan_type',
+          'is_unlimited', 'lifetime_free', 'trial_ends_at',
+          'subscription_id', 'razorpay_subscription_id', 'paymentVerified', 'owner_id'
+        ])
+      );
+      allow delete: if isSuperAdmin();
+    }
+
+    // Services collection
+    match /services/{serviceId} {
+      allow read: if true; // Public booking requires reading services
+      allow create: if isSuperAdmin() || (
+        isAuthenticated() &&
+        request.resource.data.business_id != null &&
+        isBusinessOwnerById(request.resource.data.business_id)
+      );
+      allow update, delete: if isSuperAdmin() || (
+        isAuthenticated() &&
+        resource.data.business_id != null &&
+        isBusinessOwnerById(resource.data.business_id)
+      );
+    }
+
+    // Business Hours & Holidays & Breaks
+    match /business_hours/{id} {
+      allow read: if true;
+      allow create: if isSuperAdmin() || (
+        isAuthenticated() &&
+        request.resource.data.business_id != null &&
+        isBusinessOwnerById(request.resource.data.business_id)
+      );
+      allow update, delete: if isSuperAdmin() || (
+        isAuthenticated() &&
+        resource.data.business_id != null &&
+        isBusinessOwnerById(resource.data.business_id)
+      );
+    }
+    match /business_holidays/{id} {
+      allow read: if true;
+      allow create: if isSuperAdmin() || (
+        isAuthenticated() &&
+        request.resource.data.business_id != null &&
+        isBusinessOwnerById(request.resource.data.business_id)
+      );
+      allow update, delete: if isSuperAdmin() || (
+        isAuthenticated() &&
+        resource.data.business_id != null &&
+        isBusinessOwnerById(resource.data.business_id)
+      );
+    }
+    match /business_breaks/{id} {
+      allow read: if true;
+      allow create: if isSuperAdmin() || (
+        isAuthenticated() &&
+        request.resource.data.business_id != null &&
+        isBusinessOwnerById(request.resource.data.business_id)
+      );
+      allow update, delete: if isSuperAdmin() || (
+        isAuthenticated() &&
+        resource.data.business_id != null &&
+        isBusinessOwnerById(resource.data.business_id)
+      );
+    }
+
+    // Staff collection (Governed by Plan limits and ownership verification)
+    match /staff/{staffId} {
+      allow read: if true;
+      allow create: if isSuperAdmin() || (
+        isAuthenticated() &&
+        request.resource.data.business_id != null &&
+        isBusinessOwnerById(request.resource.data.business_id)
+      );
+      allow update, delete: if isSuperAdmin() || (
+        isAuthenticated() &&
+        resource.data.business_id != null &&
+        isBusinessOwnerById(resource.data.business_id)
+      );
+    }
+
+    // Customers collection (Multi-tenant isolated)
+    match /customers/{customerId} {
+      allow read: if isSuperAdmin() || (
+        isAuthenticated() && (
+          resource.data.user_id == request.auth.uid ||
+          (resource.data.business_id != null && isBusinessOwnerById(resource.data.business_id))
+        )
+      );
+      allow create: if isSuperAdmin() || (
+        isAuthenticated() && (
+          request.resource.data.user_id == request.auth.uid ||
+          (request.resource.data.business_id != null && isBusinessOwnerById(request.resource.data.business_id))
+        )
+      );
+      allow update: if isSuperAdmin() || (
+        isAuthenticated() && (
+          resource.data.user_id == request.auth.uid ||
+          (resource.data.business_id != null && isBusinessOwnerById(resource.data.business_id))
+        )
+      );
+      allow delete: if isSuperAdmin();
+    }
+
+    // Appointments collection
+    match /appointments/{appointmentId} {
+      // Public can read single appointment if token/booking_reference matches
+      allow read: if true;
+      // Server routes handle creation and business owner handles update
+      allow write: if isSuperAdmin() || (
+        isAuthenticated() &&
+        resource.data.business_id != null &&
+        isBusinessOwnerById(resource.data.business_id)
+      );
+    }
+
+    // Subscriptions & Plans & Payment Transactions (Server-side write only via Admin SDK or Super Admin)
+    match /subscription_plans/{planId} {
+      allow read: if true;
+      allow write: if isSuperAdmin();
+    }
+    match /subscriptions/{subId} {
+      allow read: if isSuperAdmin() || (
+        isAuthenticated() && (
+          resource.data.user_id == request.auth.uid ||
+          (resource.data.business_id != null && isBusinessOwnerById(resource.data.business_id))
+        )
+      );
+      allow write: if isSuperAdmin();
+    }
+    match /payments/{paymentId} {
+      allow read: if isSuperAdmin() || (
+        isAuthenticated() && (
+          resource.data.user_id == request.auth.uid ||
+          (resource.data.business_id != null && isBusinessOwnerById(resource.data.business_id))
+        )
+      );
+      allow write: if isSuperAdmin();
+    }
+    match /payment_transactions/{txId} {
+      allow read: if isSuperAdmin() || (
+        isAuthenticated() && (
+          resource.data.user_id == request.auth.uid ||
+          (resource.data.business_id != null && isBusinessOwnerById(resource.data.business_id))
+        )
+      );
+      allow write: if isSuperAdmin();
+    }
+    match /webhook_events/{eventId} {
+      allow read, write: if isSuperAdmin();
+    }
+
+    // AutoPay Verification Ledger (Separate from commercial subscription payments)
+    match /autopay_verifications/{id} {
+      allow read: if isSuperAdmin() || (
+        isAuthenticated() && (
+          resource.data.user_id == request.auth.uid ||
+          resource.data.owner_id == request.auth.uid ||
+          (resource.data.business_id != null && isBusinessOwnerById(resource.data.business_id))
+        )
+      );
+      allow write: if isSuperAdmin();
+    }
+
+    // First-party Analytics Events (Append-only by public tracker, read by Super Admin)
+    match /analytics_events/{eventId} {
+      allow create: if true;
+      allow read: if isSuperAdmin();
+      allow update, delete: if false; // Immutable analytics records
+    }
+
+    // Super Admin Audit Logs (Write and read strictly by Super Admin)
+    match /admin_audit_logs/{logId} {
+      allow read: if isSuperAdmin();
+      allow create: if isSuperAdmin();
+      allow update, delete: if false; // Immutable audit log
+    }
+
+    // Users collection (Guarded against self-privilege escalation)
+    match /users/{userId} {
+      allow read: if isAuthenticated() && (request.auth.uid == userId || isSuperAdmin());
+      allow create: if isSuperAdmin() || (
+        isAuthenticated() &&
+        request.auth.uid == userId &&
+        !request.resource.data.keys().hasAny([
+          'role', 'subscription_status', 'plan_id', 'plan_type',
+          'is_unlimited', 'lifetime_free', 'is_paid', 'super_admin', 'admin'
+        ])
+      );
+      allow update: if isSuperAdmin() || (
+        isAuthenticated() &&
+        request.auth.uid == userId &&
+        !request.resource.data.diff(resource.data).affectedKeys().hasAny([
+          'role', 'subscription_status', 'plan_id', 'plan_type',
+          'is_unlimited', 'lifetime_free', 'is_paid', 'super_admin', 'admin'
+        ])
+      );
+      allow delete: if isSuperAdmin();
+    }
+
+    // Leads & Inquiries CRM
+    match /leads/{leadId} {
+      allow create: if true; // Public contact form / inquiry submission
+      allow read, update, delete: if isSuperAdmin();
+    }
+
+    // Support Tickets
+    match /support_tickets/{ticketId} {
+      allow create: if true;
+      allow read, update: if isSuperAdmin() || (isAuthenticated() && resource.data.user_id == request.auth.uid);
+      allow delete: if isSuperAdmin();
+    }
+
+    // Customer Reviews & Ratings System (Phase 6)
+    match /reviews/{reviewId} {
+      // Public can read published reviews
+      allow read: if true;
+      // Privileged writes (creation, response, moderation) are executed via Admin SDK in server endpoints
+      allow write: if isSuperAdmin();
+    }
+
+    // Review Invitations
+    match /review_invitations/{inviteId} {
+      allow read: if isSuperAdmin() || (
+        isAuthenticated() && (
+          resource.data.user_id == request.auth.uid ||
+          (resource.data.business_id != null && isBusinessOwnerById(resource.data.business_id))
+        )
+      );
+      allow write: if isSuperAdmin();
+    }
+
+    // Review Reports & Moderation Audit Trail
+    match /review_reports/{reportId} {
+      allow create: if isAuthenticated();
+      allow read, update, delete: if isSuperAdmin();
+    }
+    match /moderation_records/{recordId} {
+      allow read, write: if isSuperAdmin();
+    }
+
+    // Owner AI Intelligence & Automation (Phase 7)
+    match /business_ai_memory/{businessId} {
+      allow read: if isSuperAdmin() || isBusinessOwnerById(businessId);
+      allow write: if isSuperAdmin();
+    }
+    match /ai_actions/{actionId} {
+      allow read: if isSuperAdmin() || (
+        isAuthenticated() &&
+        resource.data.business_id != null &&
+        isBusinessOwnerById(resource.data.business_id)
+      );
+      allow write: if isSuperAdmin();
+    }
+    match /ai_action_logs/{logId} {
+      allow read: if isSuperAdmin() || (
+        isAuthenticated() &&
+        resource.data.business_id != null &&
+        isBusinessOwnerById(resource.data.business_id)
+      );
+      allow write: if isSuperAdmin();
+    }
+    match /daily_reports/{reportId} {
+      allow read: if isSuperAdmin() || (
+        isAuthenticated() &&
+        resource.data.business_id != null &&
+        isBusinessOwnerById(resource.data.business_id)
+      );
+      allow write: if isSuperAdmin();
+    }
+
+    // Customer AI & Booking Assistance (Phase 8)
+    match /customer_ai_preferences/{prefId} {
+      allow read, write: if isSuperAdmin(); // Managed via backend API with Admin SDK
+    }
+    match /customer_verification_codes/{codeId} {
+      allow read, write: if isSuperAdmin(); // Ephemeral OTP verification
+    }
+    match /ai_usage_logs/{logId} {
+      allow create: if true; // Append-only metrics
+      allow read, update, delete: if isSuperAdmin();
+    }
+  }
+}

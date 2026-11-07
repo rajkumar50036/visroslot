@@ -1,0 +1,548 @@
+<USER_REQUEST>
+# VISROSLOT – PHASE 9
+# SECURITY, SUBSCRIPTION LIMITS, AUTOPAY VERIFICATION & INTEGRATIONS
+
+Act as a senior SaaS security architect, Firebase developer, payment integration specialist and backend engineer.
+
+Upgrade the existing VISROSLOT platform to production-ready standards.
+
+Website: https://visroslot.netlify.app
+
+Existing infrastructure:
+- Firebase Authentication
+- Cloud Firestore
+- Firebase Storage
+- Firebase Cloud Functions / trusted backend
+- Razorpay Subscriptions and AutoPay
+- OpenRouter AI
+- Email and in-app notifications
+- Netlify hosting
+
+IMPORTANT: Audit the existing implementation before changing anything. Reuse the existing architecture. Do not migrate databases or create duplicate systems.
+
+# 1. COMPLETE SECURITY AUDIT
+
+Inspect the entire project:
+
+- Frontend and backend.
+- Firebase Authentication.
+- Firestore Security Rules.
+- Firebase Storage Security Rules.
+- Business ownership verification.
+- Super Admin permissions.
+- Subscription enforcement.
+- Razorpay integration.
+- OpenRouter integration.
+- Owner AI and Customer AI.
+- Appointment and review workflows.
+- Environment variables and secrets.
+
+Identify security vulnerabilities, unauthorized access, exposed credentials, duplicate processing, data leakage and missing backend validation.
+
+Provide a security findings report.
+
+# 2. MULTI-TENANT SECURITY
+
+Ensure complete separation of business data.
+
+- Business owners can access only their own business.
+- Staff can access only authorized business information.
+- Customers can access only their own verified appointments.
+- Owner AI can access only its business data.
+- Customer AI can access only the current business's public information and verified customer records.
+- Reviews must belong to the correct business.
+
+Never trust frontend-supplied business IDs or user IDs.
+
+Validate authorization through trusted backend functions.
+
+# 3. ROLE-BASED ACCESS CONTROL
+
+Maintain these roles:
+
+- Super Admin.
+- Business Owner.
+- Business Staff.
+- Customer.
+
+Protect Super Admin using Firebase Admin SDK custom claims or trusted UID allowlisting.
+
+Never grant Super Admin access through an email-only frontend check.
+
+Prevent users from modifying their own roles and permissions.
+
+# 4. FIREBASE SECURITY
+
+Strengthen Firestore and Storage Security Rules.
+
+Requirements:
+
+- Authenticate protected requests.
+- Enforce business ownership.
+- Validate allowed fields.
+- Protect payment records.
+- Protect subscription records.
+- Protect customer data.
+- Protect AI memory.
+- Protect review moderation.
+- Restrict file uploads and replacements.
+- Prevent unauthorized role changes.
+- Prevent frontend subscription manipulation.
+
+Use trusted backend functions for sensitive operations.
+
+Never use unrestricted read/write rules.
+
+# 5. SUBSCRIPTION PLAN ENFORCEMENT
+
+Maintain only two public plans.
+
+**Professional**
+- ₹499/month.
+- ₹4,990/year.
+- Maximum 3 staff members.
+- Maximum 300 successful appointments per usage month.
+
+**Business**
+- ₹999/month.
+- ₹9,990/year.
+- Maximum 10 staff members.
+- Unlimited appointments.
+
+**Free Trial**
+- 7 days.
+- Maximum 1 staff member.
+- Maximum 10 successful appointments in total.
+- Basic dashboard and booking.
+- Advanced analytics disabled.
+
+Requirements:
+
+- Enforce limits on the backend.
+- Prevent staff limit bypass.
+- Prevent appointment limit bypass.
+- Enforce AI usage allowances.
+- Do not count cancelled appointments as successful appointments.
+- Preserve historical records after subscription expiration.
+- Show clear limit-reached messages.
+
+Do not change plan prices or create additional public plans.
+
+# 6. SUBSCRIPTION STATUS MANAGEMENT
+
+Use existing statuses:
+
+- NOT_SUBSCRIBED
+- PENDING_AUTHORIZATION
+- TRIALING
+- ACTIVE
+- PAYMENT_PENDING
+- PAST_DUE
+- CANCELLED
+- EXPIRED
+- SUSPENDED
+
+Requirements:
+
+- Update statuses only through verified backend operations.
+- Maintain correct billing periods.
+- Do not treat mandate authorization as subscription payment.
+- Activate the 7-day trial only after required mandate and delayed schedule verification.
+- Preserve paid access until the verified paid-through date.
+- Pause booking access when entitlement expires.
+- Preserve business data, slug, services, customers, staff and appointment history.
+- Restore access to the same booking URL after reactivation.
+
+# 7. RAZORPAY AUTOPAY VERIFICATION
+
+Audit the existing Razorpay AutoPay implementation.
+
+Support only payment methods enabled for the Razorpay account.
+
+Implement payment-method-specific authorization according to current Razorpay documentation.
+
+**eMandate:**
+- Follow the required eMandate authorization process.
+- Use the required zero-amount authorization transaction.
+- Handle any temporary bank-managed verification deduction where applicable.
+
+**Card and UPI AutoPay:**
+- Follow the documented authorization or tokenization process.
+- Handle any authorization amount according to Razorpay's actual requirements.
+- Do not assume every payment method uses the same authorization amount.
+
+Do not independently create a ₹2 charge just to imitate verification.
+
+# 8. ₹2 AUTOMATIC REFUND – AUTOPAY VERIFICATION ONLY
+
+This is a critical business requirement.
+
+The ₹2 refund workflow must apply exclusively to an actual temporary verification deduction associated with Razorpay AutoPay authorization.
+
+Rules:
+
+1. If a ₹2 verification deduction actually occurs, identify and record that transaction.
+2. Let Razorpay handle its automatic authorization refund wherever supported.
+3. Verify the refund through Razorpay's backend APIs and webhook events.
+4. Display the actual refund status to the customer.
+5. Prevent duplicate refunds.
+6. If no verification deduction occurs, do not create a refund.
+7. If Razorpay uses another authorization amount for a supported payment method, follow its actual documented process.
+8. Do not independently initiate another refund if Razorpay has already initiated an automatic refund.
+9. Do not mark a refund successful without provider confirmation.
+10. Handle pending, failed and delayed refund scenarios.
+
+**STRICTLY EXCLUDED FROM THIS REFUND FEATURE:**
+
+- Professional monthly subscription payments.
+- Professional yearly subscription payments.
+- Business monthly subscription payments.
+- Business yearly subscription payments.
+- Any actual recurring subscription charge.
+
+Never automatically refund a subscription payment through this verification-refund workflow.
+
+Do not create a separate ₹2 transaction for every customer.
+
+# 9. KEEP AUTOPAY AND SUBSCRIPTION PAYMENTS SEPARATE
+
+Maintain separate records for:
+
+**AutoPay verification:**
+- Authorization reference.
+- Verification deduction amount, if applicable.
+- Verification payment reference.
+- Automatic refund reference.
+- Refund status.
+- Mandate status.
+
+**Subscription billing:**
+- Subscription ID.
+- Plan.
+- Billing frequency.
+- Actual captured subscription payment.
+- Payment status.
+- Refund history, if separately processed under an authorized subscription refund workflow.
+
+Do not combine these records.
+
+Do not count AutoPay verification deductions or refunds as subscription revenue.
+
+Do not count authorization transactions as collected revenue.
+
+# 10. CUSTOMER AUTOPAY DISCLOSURE
+
+Before AutoPay authorization, display clear information:
+
+- Customer is authorizing recurring subscription payments.
+- A temporary authorization deduction may occur depending on the payment method and bank.
+- Any applicable verification deduction is separate from the subscription fee.
+- Applicable authorization refunds follow Razorpay's process.
+- Refund timing depends on Razorpay and the bank.
+- Actual plan price.
+- Monthly or yearly billing frequency.
+- First scheduled subscription debit.
+- AutoPay cancellation instructions.
+
+Never promise that every customer will be charged exactly ₹2 or receive an immediate refund.
+
+# 11. SUBSCRIPTION ACTIVATION FLOW
+
+Follow this sequence:
+
+1. Customer registers.
+2. Customer selects Professional or Business.
+3. Customer selects monthly or yearly billing.
+4. Customer reviews trial and recurring billing terms.
+5. Customer authorizes Razorpay AutoPay.
+6. Backend verifies the authorization.
+7. Backend verifies the required delayed subscription schedule.
+8. Backend confirms the mandate is valid.
+9. Activate the 7-day trial only after required verification.
+10. Record any applicable AutoPay verification deduction separately.
+11. Track the automatic verification refund separately.
+12. Actual subscription billing follows the verified Razorpay schedule.
+
+Important:
+
+- Refund completion is not a condition for mandate confirmation unless Razorpay explicitly requires it.
+- Do not activate a trial merely because a checkout page opened.
+- Do not count authorization deductions as subscription revenue.
+- Do not treat subscription payment as AutoPay verification.
+- Allow customers to resume pending or failed authorization safely.
+
+# 12. RAZORPAY WEBHOOK SECURITY
+
+Requirements:
+
+- Keep credentials backend-only.
+- Verify webhook signatures.
+- Process events idempotently.
+- Prevent duplicate subscription records.
+- Prevent duplicate payment records.
+- Prevent duplicate authorization refunds.
+- Store webhook event IDs.
+- Validate payment and subscription references.
+- Handle failed payments and cancellations.
+- Verify captured payments before reporting revenue.
+- Reconcile missed webhook events safely.
+
+Preserve existing environment variables:
+
+RAZORPAY_KEY_ID  
+RAZORPAY_KEY_SECRET  
+RAZORPAY_WEBHOOK_SECRET  
+RAZORPAY_PRO_MONTHLY_PLAN_ID  
+RAZORPAY_PRO_YEARLY_PLAN_ID  
+RAZORPAY_BUSINESS_MONTHLY_PLAN_ID  
+RAZORPAY_BUSINESS_YEARLY_PLAN_ID
+
+Do not invent credentials or plan IDs.
+
+Do not remove existing Razorpay infrastructure.
+
+Do not add public Razorpay purchase buttons to the pricing page.
+
+# 13. BILLING DASHBOARD
+
+Show separate sections for:
+
+**AutoPay verification**
+- Mandate status.
+- Verification deduction, if applicable.
+- Verification refund status.
+- Authorization date.
+
+**Subscription billing**
+- Current plan.
+- Monthly/yearly frequency.
+- Actual subscription payments.
+- Failed payments.
+- Next scheduled debit.
+- Subscription status.
+
+Possible verification statuses:
+
+- NOT_REQUIRED
+- AUTHORIZATION_PENDING
+- MANDATE_CONFIRMED
+- REFUND_PENDING
+- REFUND_PROCESSED
+- AUTHORIZATION_FAILED
+- REFUND_FAILED
+
+Never display an authorization refund as a subscription refund.
+
+# 14. OPENROUTER AI SECURITY
+
+Audit both Owner AI and Customer AI.
+
+- Keep API keys backend-only.
+- Never expose secrets in frontend code.
+- Enforce per-business AI usage limits.
+- Apply rate limits and token limits.
+- Track AI usage and costs.
+- Validate model outputs.
+- Handle timeouts and provider failures.
+- Prevent unauthorized database access.
+- Prevent arbitrary code execution.
+- Require approval for business-changing actions.
+
+AI cannot independently:
+- Change subscription plans.
+- Configure payment credentials.
+- Grant Super Admin access.
+- Delete business records.
+- Execute arbitrary code.
+- Bypass approval controls.
+
+# 15. FILE UPLOAD SECURITY
+
+Audit customer profile images, owner profile images, business logos and service images.
+
+- Validate file type and size.
+- Accept supported image formats only.
+- Reject unsafe uploads.
+- Verify file ownership.
+- Restrict Storage permissions.
+- Use safe storage paths.
+- Protect private customer images.
+- Prevent cross-business file replacement.
+- Preserve old images when replacement uploads fail.
+
+# 16. INTEGRATION HEALTH MONITORING
+
+Create or improve a Super Admin integration health section.
+
+Monitor:
+
+- Firebase Authentication.
+- Firestore.
+- Firebase Storage.
+- Cloud Functions.
+- Razorpay.
+- Razorpay webhooks.
+- AutoPay verification refund tracking.
+- OpenRouter.
+- Email provider.
+- In-app notifications.
+
+Display:
+- Configured / Not configured.
+- Last successful verification.
+- Latest known error.
+- Current integration status.
+- Safe troubleshooting instructions.
+
+Never display API keys or secrets.
+
+# 17. EMAIL AND NOTIFICATION RELIABILITY
+
+Keep email and in-app notifications.
+
+Do not add WhatsApp API.
+
+Support:
+- AutoPay authorization confirmation.
+- Applicable AutoPay verification refund updates.
+- Subscription payment confirmation.
+- Failed subscription payment notification.
+- Appointment notifications.
+- Review invitations.
+
+Prevent duplicate notifications.
+
+Do not claim an email was delivered when the provider only accepted the request.
+
+# 18. AUDIT LOGGING
+
+Record important events:
+
+- Authentication events where appropriate.
+- Role changes.
+- Business ownership changes.
+- Appointment modifications.
+- Subscription changes.
+- AutoPay authorization.
+- Verification deductions.
+- Authorization refund initiation and completion.
+- Subscription payments.
+- Razorpay webhook processing.
+- AI approvals and executions.
+- Review moderation.
+- Sensitive administrative actions.
+
+Include actor, timestamp, affected resource and result.
+
+Do not store unnecessary sensitive information.
+
+# 19. BACKUP AND RECOVERY
+
+Review the Firebase backup and recovery strategy.
+
+Provide:
+- Firestore backup configuration.
+- Storage backup guidance.
+- Recovery procedure.
+- Data retention recommendations.
+- Backup verification process.
+
+Do not claim backups are active unless configured and verified.
+
+# 20. PERFORMANCE AND ERROR HANDLING
+
+Review:
+
+- Firestore queries and indexes.
+- API validation.
+- Rate limits.
+- Cloud Function performance.
+- Request timeouts.
+- Retry behavior.
+- AI response time.
+- Image handling.
+- Frontend loading performance.
+
+Never expose stack traces, secrets or internal database details to customers.
+
+# 21. SECURITY AND PAYMENT TESTING
+
+Test:
+
+1. Customer cannot access another customer's appointments.
+2. Business A cannot access Business B's data.
+3. Staff cannot perform unauthorized owner actions.
+4. Users cannot grant themselves Super Admin access.
+5. Frontend cannot modify subscription status.
+6. Staff limits are enforced.
+7. Appointment limits are enforced.
+8. Customer AI cannot access another business.
+9. Owner AI cannot execute unauthorized writes.
+10. Invalid Razorpay webhook signatures are rejected.
+11. Duplicate webhooks do not create duplicate records.
+12. eMandate authorization works where enabled.
+13. Card and UPI authorization work where enabled.
+14. Actual AutoPay verification deductions are recorded separately.
+15. Only applicable AutoPay verification deductions are automatically refunded.
+16. No duplicate verification refund is initiated.
+17. Refund status updates only after provider verification.
+18. AutoPay verification refunds are not counted as subscription revenue.
+19. Professional subscription payments are not automatically refunded by this feature.
+20. Business subscription payments are not automatically refunded by this feature.
+21. Trial starts only after required mandate verification.
+22. Actual subscription billing follows the verified schedule.
+23. Expired subscriptions pause booking access correctly.
+24. Reactivation restores the same booking URL.
+25. OpenRouter secrets are not exposed.
+26. Unauthorized file uploads are blocked.
+27. Normal booking continues if OpenRouter is unavailable.
+
+Use Razorpay test mode and test accounts where available.
+
+Never charge real customers during testing without explicit approval.
+
+# 22. FINAL COMPLETION REPORT
+
+Provide:
+
+- Security findings and severity.
+- Files modified.
+- Firebase rules changes.
+- Backend authorization changes.
+- Subscription enforcement status.
+- Razorpay authorization status.
+- Supported AutoPay payment methods.
+- AutoPay verification deduction handling.
+- Automatic verification refund tracking status.
+- Confirmation that subscription payments are excluded from this refund workflow.
+- Webhook verification status.
+- OpenRouter security status.
+- Integration health status.
+- Backup configuration status.
+- Tests performed and results.
+- Remaining vulnerabilities.
+- Required environment variables.
+- Manual Razorpay configuration requirements.
+
+IMPORTANT RULES:
+
+- This is Phase 9 only.
+- Preserve all existing VISROSLOT functionality.
+- Preserve Firebase data and historical records.
+- Do not migrate databases.
+- Do not remove Razorpay infrastructure.
+- Do not expose or replace existing secrets without approval.
+- Do not add WhatsApp API.
+- Do not create fake production data.
+- Do not create a separate ₹2 charge just to imitate verification.
+- Do not automatically refund Professional or Business subscription payments through the AutoPay verification workflow.
+- Never issue duplicate AutoPay verification refunds.
+- Do not weaken security rules.
+- Do not perform destructive database changes.
+- Do not deploy to production without my explicit approval.
+
+Complete implementation and testing before declaring Phase 9 finished.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-11-04T22:54:45+05:30.
+</ADDITIONAL_METADATA>

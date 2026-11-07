@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VISROSLOT | Business Owner Sign Up & Enterprise Onboarding Wizard</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Manrope:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-container": "#80bea6",
+            "surface-bright": "#e7fff5",
+            "on-secondary-fixed": "#00201d",
+            "on-primary-fixed-variant": "#0b513d",
+            "tertiary-fixed-dim": "#b6ccbd",
+            "on-background": "#0b1f19",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed": "#0d1f16",
+            "surface-container-high": "#d6ede4",
+            "error-container": "#ffdad6",
+            "secondary-container": "#99efe5",
+            "on-secondary-container": "#006f67",
+            "secondary": "#006a63",
+            "on-error-container": "#93000a",
+            "on-secondary-fixed-variant": "#00504a",
+            "on-primary": "#ffffff",
+            "on-surface-variant": "#404944",
+            "inverse-primary": "#95d3ba",
+            "background": "#e7fff5",
+            "tertiary": "#1f3228",
+            "surface-variant": "#d0e8de",
+            "surface-container": "#dcf3e9",
+            "on-surface": "#0b1f19",
+            "surface": "#e7fff5",
+            "primary-fixed": "#b0f0d6",
+            "surface-container-low": "#e1f9ef",
+            "primary": "#003527",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#d0e8de",
+            "tertiary-container": "#35483d",
+            "on-tertiary-container": "#a1b6a8",
+            "on-tertiary-fixed-variant": "#384b40",
+            "inverse-on-surface": "#dff6ec",
+            "surface-tint": "#2b6954",
+            "primary-fixed-dim": "#95d3ba",
+            "on-primary-fixed": "#002117",
+            "surface-dim": "#c8dfd6",
+            "outline": "#707974",
+            "secondary-fixed": "#9cf2e8",
+            "outline-variant": "#bfc9c3",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed": "#d2e8d9",
+            "primary-container": "#064e3b",
+            "on-error": "#ffffff",
+            "inverse-surface": "#20342e",
+            "secondary-fixed-dim": "#80d5cb",
+            "error": "#ba1a1a"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          spacing: {
+            "margin-sm": "1rem",
+            "gutter-sm": "1rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            gutter: "1.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            margin: "2rem",
+            "gutter-lg": "2rem",
+            "margin-lg": "3rem"
+          },
+          fontFamily: {
+            "label-md": ["Inter"],
+            "body-sm": ["Inter"],
+            "body-md": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-sm": ["Manrope"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Manrope"],
+            "label-sm": ["Inter"],
+            "headline-xl-mobile": ["Manrope"],
+            "display-lg-mobile": ["Manrope"],
+            "headline-xl": ["Manrope"],
+            "display-lg": ["Manrope"],
+            "headline-lg": ["Manrope"]
+          },
+          fontSize: {
+            "label-md": ["0.75rem", { lineHeight: "1rem", letterSpacing: "0.02em", fontWeight: "600" }],
+            "body-sm": ["0.8125rem", { lineHeight: "1.25rem", letterSpacing: "0.005em", fontWeight: "400" }],
+            "body-md": ["0.875rem", { lineHeight: "1.375rem", letterSpacing: "0em", fontWeight: "400" }],
+            "label-lg": ["0.875rem", { lineHeight: "1.25rem", letterSpacing: "0.01em", fontWeight: "600" }],
+            "headline-sm": ["1.125rem", { lineHeight: "1.625rem", letterSpacing: "-0.005em", fontWeight: "600" }],
+            "body-lg": ["1rem", { lineHeight: "1.5rem", letterSpacing: "0em", fontWeight: "400" }],
+            "headline-md": ["1.375rem", { lineHeight: "1.875rem", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "label-sm": ["0.6875rem", { lineHeight: "0.875rem", letterSpacing: "0.03em", fontWeight: "500" }],
+            "headline-xl-mobile": ["1.75rem", { lineHeight: "2.25rem", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "display-lg-mobile": ["2rem", { lineHeight: "2.5rem", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-xl": ["2.25rem", { lineHeight: "2.75rem", letterSpacing: "-0.02em", fontWeight: "600" }],
+            "display-lg": ["3rem", { lineHeight: "3.5rem", letterSpacing: "-0.025em", fontWeight: "700" }],
+            "headline-lg": ["1.75rem", { lineHeight: "2.25rem", letterSpacing: "-0.015em", fontWeight: "600" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-surface-container-low text-on-surface antialiased min-h-screen flex flex-col selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TOP APP BAR -->
+<header class="sticky top-0 z-50 bg-surface-container-lowest border-b border-outline-variant">
+<div class="flex justify-between items-center w-full px-margin-sm md:px-margin-lg h-16 max-w-screen-2xl mx-auto">
+<!-- Brand & Emblem -->
+<div class="flex items-center gap-space-md">
+<img alt="VISROSLOT official business emblem logo with calendar and peacock feather motif" class="w-10 h-10 object-contain rounded-full shadow-sm border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6FK-7QhTFSG25NtrlV1c7j4Y5ME2gHPHUy-BO57ZoPHdbpDT9BRpCHHyp9V0I0V7EJbPbI0e8BZ0zukQexrCsVzxuRJ-5OhHL62iUQJNWJQhe0ViXCUvKPkMUr1VU8vc-AeVRum8RhciwHeCUFOIHOTMrxIVbOakI_fwDsL9nGCEdu4ORhNOHKtl5dsRdYE45m4zZyJpTcvTijQAyyJ_ZvkFV1ldjUAF63i2cw1zAOQhkFNQTYhSeqw"/>
+<div class="flex flex-col">
+<span class="text-headline-md font-headline-md font-bold tracking-tight text-primary leading-none">VISROSLOT</span>
+<span class="text-label-sm font-label-sm text-secondary tracking-widest uppercase mt-0.5">Every Slot. Simplified.</span>
+</div>
+<div class="hidden sm:inline-flex items-center ml-space-sm pl-space-md border-l border-outline-variant">
+<span class="bg-surface-container text-primary font-label-sm text-label-sm px-2.5 py-1 rounded-full flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            Business Setup Wizard
+          </span>
+</div>
+</div>
+<!-- Center Stepper Indicator Summary (Web) -->
+<nav class="hidden xl:flex items-center gap-space-lg">
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#wizard-step-1">Business Setup</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#wizard-step-2">Operating Hours</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#wizard-step-3">Slot Inventory</a>
+<a class="border-b-2 border-primary text-primary font-label-md text-label-md pb-1" href="#wizard-step-4">Verification</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#wizard-step-5">Payouts</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#wizard-step-6">Review</a>
+</nav>
+<!-- Trailing Action Badges & Help -->
+<div class="flex items-center gap-space-md">
+<a class="hidden md:flex items-center gap-1.5 text-on-surface-variant hover:text-primary text-label-md font-label-md transition-colors px-2 py-1.5 rounded-lg hover:bg-surface-container-low" href="tel:+919391354003">
+<span class="material-symbols-outlined text-secondary">support_agent</span>
+<span>+91 93913 54003 Concierge</span>
+</a>
+<button class="hidden sm:inline-flex items-center gap-1 text-on-surface-variant hover:text-primary text-label-md font-label-md px-2 py-1.5 rounded-lg hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined">help_outline</span>
+<span>Help</span>
+</button>
+<button class="bg-primary text-on-primary hover:bg-primary-container active:scale-[0.98] font-label-md text-label-md px-4 py-2 rounded-lg transition-all shadow-sm flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-sm">save</span>
+<span>Save & Continue</span>
+</button>
+</div>
+</div>
+</header>
+<!-- MAIN CANVAS -->
+<main class="flex-1 w-full max-w-screen-2xl mx-auto px-margin-sm md:px-margin-lg py-space-xl space-y-12">
+<!-- GLOBAL PROGRESS ANCHOR BAR -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-space-md shadow-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md pb-space-sm mb-space-sm border-b border-outline-variant">
+<div>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-secondary">Enterprise Setup & Verification Workflow</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary mt-0.5">Aura Luxury Salon & Wellness Suite — Onboarding Stage</h1>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="text-right">
+<p class="text-label-sm font-label-sm text-on-surface-variant">Setup Completion</p>
+<p class="text-label-lg font-label-lg text-primary">68% Finished (Step 4 of 6)</p>
+</div>
+<div class="w-32 bg-surface-container-highest rounded-full h-2.5 overflow-hidden">
+<div class="bg-primary h-2.5 rounded-full transition-all duration-500" style="width: 68%;"></div>
+</div>
+</div>
+</div>
+<!-- 6-STEP VISUAL PROGRESS STEPPER -->
+<div class="grid grid-cols-2 md:grid-cols-6 gap-2 pt-space-xs">
+<!-- Step 1 -->
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-low border border-outline-variant">
+<div class="w-6 h-6 rounded-full bg-primary-container text-surface-bright flex items-center justify-center text-label-sm font-label-sm shrink-0">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div class="min-w-0">
+<p class="text-label-sm font-label-sm text-secondary truncate">Step 1</p>
+<p class="text-label-md font-label-md text-on-surface truncate">Business Profile</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-low border border-outline-variant">
+<div class="w-6 h-6 rounded-full bg-primary-container text-surface-bright flex items-center justify-center text-label-sm font-label-sm shrink-0">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div class="min-w-0">
+<p class="text-label-sm font-label-sm text-secondary truncate">Step 2</p>
+<p class="text-label-md font-label-md text-on-surface truncate">Location & Map</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-low border border-outline-variant">
+<div class="w-6 h-6 rounded-full bg-primary-container text-surface-bright flex items-center justify-center text-label-sm font-label-sm shrink-0">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div class="min-w-0">
+<p class="text-label-sm font-label-sm text-secondary truncate">Step 3</p>
+<p class="text-label-md font-label-md text-on-surface truncate">Services & Menu</p>
+</div>
+</div>
+<!-- Step 4 (Current) -->
+<div class="flex items-center gap-2 p-2 rounded-lg bg-primary-container text-on-primary border border-primary shadow-sm">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center text-label-sm font-bold shrink-0">
+            4
+          </div>
+<div class="min-w-0">
+<p class="text-label-sm font-label-sm text-on-primary-container truncate font-semibold">Active Step</p>
+<p class="text-label-md font-label-md text-on-primary truncate">Staff & Rosters</p>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-lowest border border-outline-variant opacity-85">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center text-label-sm font-label-sm shrink-0">
+            5
+          </div>
+<div class="min-w-0">
+<p class="text-label-sm font-label-sm text-on-surface-variant truncate">Step 5</p>
+<p class="text-label-md font-label-md text-on-surface truncate">Hours & Buffer</p>
+</div>
+</div>
+<!-- Step 6 -->
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-lowest border border-outline-variant opacity-85">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center text-label-sm font-label-sm shrink-0">
+            6
+          </div>
+<div class="min-w-0">
+<p class="text-label-sm font-label-sm text-on-surface-variant truncate">Step 6</p>
+<p class="text-label-md font-label-md text-on-surface truncate">Review & Go-Live</p>
+</div>
+</div>
+</div>
+</div>
+<!-- PART A: BUSINESS OWNER ACCOUNT REGISTRATION (SPLIT-SCREEN CARD) -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-space-lg border-b border-outline-variant flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm bg-surface-container-low">
+<div class="flex items-center gap-space-md">
+<span class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center font-bold text-label-md">01</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-primary">Master Enterprise Account Gateway</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Validated enterprise credentials synchronised with VISROSLOT security ledger.</p>
+</div>
+</div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container/40 border border-secondary text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span>Verified Business Session Active</span>
+</div>
+</div>
+<!-- Split Layout Container -->
+<div class="grid grid-cols-1 lg:grid-cols-12">
+<!-- Left Luxury Emerald Card -->
+<div class="lg:col-span-5 bg-primary p-space-lg md:p-space-xl text-on-primary flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-outline-variant relative overflow-hidden">
+<!-- Ambient geometric motif -->
+<div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-secondary/20 pointer-events-none blur-2xl"></div>
+<div class="space-y-space-lg relative z-10">
+<div class="flex items-center gap-3">
+<img alt="VISROSLOT official business emblem logo with calendar and peacock feather motif" class="w-14 h-14 rounded-full border-2 border-secondary-container/40 shadow-lg object-contain bg-surface-container-lowest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6FK-7QhTFSG25NtrlV1c7j4Y5ME2gHPHUy-BO57ZoPHdbpDT9BRpCHHyp9V0I0V7EJbPbI0e8BZ0zukQexrCsVzxuRJ-5OhHL62iUQJNWJQhe0ViXCUvKPkMUr1VU8vc-AeVRum8RhciwHeCUFOIHOTMrxIVbOakI_fwDsL9nGCEdu4ORhNOHKtl5dsRdYE45m4zZyJpTcvTijQAyyJ_ZvkFV1ldjUAF63i2cw1zAOQhkFNQTYhSeqw"/>
+<div>
+<span class="text-headline-md font-headline-md font-bold tracking-tight text-surface-bright">VISROSLOT</span>
+<p class="text-label-sm font-label-sm text-on-primary-container tracking-wider uppercase">Enterprise Edition</p>
+</div>
+</div>
+<div class="space-y-space-xs pt-space-md">
+<h3 class="text-headline-xl font-headline-xl text-surface-bright font-bold leading-tight">Empower Your Service Enterprise</h3>
+<p class="text-body-md font-body-md text-surface-container-high">Engineered for luxury salons, restorative spas, and executive clinical practices requiring spotless calendar governance.</p>
+</div>
+<!-- Value Propositions List -->
+<div class="space-y-space-md pt-space-sm">
+<div class="flex items-start gap-space-md">
+<span class="w-6 h-6 rounded-full bg-secondary/30 text-surface-bright flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-sm">workspace_premium</span>
+</span>
+<div>
+<p class="text-label-lg font-label-lg text-surface-bright">Instant 7-Day Free Trial</p>
+<p class="text-body-sm font-body-sm text-surface-container-high">Full operational suite unblocked with zero advance billing friction.</p>
+</div>
+</div>
+<div class="flex items-start gap-space-md">
+<span class="w-6 h-6 rounded-full bg-secondary/30 text-surface-bright flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-sm">savings</span>
+</span>
+<div>
+<p class="text-label-lg font-label-lg text-surface-bright">Zero Commission Per Booking</p>
+<p class="text-body-sm font-body-sm text-surface-container-high">Flat software subscription; 100% of your service turnover remains yours.</p>
+</div>
+</div>
+<div class="flex items-start gap-space-md">
+<span class="w-6 h-6 rounded-full bg-secondary/30 text-surface-bright flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-sm">lan</span>
+</span>
+<div>
+<p class="text-label-lg font-label-lg text-surface-bright">Multi-Staff Conflict Prevention</p>
+<p class="text-body-sm font-body-sm text-surface-container-high">Live interlocking calendars prevent room and specialist overlap.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Endorsement Badge -->
+<div class="pt-space-xl border-t border-secondary/30 mt-space-xl relative z-10">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-lowest text-primary flex items-center justify-center font-bold">
+<span class="material-symbols-outlined">headset_mic</span>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-on-primary-container">Priority Implementation Desk</p>
+<p class="text-label-lg font-label-lg text-surface-bright font-bold">+91 93913 54003</p>
+<p class="text-body-sm font-body-sm text-surface-container-high text-xs">Direct Support for Telangana & Hyderabad Region</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Pure White Form Panel -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-space-lg md:p-space-xl flex flex-col justify-between">
+<!-- Active Account Transition Banner -->
+<div class="mb-space-lg p-space-md rounded-lg bg-surface-container-low border border-secondary flex items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<span class="material-symbols-outlined text-secondary mt-0.5">task_alt</span>
+<div>
+<span class="text-label-lg font-label-lg text-primary">Account Created: dr.arjun@auraluxury.com</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Validated session ID: <span class="font-mono text-xs">VSR-HYD-98442</span>. Proceeding automatically into the 6-Step Onboarding Wizard below.</p>
+</div>
+</div>
+<span class="text-label-sm font-label-sm bg-primary text-on-primary px-2.5 py-1 rounded-full whitespace-nowrap">Step Synchronized</span>
+</div>
+<!-- Input Fields Form -->
+<form class="space-y-space-md" onsubmit="event.preventDefault();">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Full Name -->
+<div class="space-y-1">
+<label class="block text-label-md font-label-md text-on-surface" for="reg-fullname">Full Name</label>
+<div class="relative">
+<input class="w-full h-11 px-space-md bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface text-body-md font-body-md focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all" id="reg-fullname" type="text" value="Dr. Arjun Varma"/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-secondary text-base">badge</span>
+</div>
+</div>
+<!-- Work Email -->
+<div class="space-y-1">
+<label class="block text-label-md font-label-md text-on-surface" for="reg-email">Business Work Email</label>
+<div class="relative">
+<input class="w-full h-11 px-space-md bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface text-body-md font-body-md focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all" id="reg-email" type="email" value="dr.arjun@auraluxury.com"/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-secondary text-base">verified</span>
+</div>
+</div>
+</div>
+<!-- Phone Number -->
+<div class="space-y-1">
+<label class="block text-label-md font-label-md text-on-surface" for="reg-phone">Mobile Number</label>
+<div class="flex gap-2">
+<div class="flex items-center px-3 bg-surface-container-low border border-outline-variant rounded-lg text-body-md font-body-md text-on-surface">
+<span class="text-label-md font-label-md text-primary font-bold mr-1">🇮🇳 +91</span>
+</div>
+<input class="flex-1 h-11 px-space-md bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface text-body-md font-body-md focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all" id="reg-phone" type="tel" value="98490 22345"/>
+</div>
+</div>
+<!-- Passwords Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="space-y-1">
+<label class="block text-label-md font-label-md text-on-surface" for="reg-password">Secure Password</label>
+<div class="relative">
+<input class="w-full h-11 px-space-md bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface text-body-md font-body-md focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all" id="reg-password" type="text" value="AuraJubilee$2025"/>
+<button class="absolute right-3 top-2.5 text-on-surface-variant hover:text-primary" type="button">
+<span class="material-symbols-outlined text-base">visibility</span>
+</button>
+</div>
+<!-- Strength Meter -->
+<div class="pt-1.5 space-y-1">
+<div class="flex gap-1.5">
+<div class="h-1 flex-1 rounded bg-secondary"></div>
+<div class="h-1 flex-1 rounded bg-secondary"></div>
+<div class="h-1 flex-1 rounded bg-secondary"></div>
+<div class="h-1 flex-1 rounded bg-secondary"></div>
+</div>
+<span class="text-label-sm font-label-sm text-secondary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">format_image_left</span>
+                    High Security Strength (8+ chars, uppercase & special symbol validated)
+                  </span>
+</div>
+</div>
+<div class="space-y-1">
+<label class="block text-label-md font-label-md text-on-surface" for="reg-confpassword">Confirm Password</label>
+<div class="relative">
+<input class="w-full h-11 px-space-md bg-surface-container-lowest border border-secondary rounded-lg text-on-surface text-body-md font-body-md focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all" id="reg-confpassword" type="text" value="AuraJubilee$2025"/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-secondary text-base">check_circle</span>
+</div>
+<p class="text-label-sm font-label-sm text-secondary pt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">done_all</span>
+                  Both cryptographic passwords match perfectly
+                </p>
+</div>
+</div>
+<!-- Terms acceptance -->
+<div class="pt-space-sm flex items-start gap-space-sm">
+<input checked="" class="mt-1 w-4 h-4 rounded border-outline-variant text-primary focus:ring-secondary cursor-pointer" id="terms-agree" type="checkbox"/>
+<label class="text-body-sm font-body-sm text-on-surface-variant leading-snug" for="terms-agree">
+                I agree to the VISROSLOT <a class="text-primary font-semibold hover:underline" href="#">Terms of Service</a>, <a class="text-primary font-semibold hover:underline" href="#">Service Level Agreement (SLA)</a>, and <a class="text-primary font-semibold hover:underline" href="#">Privacy Policy</a>. Confidentiality is safeguarded under ISO 27001 protocols.
+              </label>
+</div>
+<!-- Form CTAs -->
+<div class="pt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md border-t border-outline-variant">
+<button class="w-full sm:w-auto bg-primary text-on-primary hover:bg-primary-container px-space-lg py-2.5 rounded-lg font-label-lg text-label-lg transition-all active:scale-[0.98] shadow-sm flex items-center justify-center gap-2" type="button">
+<span>Create Business Account</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<div class="text-center sm:text-right">
+<span class="text-body-sm font-body-sm text-on-surface-variant">Already have an enterprise account? </span>
+<a class="text-label-md font-label-md text-primary font-bold hover:underline" href="#">Sign In</a>
+</div>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- PART B: THE 6-STEP BUSINESS ONBOARDING WIZARD WORKBENCH -->
+<div class="space-y-8">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-outline-variant pb-space-sm">
+<div>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-secondary">Step-By-Step Configuration Modules</span>
+<h2 class="text-headline-lg font-headline-lg font-bold text-primary">Enterprise Setup Matrix</h2>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Active focus:</span>
+<span class="bg-surface-container text-primary font-label-md text-label-md px-3 py-1 rounded-full border border-outline-variant">
+            Step 4: Staff Members & Rosters
+          </span>
+</div>
+</div>
+<!-- STEP 1 – BUSINESS DETAILS -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-space-lg md:p-space-xl shadow-sm transition-all hover:border-secondary" id="wizard-step-1">
+<div class="flex items-center justify-between pb-space-md border-b border-outline-variant mb-space-lg">
+<div class="flex items-center gap-space-md">
+<span class="w-8 h-8 rounded-full bg-primary-container text-surface-bright flex items-center justify-center font-bold text-label-md">1</span>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary">Business Details</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Brand taxonomy, official legal title, and digital logo asset.</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm border border-outline-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-secondary">check_circle</span> Configured
+          </span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Textual Setup Form -->
+<div class="lg:col-span-8 space-y-space-md">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="space-y-1">
+<label class="block text-label-md font-label-md text-on-surface" for="biz-legal-name">Business Legal Name</label>
+<input class="w-full h-11 px-space-md bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface text-body-md font-body-md focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none" id="biz-legal-name" type="text" value="Aura Luxury Salon & Wellness Suite"/>
+</div>
+<div class="space-y-1">
+<label class="block text-label-md font-label-md text-on-surface" for="biz-category">Business Category</label>
+<div class="relative">
+<select class="w-full h-11 px-space-md bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface text-body-md font-body-md focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none appearance-none cursor-pointer" id="biz-category">
+<option selected="">Salon, Spa & Wellness</option>
+<option>Clinical Trichology & Dermatology</option>
+<option>Executive Fitness & Recovery Studio</option>
+<option>Consulting & Private Practice</option>
+<option>Aesthetic Training Academy</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Description -->
+<div class="space-y-1">
+<label class="block text-label-md font-label-md text-on-surface" for="biz-description">Business Description</label>
+<textarea class="w-full p-space-md bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface text-body-md font-body-md focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none resize-none" id="biz-description" rows="3">Premier organic botanical salon and restorative spa offering bespoke hair styling and clinical scalp therapy.</textarea>
+<p class="text-label-sm font-label-sm text-on-surface-variant text-right">98 / 300 characters</p>
+</div>
+</div>
+<!-- Logo Upload Widget -->
+<div class="lg:col-span-4 bg-surface-container-low border border-outline-variant rounded-xl p-space-md flex flex-col justify-between">
+<div>
+<p class="text-label-md font-label-md text-on-surface mb-space-xs">Business Logo Asset</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-space-md">Displayed on public client reservation link and automated invoice receipts.</p>
+<div class="flex items-center gap-space-md p-space-sm bg-surface-container-lowest border border-outline-variant rounded-lg">
+<img alt="VISROSLOT official business emblem logo with calendar and peacock feather motif" class="w-16 h-16 rounded-full border border-secondary/30 object-contain shadow-sm bg-surface-container-lowest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6FK-7QhTFSG25NtrlV1c7j4Y5ME2gHPHUy-BO57ZoPHdbpDT9BRpCHHyp9V0I0V7EJbPbI0e8BZ0zukQexrCsVzxuRJ-5OhHL62iUQJNWJQhe0ViXCUvKPkMUr1VU8vc-AeVRum8RhciwHeCUFOIHOTMrxIVbOakI_fwDsL9nGCEdu4ORhNOHKtl5dsRdYE45m4zZyJpTcvTijQAyyJ_ZvkFV1ldjUAF63i2cw1zAOQhkFNQTYhSeqw"/>
+<div class="flex-1 min-w-0">
+<p class="text-label-md font-label-md text-primary truncate">aura-emblem-official.png</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">1,420 KB • PNG Vectorized</p>
+<span class="inline-block mt-1 bg-surface-container px-2 py-0.5 rounded text-label-sm font-label-sm text-secondary">Ready for HD Display</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-space-md pt-space-sm border-t border-outline-variant">
+<button class="flex-1 h-9 bg-surface-container-lowest border border-outline-variant text-primary hover:bg-surface-container text-label-sm font-label-sm rounded-lg transition-colors flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-sm">cached</span>
+<span>Change Logo</span>
+</button>
+<button class="h-9 px-3 bg-surface-container-lowest border border-outline-variant text-error hover:bg-error-container/30 text-label-sm font-label-sm rounded-lg transition-colors flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-sm">delete</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- STEP 2 – LOCATION & STOREFRONT -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-space-lg md:p-space-xl shadow-sm transition-all hover:border-secondary" id="wizard-step-2">
+<div class="flex items-center justify-between pb-space-md border-b border-outline-variant mb-space-lg">
+<div class="flex items-center gap-space-md">
+<span class="w-8 h-8 rounded-full bg-primary-container text-surface-bright flex items-center justify-center font-bold text-label-md">2</span>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary">Location & Geometry</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Storefront physical location coordinates and unique vanity client booking link.</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm border border-outline-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-secondary">verified</span> Google Maps Verified
+          </span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Address Fields -->
+<div class="lg:col-span-7 space-y-space-md">
+<div class="grid grid-cols-3 gap-space-md">
+<div class="space-y-1">
+<label class="block text-label-md font-label-md text-on-surface" for="loc-country">Country</label>
+<input class="w-full h-11 px-space-md bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface text-body-md font-body-md outline-none" id="loc-country" readonly="" type="text" value="India"/>
+</div>
+<div class="space-y-1">
+<label class="block text-label-md font-label-md text-on-surface" for="loc-state">State</label>
+<input class="w-full h-11 px-space-md bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface text-body-md font-body-md outline-none" id="loc-state" readonly="" type="text" value="Telangana"/>
+</div>
+<div class="space-y-1">
+<label class="block text-label-md font-label-md text-on-surface" for="loc-city">City</label>
+<input class="w-full h-11 px-space-md bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface text-body-md font-body-md outline-none" id="loc-city" readonly="" type="text" value="Hyderabad"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="block text-label-md font-label-md text-on-surface" for="loc-address">Full Physical Business Address</label>
+<input class="w-full h-11 px-space-md bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface text-body-md font-body-md focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none" id="loc-address" type="text" value="Plot 36, Road No. 36, Jubilee Hills, Hyderabad - 500033"/>
+</div>
+<!-- Public Link Vanity Preview -->
+<div class="p-space-md bg-surface-container-low border border-outline-variant rounded-lg space-y-2">
+<div class="flex items-center justify-between">
+<label class="block text-label-md font-label-md text-primary font-bold">Public Client Booking Link (Vanity URL)</label>
+<span class="text-label-sm font-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded">SSL Secured HTTPS</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex-1 flex items-center bg-surface-container-lowest border border-outline-variant rounded-lg px-3 py-2 text-body-md font-mono text-primary font-semibold select-all overflow-x-auto">
+<span class="text-on-surface-variant font-normal">https://</span>visroslot.com/book/aura-luxury-salon
+                </div>
+<button class="h-10 px-4 bg-primary text-on-primary hover:bg-primary-container rounded-lg text-label-md font-label-md transition-all flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+<span>Copy</span>
+</button>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Clients can book available slots instantly from Instagram bio, WhatsApp, and Google Maps listing.</p>
+</div>
+</div>
+<!-- Location Map Visualizer Card -->
+<div class="lg:col-span-5 border border-outline-variant rounded-xl overflow-hidden flex flex-col bg-surface-container-low">
+<div class="h-44 bg-surface-container relative flex items-center justify-center overflow-hidden">
+<!-- Location Map Image with required prompt and data-location attribute -->
+<img class="w-full h-full object-cover opacity-85" data-alt="A clean, minimalist high-precision vector architectural map showing the urban grid of Jubilee Hills Hyderabad with soft sage and muted platinum streets. A single emerald location pin sits over Road Number 36, surrounded by delicate geographic boundary contours under soft neutral daytime lighting. The overall design conforms to an authoritative executive enterprise aesthetic." data-location="Hyderabad" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkOLgnxsvgLYxb0eGRjFSncalEAdHpDdHKeM2O7pX6ky48loBG5i8H7mLu_d6_shmxGXFcobjsNlKkBTxVeUL_JzEdlMS2aZcGNaOcXU7eH9OPwAXsgMXq1vOY9_8tUhAu9o_5y769aLAUx0RIeaysf-ujbnuOWUTrbOtSE-We_MpgLZcmvHlvEp8JY2I2GgPTZxA46-MUkbBcTUbXeoP6jj-zmSSW5nFv_2v-MLqK"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-space-md">
+<div class="flex items-center gap-2 text-surface-bright">
+<span class="material-symbols-outlined text-secondary-container">pin_drop</span>
+<span class="text-label-md font-label-md">Jubilee Hills • Road No. 36 Intersection</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between bg-surface-container-lowest">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-label-md font-label-md text-on-surface">Storefront Landmark</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Opposite Metro Pillar 1642, Next to Botanica Reserve</p>
+</div>
+<span class="material-symbols-outlined text-secondary">my_location</span>
+</div>
+<div class="pt-space-sm border-t border-outline-variant flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Coordinates: 17.4319° N, 78.4073° E</span>
+<span class="text-secondary font-bold">Auto-Geocoded</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- STEP 3 – SERVICES & CUSTOM PRICING -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-space-lg md:p-space-xl shadow-sm transition-all hover:border-secondary" id="wizard-step-3">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-space-md border-b border-outline-variant mb-space-lg gap-space-sm">
+<div class="flex items-center gap-space-md">
+<span class="w-8 h-8 rounded-full bg-primary-container text-surface-bright flex items-center justify-center font-bold text-label-md">3</span>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary">Services & Custom Pricing</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Define catalog durations, pricing tiers, and automated calendar intervals.</p>
+</div>
+</div>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary text-on-primary rounded-lg text-label-md font-label-md hover:bg-primary-container transition-colors shadow-sm self-start sm:self-auto" type="button">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+<span>+ Add New Service</span>
+</button>
+</div>
+<!-- Service Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Service 1 -->
+<div class="border border-outline-variant rounded-xl p-space-md bg-surface-container-lowest hover:border-secondary transition-all flex flex-col justify-between">
+<div class="flex items-start justify-between gap-space-md">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<h4 class="text-headline-sm font-headline-sm text-primary">Hair Spa & Botanical Treatment</h4>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/30 text-secondary text-label-sm font-label-sm">Active</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Deep restoration utilizing cold-pressed argan elixir and micro-steam infuser.</p>
+</div>
+<div class="text-right shrink-0">
+<p class="text-headline-sm font-headline-sm text-primary font-bold">₹1,499</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant flex items-center justify-end gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span> 60 mins
+                </p>
+</div>
+</div>
+<div class="pt-space-md mt-space-md border-t border-outline-variant flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Assigned: Kavita Sharma</span>
+<div class="flex items-center gap-2">
+<button class="text-secondary hover:underline" type="button">Edit Service</button>
+<span class="text-outline-variant">•</span>
+<button class="text-on-surface-variant hover:text-error" type="button">Archive</button>
+</div>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="border border-outline-variant rounded-xl p-space-md bg-surface-container-lowest hover:border-secondary transition-all flex flex-col justify-between">
+<div class="flex items-start justify-between gap-space-md">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<h4 class="text-headline-sm font-headline-sm text-primary">Signature Executive Styling</h4>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/30 text-secondary text-label-sm font-label-sm">Active</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Precision scissor taper, organic wash rinse, and personalized finish matrix.</p>
+</div>
+<div class="text-right shrink-0">
+<p class="text-headline-sm font-headline-sm text-primary font-bold">₹850</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant flex items-center justify-end gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span> 45 mins
+                </p>
+</div>
+</div>
+<div class="pt-space-md mt-space-md border-t border-outline-variant flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Assigned: Rahul Mehta, Kavita</span>
+<div class="flex items-center gap-2">
+<button class="text-secondary hover:underline" type="button">Edit Service</button>
+<span class="text-outline-variant">•</span>
+<button class="text-on-surface-variant hover:text-error" type="button">Archive</button>
+</div>
+</div>
+</div>
+<!-- Service 3 -->
+<div class="border border-outline-variant rounded-xl p-space-md bg-surface-container-lowest hover:border-secondary transition-all flex flex-col justify-between">
+<div class="flex items-start justify-between gap-space-md">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<h4 class="text-headline-sm font-headline-sm text-primary">Hydrating Scalp Therapy</h4>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/30 text-secondary text-label-sm font-label-sm">Active</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Dermatological trichology assessment and restorative serum infusion.</p>
+</div>
+<div class="text-right shrink-0">
+<p class="text-headline-sm font-headline-sm text-primary font-bold">₹1,200</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant flex items-center justify-end gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span> 40 mins
+                </p>
+</div>
+</div>
+<div class="pt-space-md mt-space-md border-t border-outline-variant flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Assigned: Dr. Ananya Rao</span>
+<div class="flex items-center gap-2">
+<button class="text-secondary hover:underline" type="button">Edit Service</button>
+<span class="text-outline-variant">•</span>
+<button class="text-on-surface-variant hover:text-error" type="button">Archive</button>
+</div>
+</div>
+</div>
+<!-- Service 4 -->
+<div class="border border-outline-variant rounded-xl p-space-md bg-surface-container-lowest hover:border-secondary transition-all flex flex-col justify-between">
+<div class="flex items-start justify-between gap-space-md">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<h4 class="text-headline-sm font-headline-sm text-primary">Beard Sculpting & Royal Shave</h4>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/30 text-secondary text-label-sm font-label-sm">Active</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Hot towel ritual, single razor refinement, and cooling cedarwood balm.</p>
+</div>
+<div class="text-right shrink-0">
+<p class="text-headline-sm font-headline-sm text-primary font-bold">₹550</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant flex items-center justify-end gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span> 30 mins
+                </p>
+</div>
+</div>
+<div class="pt-space-md mt-space-md border-t border-outline-variant flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Assigned: Rahul Mehta</span>
+<div class="flex items-center gap-2">
+<button class="text-secondary hover:underline" type="button">Edit Service</button>
+<span class="text-outline-variant">•</span>
+<button class="text-on-surface-variant hover:text-error" type="button">Archive</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- STEP 4 – STAFF MEMBERS & ROSTERS (ACTIVE WORKBENCH STEP) -->
+<section class="bg-surface-container-lowest border-2 border-primary rounded-xl p-space-lg md:p-space-xl shadow-md relative overflow-hidden" id="wizard-step-4">
+<div class="absolute top-0 left-0 right-0 h-1.5 bg-primary"></div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-space-md border-b border-outline-variant mb-space-lg gap-space-sm pt-2">
+<div class="flex items-center gap-space-md">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-label-md">4</span>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="text-headline-sm font-headline-sm text-primary font-bold">Staff Members & Roster Allocations</h3>
+<span class="bg-secondary text-on-secondary text-label-sm font-label-sm px-2.5 py-0.5 rounded-full uppercase tracking-wider font-semibold">Current Step</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Assign individual specialists, designate service competencies, and configure weekly rotation schedules.</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Capacity: <span class="font-bold text-primary">3 of 10</span> Staff slots used</span>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary text-on-primary rounded-lg text-label-md font-label-md hover:bg-primary-container transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-sm">person_add</span>
+<span>+ Add Staff Member</span>
+</button>
+</div>
+</div>
+<!-- 3 Configured Specialist Staff Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Specialist 1 -->
+<div class="border border-outline-variant rounded-xl p-space-md bg-surface-container-low flex flex-col justify-between hover:border-secondary transition-all">
+<div class="space-y-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-headline-sm shadow-sm">
+                  KS
+                </div>
+<div>
+<h4 class="text-label-lg font-label-lg text-primary font-bold">Kavita Sharma</h4>
+<p class="text-label-sm font-label-sm text-secondary font-medium">Lead Stylist & Colorist</p>
+<span class="inline-block mt-0.5 text-xs text-on-surface-variant">Emp ID: #SL-012</span>
+</div>
+</div>
+<!-- Services Capability Badges -->
+<div class="space-y-1.5 pt-space-xs">
+<p class="text-label-sm font-label-sm text-on-surface-variant">Qualified Services:</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-surface-container-lowest border border-outline-variant text-primary text-label-sm font-label-sm px-2 py-0.5 rounded">Hair Spa</span>
+<span class="bg-surface-container-lowest border border-outline-variant text-primary text-label-sm font-label-sm px-2 py-0.5 rounded">Executive Styling</span>
+<span class="bg-surface-container-lowest border border-outline-variant text-primary text-label-sm font-label-sm px-2 py-0.5 rounded">Scalp Therapy</span>
+</div>
+</div>
+<!-- Roster Schedule Days -->
+<div class="p-space-sm bg-surface-container-lowest border border-outline-variant rounded-lg space-y-1">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Roster Days:</span>
+<span class="text-primary font-bold">Tuesday – Sunday</span>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Shift Window:</span>
+<span class="text-primary">09:30 AM – 07:30 PM</span>
+</div>
+</div>
+</div>
+<div class="pt-space-md mt-space-md border-t border-outline-variant flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-secondary flex items-center gap-1 font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Available for Booking
+              </span>
+<button class="text-primary font-semibold hover:underline" type="button">Configure Roster</button>
+</div>
+</div>
+<!-- Specialist 2 -->
+<div class="border border-outline-variant rounded-xl p-space-md bg-surface-container-low flex flex-col justify-between hover:border-secondary transition-all">
+<div class="space-y-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-full bg-tertiary text-on-primary flex items-center justify-center font-bold text-headline-sm shadow-sm">
+                  RM
+                </div>
+<div>
+<h4 class="text-label-lg font-label-lg text-primary font-bold">Rahul Mehta</h4>
+<p class="text-label-sm font-label-sm text-secondary font-medium">Master Barber & Grooming Specialist</p>
+<span class="inline-block mt-0.5 text-xs text-on-surface-variant">Emp ID: #SL-019</span>
+</div>
+</div>
+<!-- Services Capability Badges -->
+<div class="space-y-1.5 pt-space-xs">
+<p class="text-label-sm font-label-sm text-on-surface-variant">Qualified Services:</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-surface-container-lowest border border-outline-variant text-primary text-label-sm font-label-sm px-2 py-0.5 rounded">Executive Styling</span>
+<span class="bg-surface-container-lowest border border-outline-variant text-primary text-label-sm font-label-sm px-2 py-0.5 rounded">Beard Sculpting</span>
+</div>
+</div>
+<!-- Roster Schedule Days -->
+<div class="p-space-sm bg-surface-container-lowest border border-outline-variant rounded-lg space-y-1">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Roster Days:</span>
+<span class="text-primary font-bold">Monday – Saturday</span>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Shift Window:</span>
+<span class="text-primary">10:00 AM – 08:30 PM</span>
+</div>
+</div>
+</div>
+<div class="pt-space-md mt-space-md border-t border-outline-variant flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-secondary flex items-center gap-1 font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Available for Booking
+              </span>
+<button class="text-primary font-semibold hover:underline" type="button">Configure Roster</button>
+</div>
+</div>
+<!-- Specialist 3 -->
+<div class="border border-outline-variant rounded-xl p-space-md bg-surface-container-low flex flex-col justify-between hover:border-secondary transition-all">
+<div class="space-y-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-full bg-primary-container text-surface-bright flex items-center justify-center font-bold text-headline-sm shadow-sm">
+                  AR
+                </div>
+<div>
+<h4 class="text-label-lg font-label-lg text-primary font-bold">Dr. Ananya Rao</h4>
+<p class="text-label-sm font-label-sm text-secondary font-medium">Consulting Trichologist & Derm</p>
+<span class="inline-block mt-0.5 text-xs text-on-surface-variant">Medical Reg: #TS-4418</span>
+</div>
+</div>
+<!-- Services Capability Badges -->
+<div class="space-y-1.5 pt-space-xs">
+<p class="text-label-sm font-label-sm text-on-surface-variant">Qualified Services:</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-surface-container-lowest border border-outline-variant text-primary text-label-sm font-label-sm px-2 py-0.5 rounded">Hydrating Scalp Therapy</span>
+<span class="bg-surface-container-lowest border border-outline-variant text-primary text-label-sm font-label-sm px-2 py-0.5 rounded">Clinical Diagnostics</span>
+</div>
+</div>
+<!-- Roster Schedule Days -->
+<div class="p-space-sm bg-surface-container-lowest border border-outline-variant rounded-lg space-y-1">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Roster Days:</span>
+<span class="text-primary font-bold">Thursday – Sunday</span>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Shift Window:</span>
+<span class="text-primary">11:00 AM – 06:00 PM</span>
+</div>
+</div>
+</div>
+<div class="pt-space-md mt-space-md border-t border-outline-variant flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-secondary flex items-center gap-1 font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Available for Booking
+              </span>
+<button class="text-primary font-semibold hover:underline" type="button">Configure Roster</button>
+</div>
+</div>
+</div>
+</section>
+<!-- STEP 5 – BUSINESS HOURS & BUFFER INTERVALS -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-space-lg md:p-space-xl shadow-sm transition-all hover:border-secondary" id="wizard-step-5">
+<div class="flex items-center justify-between pb-space-md border-b border-outline-variant mb-space-lg">
+<div class="flex items-center gap-space-md">
+<span class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold text-label-md">5</span>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary">Business Hours & Buffer Intervals</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Establish weekly store operating envelopes, turnaround sanitize times, and audio alerts.</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm border border-outline-variant">
+            Pending Confirmation
+          </span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Weekly Schedule Table -->
+<div class="lg:col-span-7 space-y-space-md">
+<p class="text-label-md font-label-md text-on-surface">Operating Timetable Schedule</p>
+<div class="space-y-2">
+<!-- Mon-Fri Schedule Row -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between p-space-md bg-surface-container-low border border-outline-variant rounded-lg gap-2">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<div>
+<p class="text-label-md font-label-md text-primary">Monday through Friday</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Standard Weekday Hours</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-mono text-label-md font-label-md text-primary bg-surface-container-lowest px-3 py-1.5 rounded border border-outline-variant">09:00 AM – 08:30 PM</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<!-- Sat-Sun Schedule Row -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between p-space-md bg-surface-container-low border border-outline-variant rounded-lg gap-2">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<div>
+<p class="text-label-md font-label-md text-primary">Saturday & Sunday</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Weekend Prime Salon Hours</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-mono text-label-md font-label-md text-primary bg-surface-container-lowest px-3 py-1.5 rounded border border-outline-variant">08:30 AM – 09:00 PM</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Turnaround Buffers & Audio Notification -->
+<div class="lg:col-span-5 bg-surface-container-low border border-outline-variant rounded-xl p-space-md space-y-space-md flex flex-col justify-between">
+<div class="space-y-space-md">
+<div>
+<label class="block text-label-md font-label-md text-primary mb-1">Disinfection & Turnaround Buffer Time</label>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-space-sm">Automatically blocks time after each completed appointment to sanitize styling stations and prevent customer overlap.</p>
+<!-- Buffer Selection Buttons -->
+<div class="grid grid-cols-5 gap-1.5">
+<button class="py-1.5 text-center text-label-sm font-label-sm rounded border border-outline-variant bg-surface-container-lowest text-on-surface" type="button">None</button>
+<button class="py-1.5 text-center text-label-sm font-label-sm rounded border border-outline-variant bg-surface-container-lowest text-on-surface" type="button">10m</button>
+<button class="py-1.5 text-center text-label-sm font-label-sm rounded border-2 border-primary bg-primary text-on-primary font-bold" type="button">15m</button>
+<button class="py-1.5 text-center text-label-sm font-label-sm rounded border border-outline-variant bg-surface-container-lowest text-on-surface" type="button">20m</button>
+<button class="py-1.5 text-center text-label-sm font-label-sm rounded border border-outline-variant bg-surface-container-lowest text-on-surface" type="button">30m</button>
+</div>
+<p class="text-xs text-secondary mt-1.5 font-medium">Selected: 15 Minutes automatically padded to every appointment.</p>
+</div>
+<!-- Audio notification setting -->
+<div class="pt-space-sm border-t border-outline-variant">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">notifications_active</span>
+<div>
+<p class="text-label-md font-label-md text-on-surface">Reception Chime</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant text-xs">Play audible chime on incoming booking</p>
+</div>
+</div>
+<span class="bg-surface-container-highest text-primary font-bold text-label-sm font-label-sm px-2.5 py-1 rounded">ON</span>
+</div>
+</div>
+</div>
+<div class="text-xs text-on-surface-variant bg-surface-container-lowest p-2.5 rounded-lg border border-outline-variant">
+<span>Synchronised with automatic SMS & WhatsApp reminders dispatched 2 hours prior to start.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- STEP 6 – REVIEW & COMPLETE SETUP (FINAL ONBOARDING DESTINATION) -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-space-lg md:p-space-xl shadow-sm transition-all hover:border-secondary" id="wizard-step-6">
+<div class="flex items-center justify-between pb-space-md border-b border-outline-variant mb-space-lg">
+<div class="flex items-center gap-space-md">
+<span class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold text-label-md">6</span>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary">Review & Complete Setup</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Consolidated operational blueprint review prior to dashboard launch and calendar unblocking.</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container/40 text-primary font-label-sm text-label-sm border border-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">inventory_2</span> Complete Ready State
+          </span>
+</div>
+<!-- Consolidated Summary Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mb-space-lg">
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-md space-y-2">
+<span class="text-label-sm font-label-sm text-secondary uppercase font-semibold">Store Identity</span>
+<h4 class="text-label-lg font-label-lg text-primary font-bold">Aura Luxury Salon & Wellness Suite</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Plot 36, Road No. 36, Jubilee Hills, Hyderabad - 500033</p>
+<p class="text-label-sm font-label-sm text-primary font-mono pt-1">visroslot.com/book/aura-luxury-salon</p>
+</div>
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-md space-y-2">
+<span class="text-label-sm font-label-sm text-secondary uppercase font-semibold">Capacity & Catalog</span>
+<div class="flex justify-between items-center text-body-md font-body-md">
+<span class="text-on-surface-variant">Configured Services:</span>
+<span class="font-bold text-primary">4 Bespoke Offerings</span>
+</div>
+<div class="flex justify-between items-center text-body-md font-body-md">
+<span class="text-on-surface-variant">Active Specialists:</span>
+<span class="font-bold text-primary">3 Practitioners</span>
+</div>
+<div class="flex justify-between items-center text-body-md font-body-md">
+<span class="text-on-surface-variant">Turnaround Buffer:</span>
+<span class="font-bold text-primary">15 Min Post-Slot</span>
+</div>
+</div>
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-md space-y-2">
+<span class="text-label-sm font-label-sm text-secondary uppercase font-semibold">Subscription & Billing</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+<span class="text-label-lg font-label-lg text-primary font-bold">Instant 7-Day Free Trial</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">₹0 due today. Full Business Suite access until trial conclusion. Automated reminders prior to expiry.</p>
+<span class="inline-block text-xs bg-surface-container text-primary px-2 py-0.5 rounded font-semibold">Zero Commission Model</span>
+</div>
+</div>
+<!-- Master Wizard Action Bar -->
+<div class="pt-space-md border-t border-outline-variant flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<button class="w-full sm:w-auto px-space-lg py-2.5 rounded-lg border border-outline-variant bg-surface-container-lowest text-primary hover:bg-surface-container-low text-label-lg font-label-lg transition-colors flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+<span>Previous Step</span>
+</button>
+<div class="flex flex-col sm:flex-row items-center gap-space-md w-full sm:w-auto">
+<div class="text-center sm:text-right">
+<p class="text-label-sm font-label-sm text-on-surface-variant">Ready to accept appointments?</p>
+<p class="text-label-sm font-label-sm text-secondary font-bold">All 6 prerequisite modules validated</p>
+</div>
+<button class="w-full sm:w-auto bg-primary text-on-primary hover:bg-primary-container active:scale-[0.98] px-space-xl py-3 rounded-lg font-label-lg text-label-lg transition-all shadow-md flex items-center justify-center gap-2" type="button">
+<span>Complete Setup & Launch Dashboard</span>
+<span class="material-symbols-outlined text-base">rocket_launch</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- ADMINISTRATIVE FOOTER -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant mt-16">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-sm md:px-margin-lg py-space-md max-w-screen-2xl mx-auto gap-space-sm text-label-sm font-label-sm">
+<div class="flex items-center gap-space-md">
+<span class="text-label-md font-label-md font-bold text-primary">VISROSLOT</span>
+<span class="text-on-surface-variant">© 2025 VISROSLOT Enterprise. Every Slot. Simplified. All rights reserved. Helpline: +91 93913 54003</span>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-space-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Registration Guidelines</a>
+<a class="hover:text-primary transition-colors" href="#">SLA Agreement</a>
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Security Compliance</a>
+<a class="hover:text-primary transition-colors" href="#">Enterprise Support</a>
+</div>
+</div>
+</footer>
+</body></html>

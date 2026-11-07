@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VISROSLOT — Every Slot. Simplified. | Modern Appointment Management Platform</title>
+<!-- Google Fonts: Manrope, Inter, JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "navy-brand": "#142B50",
+            "orange-brand": "#F28C28",
+            "orange-hover": "#d9771e",
+            "surface-bg": "#F6F8FB",
+            "surface-card": "#FFFFFF",
+            "border-crisp": "#E7EBF1",
+            "border-subtle": "#EDF1F7",
+            "text-dark": "#182438",
+            "text-secondary": "#687386",
+            "text-muted": "#9CA3AF",
+            "slot-available": "#10B981",
+            "slot-booked": "#F28C28",
+            "slot-locked": "#E2E8F0",
+            "brand-gold": "#C49A46"
+          },
+          fontFamily: {
+            manrope: ["Manrope", "sans-serif"],
+            inter: ["Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          },
+          boxShadow: {
+            subtle: "0 1px 3px 0 rgba(20, 43, 80, 0.05), 0 1px 2px -1px rgba(20, 43, 80, 0.03)",
+            editorial: "0 16px 36px -8px rgba(20, 43, 80, 0.09), 0 4px 12px -2px rgba(20, 43, 80, 0.04)"
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .hatch-pattern {
+      background-image: repeating-linear-gradient(45deg, #f1f5f9, #f1f5f9 6px, #ffffff 6px, #ffffff 12px);
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-surface-bg text-text-dark font-inter antialiased selection:bg-orange-brand selection:text-white">
+<!-- 1. STICKY TOP APP BAR -->
+<header class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-border-crisp transition-all">
+<div class="max-w-7xl mx-auto px-6 h-18 flex items-center justify-between py-3.5">
+<!-- Clean Brand Logo -->
+<a class="flex items-center gap-3 group" href="#">
+<div class="w-9 h-9 rounded-md border border-border-crisp overflow-hidden flex-shrink-0 bg-white p-0.5 shadow-sm group-hover:border-orange-brand/50 transition-colors">
+<img alt="VISROSLOT Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_ifYeFbSUWrH6tz6h4Ucw_zphbPb_5BctE1WtfAny6ntNlTjUFvCd5_ff3BWgYzrU-7UfdEpCAGMGsGt86Y9WLvZHWIQUKX-ilFPmZbC_ugasbHtmd7IIo8j9Ykt8_14Ickg8vn1syqMMYFAIc5juitYifAnTNcUHY74rgRhCGzzjDaTlxTwc0RMFkRBWAKfBLuFaBqLBkiOzF1l7R-HXvdEHqyvttNUwFhpdlARKiXDGS1sWxFTaUA"/>
+</div>
+<div class="flex flex-col">
+<span class="text-base font-extrabold tracking-tight text-navy-brand font-manrope leading-none">VISROSLOT</span>
+<span class="text-[10px] tracking-wider text-text-secondary uppercase font-mono font-medium mt-0.5">Every Slot. Simplified.</span>
+</div>
+</a>
+<!-- Center Navigation Links -->
+<nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-text-secondary">
+<a class="hover:text-navy-brand transition-colors" href="#features">Features</a>
+<a class="hover:text-navy-brand transition-colors" href="#how-it-works">How It Works</a>
+<a class="hover:text-navy-brand transition-colors" href="#industries">Industries</a>
+<a class="hover:text-navy-brand transition-colors" href="#pricing">Pricing</a>
+<a class="hover:text-navy-brand transition-colors" href="#faq">FAQ</a>
+</nav>
+<!-- Right Action Cluster -->
+<div class="flex items-center gap-4">
+<a class="hidden sm:inline-flex text-sm font-medium text-text-secondary hover:text-navy-brand px-3 py-2 transition-colors" href="#pricing">
+          Sign In
+        </a>
+<a class="bg-orange-brand hover:bg-orange-hover text-white text-sm font-semibold px-4.5 py-2 rounded-lg shadow-sm transition-all duration-150 active:scale-95 inline-flex items-center gap-1.5" href="#pricing">
+<span>Start Free Trial</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</header>
+<!-- 2. HERO SECTION (Spacious 50/50 balanced layout) -->
+<section class="pt-12 pb-20 md:pt-18 md:pb-28 overflow-hidden bg-gradient-to-b from-white via-surface-bg to-surface-bg border-b border-border-crisp">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+<!-- Left Hero Column (6 Cols) -->
+<div class="lg:col-span-6 flex flex-col justify-center">
+<div class="inline-block self-start mb-4">
+<span class="tracking-widest font-semibold text-orange-brand text-xs uppercase bg-orange-brand/10 border border-orange-brand/20 px-3 py-1 rounded-full">
+              APPOINTMENT MANAGEMENT SOFTWARE
+            </span>
+</div>
+<h1 class="text-4xl sm:text-5xl lg:text-[56px] font-bold font-manrope text-navy-brand leading-[1.12] mb-6 tracking-tight">
+            Your Business. Your Time. <br/>
+<span class="text-orange-brand">Better Bookings.</span>
+</h1>
+<p class="text-lg text-text-secondary leading-relaxed mb-8 max-w-lg">
+            Take control of appointments, staff schedules and customer bookings with one simple platform designed to help your business run smoothly.
+          </p>
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+<a class="bg-orange-brand hover:bg-orange-hover text-white px-6 py-3.5 rounded-lg font-medium text-center shadow-sm transition-all duration-150 inline-flex items-center justify-center gap-2 group" href="#pricing">
+<span>Start Your Free Trial</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</a>
+<a class="border border-border-crisp bg-white text-navy-brand hover:bg-surface-bg px-6 py-3.5 rounded-lg font-medium text-center inline-flex items-center justify-center gap-2 transition-colors" href="#product-showcase">
+<span class="material-symbols-outlined text-text-secondary text-[20px]">visibility</span>
+<span>See How It Works</span>
+</a>
+</div>
+<!-- Benefits Row -->
+<div class="flex flex-wrap items-center gap-6 mt-8 pt-4 border-t border-border-subtle text-sm text-text-secondary">
+<div class="inline-flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-slot-available/10 text-slot-available flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="font-medium text-text-dark">Easy Setup</span>
+</div>
+<div class="inline-flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-slot-available/10 text-slot-available flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="font-medium text-text-dark">Smart Scheduling</span>
+</div>
+<div class="inline-flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-slot-available/10 text-slot-available flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="font-medium text-text-dark">One Simple Platform</span>
+</div>
+</div>
+</div>
+<!-- Right Realistic Dashboard Mockup (6 Cols) -->
+<div class="lg:col-span-6">
+<div class="bg-white rounded-xl border border-border-crisp shadow-editorial overflow-hidden">
+<!-- Browser Chrome -->
+<div class="bg-surface-bg px-4 py-2.5 border-b border-border-crisp flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#EF4444]/70"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]/70"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#10B981]/70"></span>
+<div class="ml-2 px-3 py-1 bg-white border border-border-crisp rounded text-[11px] font-mono text-text-secondary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[12px] text-text-muted">lock</span>
+<span>visroslot.com/app/schedule</span>
+</div>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-slot-available/10 text-slot-available text-[11px] font-mono font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-slot-available animate-pulse"></span>
+<span>Live Sync Active</span>
+</div>
+</div>
+<!-- Top Metric Bar inside Mockup -->
+<div class="p-4 border-b border-border-subtle bg-white">
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs">
+<div class="p-2.5 rounded-lg bg-surface-bg border border-border-crisp">
+<div class="text-[10px] uppercase font-mono text-text-secondary">Today</div>
+<div class="font-bold text-navy-brand text-sm mt-0.5">14 Bookings</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-bg border border-border-crisp">
+<div class="text-[10px] uppercase font-mono text-text-secondary">Staff</div>
+<div class="font-bold text-navy-brand text-sm mt-0.5">3 on Duty</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-bg border border-border-crisp">
+<div class="text-[10px] uppercase font-mono text-text-secondary">Audio Alerts</div>
+<div class="font-bold text-slot-available text-sm mt-0.5 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-slot-available"></span> ON
+                  </div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-bg border border-border-crisp">
+<div class="text-[10px] uppercase font-mono text-text-secondary">Conflict Check</div>
+<div class="font-bold text-navy-brand text-sm mt-0.5">100% OK</div>
+</div>
+</div>
+</div>
+<!-- Dashboard Body: Timeline + Quick Panel -->
+<div class="p-4 grid grid-cols-1 md:grid-cols-12 gap-3.5 bg-surface-bg/40">
+<!-- Left Roster List (8 cols) -->
+<div class="md:col-span-8 space-y-2.5">
+<div class="flex items-center justify-between px-1">
+<span class="text-[11px] font-mono uppercase tracking-wider text-text-secondary font-semibold">Today's Timeline</span>
+<span class="text-[11px] font-mono text-text-secondary">Wed, 24 Oct</span>
+</div>
+<!-- Slot 1 -->
+<div class="p-3 bg-white rounded-lg border border-border-crisp flex items-center justify-between hover:border-navy-brand/20 transition-all">
+<div class="flex items-center gap-3">
+<div class="w-13 text-center">
+<span class="text-xs font-mono font-bold text-navy-brand block">09:30</span>
+<span class="text-[9px] text-text-secondary uppercase">AM</span>
+</div>
+<div class="border-l border-border-crisp pl-3">
+<div class="flex items-center gap-2">
+<span class="font-semibold text-xs text-text-dark">Priya Sharma</span>
+<span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-slot-available/10 text-slot-available font-medium border border-slot-available/20">Confirmed</span>
+</div>
+<p class="text-[11px] text-text-secondary mt-0.5">Hair Spa &amp; Blow Dry • Kavita (Lead)</p>
+</div>
+</div>
+<span class="text-xs font-mono font-bold text-text-dark">₹1,450</span>
+</div>
+<!-- Slot 2 -->
+<div class="p-3 bg-white rounded-lg border-2 border-orange-brand/70 shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-13 text-center">
+<span class="text-xs font-mono font-bold text-orange-brand block">11:15</span>
+<span class="text-[9px] text-orange-brand uppercase">AM</span>
+</div>
+<div class="border-l border-orange-brand/20 pl-3">
+<div class="flex items-center gap-2">
+<span class="font-semibold text-xs text-text-dark">Rahul Mehta</span>
+<span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-orange-brand/10 text-orange-brand font-medium border border-orange-brand/30">In Progress</span>
+</div>
+<p class="text-[11px] text-text-secondary mt-0.5">Consultation &amp; Beard Trim • Rahul (Senior)</p>
+</div>
+</div>
+<span class="text-xs font-mono font-bold text-text-dark">₹650</span>
+</div>
+<!-- Slot 3 -->
+<div class="p-3 bg-white rounded-lg border border-border-crisp flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-13 text-center">
+<span class="text-xs font-mono font-bold text-navy-brand block">01:00</span>
+<span class="text-[9px] text-text-secondary uppercase">PM</span>
+</div>
+<div class="border-l border-border-crisp pl-3">
+<div class="flex items-center gap-2">
+<span class="font-semibold text-xs text-text-dark">Dr. Ananya Rao</span>
+<span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-[#3b82f6]/10 text-[#2563eb] font-medium border border-[#3b82f6]/20">Scheduled</span>
+</div>
+<p class="text-[11px] text-text-secondary mt-0.5">Dental Checkup &amp; Polish • Dr. Rao</p>
+</div>
+</div>
+<span class="text-xs font-mono font-bold text-text-dark">₹2,200</span>
+</div>
+<!-- Slot 4 -->
+<div class="p-3 bg-white rounded-lg border border-border-crisp flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-13 text-center">
+<span class="text-xs font-mono font-bold text-navy-brand block">03:30</span>
+<span class="text-[9px] text-text-secondary uppercase">PM</span>
+</div>
+<div class="border-l border-border-crisp pl-3">
+<div class="flex items-center gap-2">
+<span class="font-semibold text-xs text-text-dark">Vikram Malhotra</span>
+<span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-surface-bg text-text-secondary font-medium">Upcoming</span>
+</div>
+<p class="text-[11px] text-text-secondary mt-0.5">Deep Tissue Massage • Maya (Therapist)</p>
+</div>
+</div>
+<span class="text-xs font-mono font-bold text-text-dark">₹3,500</span>
+</div>
+</div>
+<!-- Right Side Panel (4 cols) -->
+<div class="md:col-span-4 space-y-2.5">
+<!-- Specialist Shift Matrix -->
+<div class="p-3 bg-white rounded-lg border border-border-crisp">
+<span class="text-[10px] font-mono uppercase tracking-wider text-text-secondary font-semibold block mb-2">Specialist Shifts</span>
+<div class="space-y-2 text-[11px]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-slot-available"></span>
+<span class="font-medium text-text-dark">Kavita S.</span>
+</div>
+<span class="font-mono text-[10px] text-text-secondary">9a - 5p</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-slot-available"></span>
+<span class="font-medium text-text-dark">Rahul M.</span>
+</div>
+<span class="font-mono text-[10px] text-text-secondary">10a - 6p</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-slot-available"></span>
+<span class="font-medium text-text-dark">Dr. Rao</span>
+</div>
+<span class="font-mono text-[10px] text-text-secondary">12p - 7p</span>
+</div>
+</div>
+</div>
+<!-- Instant WhatsApp Share Widget -->
+<div class="p-3 bg-white rounded-lg border border-border-crisp text-left">
+<span class="text-[10px] font-mono uppercase tracking-wider text-text-secondary font-semibold block mb-1.5">Quick Client Share</span>
+<p class="text-[11px] text-text-secondary mb-2">Send booking link directly via WhatsApp or copy URL.</p>
+<div class="flex items-center gap-1.5">
+<button class="w-full py-1.5 px-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 rounded text-[11px] font-medium transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[13px]">share</span>
+<span>WhatsApp</span>
+</button>
+<button class="py-1.5 px-2 bg-surface-bg hover:bg-border-crisp text-text-dark rounded text-[11px] font-medium transition-colors" title="Copy Link">
+<span class="material-symbols-outlined text-[13px]">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. BRAND STATEMENT (Clean Editorial Brand Strip - No Fabricated Numbers) -->
+<section class="py-12 bg-white border-b border-border-crisp">
+<div class="max-w-7xl mx-auto px-6 text-center">
+<p class="text-xl sm:text-2xl font-bold font-manrope text-navy-brand tracking-tight">
+        “Everything your appointment-based business needs, in one place.”
+      </p>
+<div class="mt-6 flex flex-wrap items-center justify-center gap-y-3 gap-x-8 text-xs font-mono uppercase tracking-wider text-text-secondary font-semibold">
+<span class="inline-flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-orange-brand"></span> Salons &amp; Barbershops
+        </span>
+<span class="inline-flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-orange-brand"></span> Dental &amp; Health Clinics
+        </span>
+<span class="inline-flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-orange-brand"></span> Spas &amp; Wellness
+        </span>
+<span class="inline-flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-orange-brand"></span> Fitness Studios
+        </span>
+<span class="inline-flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-orange-brand"></span> Advisory &amp; Consultants
+        </span>
+</div>
+</div>
+</section>
+<!-- 4. PRODUCT SHOWCASE (Large Browser Schedule Matrix Frame) -->
+<section class="py-20 md:py-28 bg-surface-bg" id="product-showcase">
+<div class="max-w-7xl mx-auto px-6">
+<div class="max-w-3xl mx-auto text-center mb-14">
+<span class="text-xs font-mono uppercase tracking-widest text-orange-brand font-semibold">SCHEDULE MATRIX VIEW</span>
+<h2 class="text-3xl sm:text-4xl font-bold font-manrope text-navy-brand mt-2 tracking-tight">
+          More control over your business. <br class="hidden sm:inline"/>Less time spent managing it.
+        </h2>
+<p class="text-base text-text-secondary mt-3">
+          A single operational view that keeps clients scheduled, staff coordinated, and appointments conflict-free.
+        </p>
+</div>
+<!-- Large Authentic Calendar Matrix Mockup -->
+<div class="bg-white rounded-2xl border border-border-crisp shadow-editorial overflow-hidden">
+<!-- App Window Header -->
+<div class="bg-surface-bg px-6 py-3 border-b border-border-crisp flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="font-mono text-xs font-semibold text-navy-brand">VISROSLOT Calendar Pro</span>
+<span class="text-border-crisp">|</span>
+<div class="flex items-center gap-1 text-xs text-text-secondary">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+<span class="font-medium text-text-dark">Wednesday, October 24</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<!-- Audio Chime Toggle Indicator -->
+<div class="flex items-center gap-1.5 text-xs bg-white px-2.5 py-1 rounded border border-border-crisp font-mono text-text-secondary">
+<span class="material-symbols-outlined text-[15px] text-slot-available">volume_up</span>
+<span>Audio Chimes: <strong class="text-navy-brand font-semibold">Active</strong></span>
+</div>
+<div class="hidden sm:flex items-center gap-1 text-xs text-text-secondary bg-white px-2.5 py-1 rounded border border-border-crisp">
+<span class="material-symbols-outlined text-[15px]">search</span>
+<span>CRM Search (⌘K)</span>
+</div>
+</div>
+</div>
+<!-- Schedule Grid Content -->
+<div class="overflow-x-auto">
+<div class="min-w-[760px] p-6">
+<!-- Staff Column Lanes Header -->
+<div class="grid grid-cols-12 gap-3 pb-4 border-b border-border-crisp text-xs font-mono font-semibold uppercase text-text-secondary">
+<div class="col-span-2">Time</div>
+<div class="col-span-3 flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-navy-brand text-white flex items-center justify-center text-[10px]">KS</span>
+<span class="text-navy-brand font-bold">Kavita Sharma</span>
+</div>
+<div class="col-span-3 flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-orange-brand text-white flex items-center justify-center text-[10px]">RM</span>
+<span class="text-navy-brand font-bold">Rahul Mehta</span>
+</div>
+<div class="col-span-4 flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-[#2563eb] text-white flex items-center justify-center text-[10px]">AR</span>
+<span class="text-navy-brand font-bold">Dr. Ananya Rao</span>
+</div>
+</div>
+<!-- Time Slots Matrix -->
+<div class="space-y-3.5 pt-4 text-xs">
+<!-- 09:00 - 10:00 -->
+<div class="grid grid-cols-12 gap-3 items-center min-h-[58px]">
+<div class="col-span-2 font-mono text-text-secondary text-[11px]">09:00 AM</div>
+<!-- Kavita: Booked -->
+<div class="col-span-3 bg-navy-brand text-white p-2.5 rounded-lg border border-navy-brand/30">
+<div class="font-semibold text-xs flex justify-between">
+<span>Priya S.</span>
+<span class="font-mono text-[10px] text-white/80">09:30</span>
+</div>
+<div class="text-[10px] text-white/70">Signature Hair Spa (45 min)</div>
+</div>
+<!-- Rahul: Available -->
+<div class="col-span-3 border border-dashed border-border-crisp rounded-lg p-2.5 text-text-muted hover:border-orange-brand/40 transition-colors">
+<span class="text-[10px] font-mono text-slot-available font-medium">● Available</span>
+</div>
+<!-- Dr. Rao: Off Shift -->
+<div class="col-span-4 hatch-pattern rounded-lg p-2.5 text-text-muted border border-border-crisp/60 text-[10px] font-mono">
+                  Shift starts 12:00 PM
+                </div>
+</div>
+<!-- 10:30 - 11:30 -->
+<div class="grid grid-cols-12 gap-3 items-center min-h-[58px]">
+<div class="col-span-2 font-mono text-text-secondary text-[11px]">10:30 AM</div>
+<!-- Kavita: Buffer interval -->
+<div class="col-span-3 hatch-pattern rounded-lg p-2 border border-border-crisp text-text-secondary text-[10px] flex items-center gap-1 font-mono">
+<span class="material-symbols-outlined text-[13px] text-orange-brand">hourglass_empty</span>
+<span>15-min Sanitization Buffer</span>
+</div>
+<!-- Rahul: In progress -->
+<div class="col-span-3 bg-orange-brand text-white p-2.5 rounded-lg shadow-sm">
+<div class="font-semibold text-xs flex justify-between">
+<span>Rahul Mehta</span>
+<span class="font-mono text-[10px]">11:15</span>
+</div>
+<div class="text-[10px] text-white/90">Grooming &amp; Beard Trim</div>
+</div>
+<!-- Dr. Rao: Preparation -->
+<div class="col-span-4 hatch-pattern rounded-lg p-2.5 text-text-muted border border-border-crisp/60 text-[10px] font-mono">
+                  Clinic Preparation
+                </div>
+</div>
+<!-- 12:00 - 01:30 -->
+<div class="grid grid-cols-12 gap-3 items-center min-h-[58px]">
+<div class="col-span-2 font-mono text-text-secondary text-[11px]">12:30 PM</div>
+<!-- Kavita: Booked -->
+<div class="col-span-3 bg-navy-brand/90 text-white p-2.5 rounded-lg">
+<div class="font-semibold text-xs flex justify-between">
+<span>Neha Kapoor</span>
+<span class="font-mono text-[10px] text-white/80">12:30</span>
+</div>
+<div class="text-[10px] text-white/70">Keratin Touchup (60 min)</div>
+</div>
+<!-- Rahul: Lunch Buffer -->
+<div class="col-span-3 hatch-pattern rounded-lg p-2 border border-border-crisp text-text-secondary text-[10px] flex items-center gap-1 font-mono">
+<span class="material-symbols-outlined text-[13px]">restaurant</span>
+<span>Lunch Interval (30m)</span>
+</div>
+<!-- Dr. Rao: Consultation Booked -->
+<div class="col-span-4 bg-[#1e40af] text-white p-2.5 rounded-lg">
+<div class="font-semibold text-xs flex justify-between">
+<span>Amit Verma</span>
+<span class="font-mono text-[10px] text-white/80">01:00</span>
+</div>
+<div class="text-[10px] text-white/80">Dental Diagnostic &amp; Scan</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Matrix Callout Strip -->
+<div class="p-4 bg-surface-bg border-t border-border-crisp flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-text-secondary">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-orange-brand text-[18px]">verified</span>
+<span class="text-text-dark font-medium">Automatic Conflict Prevention Active:</span>
+<span>Blocks overlapping time slots instantly across staff rosters.</span>
+</div>
+<div class="flex items-center gap-2 text-text-dark font-medium">
+<span class="material-symbols-outlined text-slot-available text-[16px]">check_circle</span>
+<span>Instant WhatsApp &amp; SMS Confirmations Sent Automatically</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. THREE DISTINCT ALTERNATING FEATURE WALKTHROUGHS -->
+<section class="py-20 md:py-28 bg-white border-t border-border-crisp" id="features">
+<div class="max-w-7xl mx-auto px-6 space-y-24">
+<!-- WALKTHROUGH A: Customer Booking Flow (Left Text, Right Mobile UI) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left Content -->
+<div class="lg:col-span-6 space-y-4">
+<span class="text-xs font-mono uppercase tracking-widest text-orange-brand font-semibold">CUSTOMER BOOKING FLOW</span>
+<h3 class="text-3xl sm:text-4xl font-bold font-manrope text-navy-brand tracking-tight">
+            Frictionless Online Booking for Your Clients
+          </h3>
+<p class="text-base text-text-secondary leading-relaxed pt-1">
+            Give your clients a 24/7 dedicated booking link that works effortlessly on any mobile device without installing an app. Storefront QR codes let walk-ins book without interrupting desk staff.
+          </p>
+<ul class="space-y-2.5 pt-3 text-sm text-text-dark">
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-slot-available text-[18px]">check_circle</span>
+<span>Direct shareable link: <code class="font-mono text-xs bg-surface-bg px-1.5 py-0.5 rounded border border-border-crisp">visroslot.com/book/aura-salon</code></span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-slot-available text-[18px]">check_circle</span>
+<span>Zero logins or downloads required for your customers</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-slot-available text-[18px]">check_circle</span>
+<span>Instant booking summary sent via SMS &amp; WhatsApp</span>
+</li>
+</ul>
+</div>
+<!-- Right Realistic Mobile Booking Flow UI -->
+<div class="lg:col-span-6 flex justify-center">
+<div class="w-full max-w-sm bg-white rounded-3xl border-4 border-navy-brand/10 shadow-editorial p-4 overflow-hidden">
+<!-- Mobile App Screen -->
+<div class="bg-surface-bg rounded-2xl p-4 border border-border-crisp">
+<!-- Top Business Identity -->
+<div class="flex items-center justify-between border-b border-border-crisp pb-3 mb-3">
+<div>
+<h4 class="font-manrope font-bold text-xs text-navy-brand">AURA Salon &amp; Studio</h4>
+<p class="text-[10px] text-text-secondary">Indiranagar, Bangalore</p>
+</div>
+<span class="text-[10px] font-mono text-slot-available bg-slot-available/10 px-2 py-0.5 rounded">● Open Now</span>
+</div>
+<!-- Step 1: Service Chosen -->
+<div class="bg-white p-3 rounded-xl border border-orange-brand/30 shadow-sm mb-3">
+<div class="flex items-center justify-between text-xs">
+<span class="font-bold text-text-dark">Signature Hair Spa</span>
+<span class="font-mono font-bold text-navy-brand">₹1,450</span>
+</div>
+<div class="text-[10px] text-text-secondary mt-1 flex items-center gap-2">
+<span>⏱ 45 mins</span>
+<span>•</span>
+<span>Includes wash &amp; blow-dry</span>
+</div>
+</div>
+<!-- Step 2: Specialist Selector -->
+<div class="mb-3">
+<span class="text-[10px] font-mono uppercase text-text-secondary font-semibold block mb-1.5">Select Specialist</span>
+<div class="grid grid-cols-2 gap-2 text-xs">
+<div class="p-2 rounded-lg bg-white border-2 border-orange-brand flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-navy-brand text-white flex items-center justify-center text-[10px]">KS</span>
+<div>
+<div class="font-bold text-[11px]">Kavita S.</div>
+<div class="text-[9px] text-text-secondary">Lead Stylist</div>
+</div>
+</div>
+<div class="p-2 rounded-lg bg-white border border-border-crisp flex items-center gap-2 opacity-80">
+<span class="w-6 h-6 rounded-full bg-surface-bg text-text-dark flex items-center justify-center text-[10px]">RM</span>
+<div>
+<div class="font-bold text-[11px]">Rahul M.</div>
+<div class="text-[9px] text-text-secondary">Senior Stylist</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 3: Interactive Date & Slot Picker -->
+<div class="bg-white p-3 rounded-xl border border-border-crisp mb-3">
+<span class="text-[10px] font-mono uppercase text-text-secondary font-semibold block mb-2">Available Slots (Today)</span>
+<div class="grid grid-cols-3 gap-1.5 text-center text-xs">
+<span class="py-1.5 rounded bg-surface-bg text-text-muted line-through text-[11px]">10:00 AM</span>
+<span class="py-1.5 rounded bg-orange-brand text-white font-semibold text-[11px] shadow-sm">11:30 AM</span>
+<span class="py-1.5 rounded bg-surface-bg border border-border-crisp hover:border-orange-brand text-text-dark font-medium text-[11px]">02:15 PM</span>
+</div>
+</div>
+<!-- Mobile Book Action -->
+<button class="w-full py-2.5 rounded-xl bg-orange-brand text-white text-xs font-semibold shadow-sm flex items-center justify-center gap-1">
+<span>Confirm Reservation (₹1,450)</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- WALKTHROUGH B: Team & Calendar Matrix (Left UI, Right Text) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left Realistic Staff Roster UI -->
+<div class="lg:col-span-6 order-2 lg:order-1">
+<div class="bg-white rounded-2xl border border-border-crisp shadow-editorial p-5">
+<div class="flex items-center justify-between border-b border-border-crisp pb-3 mb-4">
+<div>
+<span class="text-xs font-mono uppercase tracking-wider text-text-secondary font-semibold">Conflict Prevention Engine</span>
+<h4 class="font-manrope font-bold text-sm text-navy-brand mt-0.5">Staff Rosters &amp; Break Intervals</h4>
+</div>
+<span class="text-xs font-mono text-slot-available bg-slot-available/10 px-2 py-0.5 rounded font-medium">Automatic Lock</span>
+</div>
+<!-- Conflict Prevention Demo Card -->
+<div class="p-3 bg-red-50 border border-red-200 rounded-xl mb-4 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-red-600 text-[18px] flex-shrink-0 mt-0.5">error</span>
+<div>
+<span class="text-xs font-bold text-red-900 block">Double-Booking Blocked</span>
+<p class="text-[11px] text-red-700 mt-0.5 leading-snug">
+                  Kavita Sharma already has an in-chair service at 11:30 AM. Online slot auto-redirected to Rahul Mehta or 12:45 PM.
+                </p>
+</div>
+</div>
+<!-- Staff Shift Controls -->
+<div class="space-y-2.5 text-xs">
+<div class="p-3 rounded-lg bg-surface-bg border border-border-crisp flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-navy-brand text-white font-bold text-xs flex items-center justify-center">KS</div>
+<div>
+<span class="font-bold text-text-dark block">Kavita Sharma</span>
+<span class="text-[11px] text-text-secondary">Lead Stylist • Hair &amp; Spa</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-mono text-[11px] text-navy-brand font-semibold block">09:00 - 18:00</span>
+<span class="text-[10px] text-slot-available font-mono">15m Buffer Active</span>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-surface-bg border border-border-crisp flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-orange-brand text-white font-bold text-xs flex items-center justify-center">RM</div>
+<div>
+<span class="font-bold text-text-dark block">Rahul Mehta</span>
+<span class="text-[11px] text-text-secondary">Senior Barber • Cuts &amp; Beard</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-mono text-[11px] text-navy-brand font-semibold block">10:00 - 19:00</span>
+<span class="text-[10px] text-slot-available font-mono">10m Buffer Active</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Content -->
+<div class="lg:col-span-6 order-1 lg:order-2 space-y-4">
+<span class="text-xs font-mono uppercase tracking-widest text-orange-brand font-semibold">TEAM &amp; CALENDAR MATRIX</span>
+<h3 class="text-3xl sm:text-4xl font-bold font-manrope text-navy-brand tracking-tight">
+            Smart Appointment &amp; Staff Shift Management
+          </h3>
+<p class="text-base text-text-secondary leading-relaxed pt-1">
+            Assign independent shifts, break schedules, and specific service privileges across your team. Automated buffer controls prevent overlapping slots, rushing between clients, and scheduling fatigue.
+          </p>
+<ul class="space-y-2.5 pt-3 text-sm text-text-dark">
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-slot-available text-[18px]">check_circle</span>
+<span>Individual specialist schedules, day-offs, and custom service tags</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-slot-available text-[18px]">check_circle</span>
+<span>Custom buffer times (5 to 30 mins) between client appointments</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-slot-available text-[18px]">check_circle</span>
+<span>Live conflict prevention actively disables double-booked intervals</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- WALKTHROUGH C: Retention & CRM (Left Text, Right UI) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left Content -->
+<div class="lg:col-span-6 space-y-4">
+<span class="text-xs font-mono uppercase tracking-widest text-orange-brand font-semibold">CLIENT RETENTION &amp; INSIGHTS</span>
+<h3 class="text-3xl sm:text-4xl font-bold font-manrope text-navy-brand tracking-tight">
+            Customer CRM Directory &amp; Clear Business Analytics
+          </h3>
+<p class="text-base text-text-secondary leading-relaxed pt-1">
+            Maintain detailed customer profiles with historical visits, past service notes, formula preferences, and spend summaries. Extract actionable insights on peak hours, specialist utilization, and retention rates.
+          </p>
+<ul class="space-y-2.5 pt-3 text-sm text-text-dark">
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-slot-available text-[18px]">check_circle</span>
+<span>Detailed client profile with visit history, allergies, and style notes</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-slot-available text-[18px]">check_circle</span>
+<span>Track individual specialist utilization and total service revenue</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-slot-available text-[18px]">check_circle</span>
+<span>100% private data ownership with zero third-party data selling</span>
+</li>
+</ul>
+</div>
+<!-- Right Realistic Customer CRM Modal Preview -->
+<div class="lg:col-span-6">
+<div class="bg-white rounded-2xl border border-border-crisp shadow-editorial p-5 space-y-4">
+<!-- Modal Header -->
+<div class="flex items-center justify-between border-b border-border-crisp pb-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-orange-brand/10 border border-orange-brand/30 text-orange-brand font-bold text-sm flex items-center justify-center font-mono">
+                  PS
+                </div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-manrope font-bold text-sm text-navy-brand">Priya Sharma</h4>
+<span class="text-[10px] font-mono bg-navy-brand text-white px-2 py-0.2 rounded">VIP • 12 Visits</span>
+</div>
+<p class="text-[11px] text-text-secondary mt-0.5">+91 98450 •••• | Last visit: 14 Oct</p>
+</div>
+</div>
+<span class="text-xs font-mono font-bold text-navy-brand">₹18,400 LTV</span>
+</div>
+<!-- Notes & Formula Box -->
+<div class="bg-surface-bg p-3.5 rounded-xl border border-border-crisp">
+<span class="text-[10px] font-mono uppercase text-text-secondary font-semibold block mb-1">Preferences &amp; Care Notes</span>
+<p class="text-xs text-text-dark leading-relaxed">
+                Preferred specialist: <strong>Kavita</strong>. Sensitive scalp. Strictly prefers organic herbal shampoo. Tea with no sugar during long appointments.
+              </p>
+</div>
+<!-- Micro Trend Chart Mockup -->
+<div class="border border-border-crisp rounded-xl p-3.5 bg-white">
+<div class="flex items-center justify-between text-xs mb-2">
+<span class="font-mono text-text-secondary text-[11px]">Completed Bookings (This Month)</span>
+<span class="font-mono font-bold text-slot-available">+18.4% MoM</span>
+</div>
+<!-- Clean Minimalist Bar Sparkline -->
+<div class="flex items-end gap-2 h-16 pt-2">
+<div class="flex-1 bg-surface-bg hover:bg-orange-brand/40 rounded-t h-[40%] transition-colors"></div>
+<div class="flex-1 bg-surface-bg hover:bg-orange-brand/40 rounded-t h-[55%] transition-colors"></div>
+<div class="flex-1 bg-surface-bg hover:bg-orange-brand/40 rounded-t h-[70%] transition-colors"></div>
+<div class="flex-1 bg-surface-bg hover:bg-orange-brand/40 rounded-t h-[65%] transition-colors"></div>
+<div class="flex-1 bg-orange-brand rounded-t h-[92%] transition-colors"></div>
+<div class="flex-1 bg-navy-brand rounded-t h-[100%] transition-colors"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Subtle 3-Column Micro-Feature Strip -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-12 border-t border-border-crisp">
+<div class="p-5 rounded-xl bg-surface-bg border border-border-crisp">
+<div class="w-9 h-9 rounded-lg bg-white border border-border-crisp text-orange-brand flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[20px]">hourglass_bottom</span>
+</div>
+<h4 class="font-manrope font-bold text-sm text-navy-brand">Buffer Time Automation</h4>
+<p class="text-xs text-text-secondary mt-1 leading-relaxed">Automatically space appointments with 5 to 30-minute cleaning and transit buffers.</p>
+</div>
+<div class="p-5 rounded-xl bg-surface-bg border border-border-crisp">
+<div class="w-9 h-9 rounded-lg bg-white border border-border-crisp text-orange-brand flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</div>
+<h4 class="font-manrope font-bold text-sm text-navy-brand">Device Audio Chimes</h4>
+<p class="text-xs text-text-secondary mt-1 leading-relaxed">Hear a distinct auditory chime on your desk tablet or PC whenever a client confirms a booking.</p>
+</div>
+<div class="p-5 rounded-xl bg-surface-bg border border-border-crisp">
+<div class="w-9 h-9 rounded-lg bg-white border border-border-crisp text-orange-brand flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[20px]">qr_code_2</span>
+</div>
+<h4 class="font-manrope font-bold text-sm text-navy-brand">Instant QR Code Generator</h4>
+<p class="text-xs text-text-secondary mt-1 leading-relaxed">Print high-resolution counter stickers and store posters directly from your business settings.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. INDUSTRIES (Refined Horizontal Image-Led Layout with Photography) -->
+<section class="py-20 md:py-28 bg-surface-bg border-t border-border-crisp" id="industries">
+<div class="max-w-7xl mx-auto px-6">
+<div class="max-w-2xl mx-auto text-center mb-16">
+<span class="text-xs font-mono uppercase tracking-widest text-orange-brand font-semibold">TAILORED WORKFLOWS</span>
+<h2 class="text-3xl sm:text-4xl font-bold font-manrope text-navy-brand mt-2 tracking-tight">
+          Tailored for Appointment-Driven Businesses
+        </h2>
+<p class="text-base text-text-secondary mt-3">
+          Whether you run salon chairs, clinical treatment rooms, or private advisory sessions, VISROSLOT adapts to your cadence.
+        </p>
+</div>
+<!-- 5 Editorial Image-Led Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- 1. Salons & Barbershops -->
+<div class="bg-white rounded-xl border border-border-crisp overflow-hidden shadow-subtle hover:shadow-editorial transition-all group">
+<div class="h-48 overflow-hidden bg-navy-brand/5 relative">
+<img alt="Modern Salon" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB53upXDXylmpbcXxQJd6lS5dTLM2gfcEOh0s7bmFkJmCmR--eeIaeFJIaeITugAQlXOtqwzQh-EfqKqXyO3Uqbk-K2UaLBY-Y3u81r0utUZuM8t6-f5Qehut5JBa8Gey2cujEtmuoe-qvg7N2s_83JAa6z1tn0zV39hQwe1rWLjRmlIsIEXqVzeU0fQMbEW8KKX38IW0HqyIDWsi0ACAks5Bu3ZlddGXnSwCjO9s5x"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+<span class="absolute bottom-3 left-3 text-xs font-mono bg-white/90 backdrop-blur-sm text-navy-brand px-2 py-0.5 rounded font-semibold">Salons &amp; Barbershops</span>
+</div>
+<div class="p-5">
+<h4 class="font-manrope font-bold text-base text-navy-brand mb-1">Stylist Rosters &amp; Chair Allocation</h4>
+<p class="text-xs text-text-secondary leading-relaxed">
+              Stylist rosters, chair allocation, multi-service bookings, and repeat customer history.
+            </p>
+</div>
+</div>
+<!-- 2. Clinics & Dental Practices -->
+<div class="bg-white rounded-xl border border-border-crisp overflow-hidden shadow-subtle hover:shadow-editorial transition-all group">
+<div class="h-48 overflow-hidden bg-navy-brand/5 relative">
+<img alt="Dental Examination Room" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvBt9V_482WDyNFMmC74cWnNUVj2XvS9Y7a-smeHKI--7gjSjTXuaseqXuG2LQZFVkZWqMWm7uxOs6N7XM2i27VssxrlWb-bzsXESNZmHMb2BdVxFH_8kOHou9w4qah9l-Sx4KQKE6Zd8hF143WfP980-oomv0_FliI9xNjc8N_8cn7_cJkWGWJ4WUpjGYnm_4a2WR8HUQwJVcLiYGdtnHale6Gf1mpdbQ5LFnLOT-"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+<span class="absolute bottom-3 left-3 text-xs font-mono bg-white/90 backdrop-blur-sm text-navy-brand px-2 py-0.5 rounded font-semibold">Clinics &amp; Dental</span>
+</div>
+<div class="p-5">
+<h4 class="font-manrope font-bold text-base text-navy-brand mb-1">Staggered Arrival &amp; Sanitization</h4>
+<p class="text-xs text-text-secondary leading-relaxed">
+              Patient consultation slots, staggered arrivals, and sanitized room intervals.
+            </p>
+</div>
+</div>
+<!-- 3. Spas & Wellness Centres -->
+<div class="bg-white rounded-xl border border-border-crisp overflow-hidden shadow-subtle hover:shadow-editorial transition-all group">
+<div class="h-48 overflow-hidden bg-navy-brand/5 relative">
+<img alt="Luxury Wellness Spa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg2zI6kpptlXgqSzQZEhobL12M5CGoODrhbXeovfDfqh06cf7pFBBfs_4a2J-BP04sStvlvQv_EDESh_CHBA0uE34z_EvVaA1gg_XyWh9WWKIhrhxPWix7h_dQFTYbweMo4PNGQXMrLLY9u8JnVBMq8t2niXRbxo3RY7KP8aMNdKj4IPtlH2088wQmP1W5zGbjB9Yl5mKcQD5sAaaqI-SAYaWKQtDeFgidU0-mOLLC"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+<span class="absolute bottom-3 left-3 text-xs font-mono bg-white/90 backdrop-blur-sm text-navy-brand px-2 py-0.5 rounded font-semibold">Spas &amp; Wellness</span>
+</div>
+<div class="p-5">
+<h4 class="font-manrope font-bold text-base text-navy-brand mb-1">Therapy Rooms &amp; Rest Buffers</h4>
+<p class="text-xs text-text-secondary leading-relaxed">
+              Therapy room scheduling, treatment buffer times, and specialized practitioner assignments.
+            </p>
+</div>
+</div>
+<!-- 4. Fitness Studios & Trainers -->
+<div class="bg-white rounded-xl border border-border-crisp overflow-hidden shadow-subtle hover:shadow-editorial transition-all group">
+<div class="h-48 overflow-hidden bg-navy-brand/5 relative">
+<img alt="Pilates and Fitness Studio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrNfOdG9teypS9Kkb7PcG3oRohaPjtXP297DDoEQgQuJlh3lmZ-Sok3G0iubEv8veskXvDvc-bBJaYtxnCcP_2GEQUx2irGQbW6JJ0FTcswTPUWr-xHvZcQq0rfI81Axbqiq_VGrIq8D7wIC8tCDfjR8PR2qhJqP4pX2wI_huW54_NaDEjWbeSRnDfRieniq3_I--fQoVVljHtpo5Hqzy6jYsXXgI8Z2-qCTtGzN2d"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+<span class="absolute bottom-3 left-3 text-xs font-mono bg-white/90 backdrop-blur-sm text-navy-brand px-2 py-0.5 rounded font-semibold">Fitness Studios</span>
+</div>
+<div class="p-5">
+<h4 class="font-manrope font-bold text-base text-navy-brand mb-1">Personal Training &amp; Studio Slots</h4>
+<p class="text-xs text-text-secondary leading-relaxed">
+              Personal training slots, studio equipment availability, and fitness assessment schedules.
+            </p>
+</div>
+</div>
+<!-- 5. Consultants & Advisory (Spans 2 columns on large screens for editorial balance) -->
+<div class="bg-white rounded-xl border border-border-crisp overflow-hidden shadow-subtle hover:shadow-editorial transition-all group lg:col-span-2">
+<div class="h-48 overflow-hidden bg-navy-brand/5 relative">
+<img alt="Advisory Boardroom" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_qq8DRGzfoLbgBmItVt44IQ8_-tHHrGxzfToRyPdfzl6F5cP4VNaGV3N0u_GQzYAV8RljHzhaSOc4l2I-uiqEjF5Ar1H5TVYJkjEKOANhYgJN5CSESX9qFzwzFcIzw0oHsqh8agkELStwIoNae-aYG0NvPXFRNoQZoFzwq4iMWhXEiWVxHKHXv_RdSa11rmNu2WqBHCL39DuZcD93A1aFTLVo2NfmOPMBmuZL85kC"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+<span class="absolute bottom-3 left-3 text-xs font-mono bg-white/90 backdrop-blur-sm text-navy-brand px-2 py-0.5 rounded font-semibold">Consultants &amp; Advisory</span>
+</div>
+<div class="p-5">
+<h4 class="font-manrope font-bold text-base text-navy-brand mb-1">Billable Advisory &amp; Client Intake</h4>
+<p class="text-xs text-text-secondary leading-relaxed">
+              Billable advisory appointments, client intake notes, and zero meeting back-and-forth.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. HOW IT WORKS (Minimalist Timeline with Clean Connectors) -->
+<section class="py-20 bg-white border-t border-border-crisp" id="how-it-works">
+<div class="max-w-7xl mx-auto px-6">
+<div class="max-w-2xl mx-auto text-center mb-16">
+<span class="text-xs font-mono uppercase tracking-widest text-orange-brand font-semibold">ONBOARDING SIMPLIFIED</span>
+<h2 class="text-3xl sm:text-4xl font-bold font-manrope text-navy-brand mt-2 tracking-tight">
+          Get Active in Three Simple Steps
+        </h2>
+<p class="text-base text-text-secondary mt-3">
+          Have your complete business scheduling environment operational in under 3 minutes.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+<!-- Step 01 -->
+<div class="p-6 rounded-xl bg-surface-bg border border-border-crisp relative">
+<span class="font-mono text-2xl font-bold text-orange-brand mb-3 block">01</span>
+<h3 class="font-manrope font-bold text-base text-navy-brand mb-2">Create your business account</h3>
+<p class="text-xs text-text-secondary leading-relaxed">
+            Choose your tier, configure your business name, operating hours, and time zone.
+          </p>
+<div class="mt-4 pt-3 border-t border-border-crisp text-[11px] font-mono text-slot-available font-medium">
+            ✓ 7-day trial active immediately
+          </div>
+</div>
+<!-- Step 02 -->
+<div class="p-6 rounded-xl bg-surface-bg border border-border-crisp relative">
+<span class="font-mono text-2xl font-bold text-orange-brand mb-3 block">02</span>
+<h3 class="font-manrope font-bold text-base text-navy-brand mb-2">Add services and staff</h3>
+<p class="text-xs text-text-secondary leading-relaxed">
+            Define durations, buffer intervals, specialist team members, and pricing.
+          </p>
+<div class="mt-4 pt-3 border-t border-border-crisp text-[11px] font-mono text-slot-available font-medium">
+            ✓ Flexible break controls
+          </div>
+</div>
+<!-- Step 03 -->
+<div class="p-6 rounded-xl bg-surface-bg border border-border-crisp relative">
+<span class="font-mono text-2xl font-bold text-orange-brand mb-3 block">03</span>
+<h3 class="font-manrope font-bold text-base text-navy-brand mb-2">Share your booking link</h3>
+<p class="text-xs text-text-secondary leading-relaxed">
+            Place your custom link on Instagram, WhatsApp, or print your front-desk QR code.
+          </p>
+<div class="mt-4 pt-3 border-t border-border-crisp text-[11px] font-mono text-slot-available font-medium">
+            ✓ Real-time audio alerts on bookings
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. AUTHENTIC PRICING (Two Sophisticated Cards) -->
+<section class="py-20 md:py-28 bg-surface-bg border-t border-border-crisp" id="pricing">
+<div class="max-w-7xl mx-auto px-6">
+<div class="max-w-2xl mx-auto text-center mb-16">
+<span class="text-xs font-mono uppercase tracking-widest text-orange-brand font-semibold">TRANSPARENT PLANS</span>
+<h2 class="text-3xl sm:text-4xl font-bold font-manrope text-navy-brand mt-2 tracking-tight">
+          Fair Pricing for Appointment Businesses
+        </h2>
+<p class="text-base text-text-secondary mt-3">
+          Both plans include full platform access, 7-day risk-free trial, and dedicated public booking pages.
+        </p>
+</div>
+<!-- Two Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
+<!-- Professional Plan -->
+<div class="bg-white rounded-2xl border border-border-crisp p-8 flex flex-col justify-between shadow-subtle hover:shadow-editorial transition-all">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-mono uppercase tracking-wider text-text-secondary font-semibold">PROFESSIONAL</span>
+<span class="text-[11px] font-mono text-slot-available bg-slot-available/10 px-2 py-0.5 rounded font-semibold">7-Day Free Trial</span>
+</div>
+<div class="mb-6">
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-extrabold font-manrope text-navy-brand">₹499</span>
+<span class="text-sm text-text-secondary font-medium">/ month</span>
+</div>
+<p class="text-xs text-text-secondary mt-1">Billed monthly • Cancel anytime</p>
+</div>
+<!-- Inclusions -->
+<ul class="space-y-3 text-xs text-text-dark border-t border-border-crisp pt-6">
+<li class="flex items-center gap-2">
+<span class="font-bold text-navy-brand">Up to 3 Staff Members</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="font-bold text-navy-brand">300 Monthly Appointments</span>
+</li>
+<li class="flex items-center gap-2 text-text-secondary">
+<span class="material-symbols-outlined text-slot-available text-[16px]">check</span>
+<span>Dedicated public booking page &amp; QR code</span>
+</li>
+<li class="flex items-center gap-2 text-text-secondary">
+<span class="material-symbols-outlined text-slot-available text-[16px]">check</span>
+<span>Interactive calendar with automated conflict prevention</span>
+</li>
+<li class="flex items-center gap-2 text-text-secondary">
+<span class="material-symbols-outlined text-slot-available text-[16px]">check</span>
+<span>Standard customer directory &amp; booking history</span>
+</li>
+<li class="flex items-center gap-2 text-text-secondary">
+<span class="material-symbols-outlined text-slot-available text-[16px]">check</span>
+<span>Service catalog with duration &amp; buffer controls</span>
+</li>
+<li class="flex items-center gap-2 text-text-secondary">
+<span class="material-symbols-outlined text-slot-available text-[16px]">check</span>
+<span>Basic operational analytics &amp; booking metrics</span>
+</li>
+</ul>
+</div>
+<div class="mt-8 pt-6 border-t border-border-crisp">
+<a class="w-full py-3 rounded-lg border border-navy-brand text-navy-brand hover:bg-navy-brand hover:text-white font-semibold text-xs tracking-wide uppercase transition-colors flex items-center justify-center gap-1.5" href="tel:+919391354003">
+<span>Start 7-Day Free Trial</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</a>
+<p class="text-center font-mono text-[10px] text-text-muted mt-2">Zero payment upfront</p>
+</div>
+</div>
+<!-- Business Suite Plan (Recommended) -->
+<div class="bg-white rounded-2xl border-2 border-orange-brand p-8 flex flex-col justify-between shadow-editorial relative">
+<!-- Highlight Badge -->
+<div class="absolute -top-3.5 left-8 bg-orange-brand text-white font-mono text-[10px] font-bold tracking-wider px-3.5 py-1 rounded-full uppercase shadow-sm">
+            Most Popular • Unlimited
+          </div>
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-mono uppercase tracking-wider text-orange-brand font-semibold">BUSINESS SUITE</span>
+<span class="text-[11px] font-mono text-slot-available bg-slot-available/10 px-2 py-0.5 rounded font-semibold">Unlimited Volume</span>
+</div>
+<div class="mb-6">
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-extrabold font-manrope text-navy-brand">₹999</span>
+<span class="text-sm text-text-secondary font-medium">/ month</span>
+</div>
+<p class="text-xs text-text-secondary mt-1">Billed monthly • Complete feature suite</p>
+</div>
+<!-- Inclusions -->
+<ul class="space-y-3 text-xs text-text-dark border-t border-border-crisp pt-6">
+<li class="flex items-center gap-2">
+<span class="font-bold text-navy-brand">Up to 10 Staff Members</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="font-bold text-orange-brand">UNLIMITED Monthly Bookings (Zero Caps)</span>
+</li>
+<li class="flex items-center gap-2 font-medium text-navy-brand">
+<span class="material-symbols-outlined text-orange-brand text-[16px]">verified</span>
+<span>Everything in Professional, plus:</span>
+</li>
+<li class="flex items-center gap-2 text-text-secondary">
+<span class="material-symbols-outlined text-slot-available text-[16px]">check</span>
+<span>Advanced CRM with private client preference notes</span>
+</li>
+<li class="flex items-center gap-2 text-text-secondary">
+<span class="material-symbols-outlined text-slot-available text-[16px]">check</span>
+<span>Multi-staff independent scheduling matrices</span>
+</li>
+<li class="flex items-center gap-2 text-text-secondary">
+<span class="material-symbols-outlined text-slot-available text-[16px]">check</span>
+<span>Advanced operational analytics &amp; reporting</span>
+</li>
+<li class="flex items-center gap-2 text-text-secondary">
+<span class="material-symbols-outlined text-slot-available text-[16px]">check</span>
+<span>VISROSLOT AI business trends assistant</span>
+</li>
+<li class="flex items-center gap-2 text-text-secondary">
+<span class="material-symbols-outlined text-slot-available text-[16px]">check</span>
+<span><strong>Dedicated priority phone &amp; email support</strong></span>
+</li>
+</ul>
+</div>
+<div class="mt-8 pt-6 border-t border-border-crisp">
+<a class="w-full py-3 rounded-lg bg-orange-brand hover:bg-orange-hover text-white font-semibold text-xs tracking-wide uppercase shadow-sm transition-colors flex items-center justify-center gap-1.5" href="tel:+919391354003">
+<span>Start 7-Day Free Trial</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</a>
+<p class="text-center font-mono text-[10px] text-text-muted mt-2">Instant account creation • Helpline: +91 93913 54003</p>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center text-xs text-text-secondary font-mono">
+        Transparent &amp; Secure. All data encrypted in transit and at rest. No long-term lock-in.
+      </div>
+</div>
+</section>
+<!-- 9. FREQUENTLY ASKED QUESTIONS (Clean Accordions) -->
+<section class="py-20 bg-white border-t border-border-crisp" id="faq">
+<div class="max-w-3xl mx-auto px-6">
+<div class="text-center mb-14">
+<span class="text-xs font-mono uppercase tracking-widest text-orange-brand font-semibold">FREQUENT QUESTIONS</span>
+<h2 class="text-3xl sm:text-4xl font-bold font-manrope text-navy-brand mt-2 tracking-tight">
+          Everything You Need to Know
+        </h2>
+</div>
+<div class="space-y-3.5">
+<!-- FAQ 1 -->
+<div class="rounded-xl border border-border-crisp bg-surface-bg/50 overflow-hidden">
+<button class="w-full p-4.5 text-left font-manrope font-bold text-sm text-navy-brand flex items-center justify-between hover:bg-surface-bg transition-colors" onclick="toggleFaq(1)">
+<span>What is included in the 7-day free trial?</span>
+<span class="material-symbols-outlined text-text-secondary transition-transform" id="faq-icon-1">expand_more</span>
+</button>
+<div class="px-4.5 pb-4.5 text-xs text-text-secondary leading-relaxed border-t border-border-subtle pt-3 block" id="faq-content-1">
+            Eligible businesses receive 7 full days of unrestricted platform access. You can configure services, add team members, test your live booking link, and experience live audio alerts. No payment is charged upfront, and you can cancel anytime with one click.
+          </div>
+</div>
+<!-- FAQ 2 -->
+<div class="rounded-xl border border-border-crisp bg-surface-bg/50 overflow-hidden">
+<button class="w-full p-4.5 text-left font-manrope font-bold text-sm text-navy-brand flex items-center justify-between hover:bg-surface-bg transition-colors" onclick="toggleFaq(2)">
+<span>Can I use my booking link on WhatsApp and Instagram?</span>
+<span class="material-symbols-outlined text-text-secondary transition-transform" id="faq-icon-2">expand_more</span>
+</button>
+<div class="px-4.5 pb-4.5 text-xs text-text-secondary leading-relaxed border-t border-border-subtle pt-3 hidden" id="faq-content-2">
+            Yes. Your custom booking link is completely mobile-responsive and requires no app install. You can place it directly in your Instagram bio, embed it in WhatsApp Business quick replies, or display the provided QR code in your storefront.
+          </div>
+</div>
+<!-- FAQ 3 -->
+<div class="rounded-xl border border-border-crisp bg-surface-bg/50 overflow-hidden">
+<button class="w-full p-4.5 text-left font-manrope font-bold text-sm text-navy-brand flex items-center justify-between hover:bg-surface-bg transition-colors" onclick="toggleFaq(3)">
+<span>How does automatic staff schedule conflict prevention work?</span>
+<span class="material-symbols-outlined text-text-secondary transition-transform" id="faq-icon-3">expand_more</span>
+</button>
+<div class="px-4.5 pb-4.5 text-xs text-text-secondary leading-relaxed border-t border-border-subtle pt-3 hidden" id="faq-content-3">
+            Our scheduling engine locks confirmed time slots in real time. If a specialist is booked or on a defined buffer break, that slot becomes unavailable on the public booking page, preventing overlapping appointments and double-booking errors.
+          </div>
+</div>
+<!-- FAQ 4 -->
+<div class="rounded-xl border border-border-crisp bg-surface-bg/50 overflow-hidden">
+<button class="w-full p-4.5 text-left font-manrope font-bold text-sm text-navy-brand flex items-center justify-between hover:bg-surface-bg transition-colors" onclick="toggleFaq(4)">
+<span>Can I add or change staff members as my team grows?</span>
+<span class="material-symbols-outlined text-text-secondary transition-transform" id="faq-icon-4">expand_more</span>
+</button>
+<div class="px-4.5 pb-4.5 text-xs text-text-secondary leading-relaxed border-t border-border-subtle pt-3 hidden" id="faq-content-4">
+            Yes. You can add, edit, or reassign specialists and shift schedules in seconds from your admin settings. You can upgrade from Professional (up to 3 staff) to Business Suite (up to 10 staff) whenever you are ready.
+          </div>
+</div>
+<!-- FAQ 5 -->
+<div class="rounded-xl border border-border-crisp bg-surface-bg/50 overflow-hidden">
+<button class="w-full p-4.5 text-left font-manrope font-bold text-sm text-navy-brand flex items-center justify-between hover:bg-surface-bg transition-colors" onclick="toggleFaq(5)">
+<span>Are customer records and booking history kept private and secure?</span>
+<span class="material-symbols-outlined text-text-secondary transition-transform" id="faq-icon-5">expand_more</span>
+</button>
+<div class="px-4.5 pb-4.5 text-xs text-text-secondary leading-relaxed border-t border-border-subtle pt-3 hidden" id="faq-content-5">
+            Yes. All records are encrypted in transit and at rest using bank-grade security protocols. Your business owns 100% of its customer data. We never sell, share, or monetize client contacts.
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- 10. CLOSING CTA & EDITORIAL FOOTER -->
+<section class="py-20 md:py-24 bg-navy-brand text-white text-center relative overflow-hidden">
+<div class="max-w-4xl mx-auto px-6 relative z-10">
+<h2 class="text-3xl sm:text-5xl font-bold font-manrope tracking-tight leading-tight">
+        Run your appointments with clarity. <br/>
+<span class="text-orange-brand">Start your free trial today.</span>
+</h2>
+<p class="text-sm sm:text-base text-white/80 max-w-xl mx-auto mt-4 leading-relaxed">
+        Empower your business with an organized, conflict-free appointment calendar and frictionless client booking.
+      </p>
+<div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+<a class="bg-orange-brand hover:bg-orange-hover text-white px-7 py-3.5 rounded-lg font-semibold text-sm shadow-sm transition-all inline-flex items-center gap-2" href="#pricing">
+<span>Start Free Trial</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<a class="border border-white/20 bg-white/5 hover:bg-white/10 text-white px-6 py-3.5 rounded-lg font-semibold text-sm transition-all inline-flex items-center gap-2" href="tel:+919391354003">
+<span class="material-symbols-outlined text-orange-brand text-[18px]">call</span>
+<span>Helpline: +91 93913 54003</span>
+</a>
+</div>
+</div>
+</section>
+<!-- EDITORIAL FOOTER -->
+<footer class="bg-navy-brand border-t border-white/10 text-white/70 py-14 text-xs">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+<!-- Brand Col -->
+<div class="space-y-3">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-md bg-white p-0.5 border border-white/20 overflow-hidden">
+<img alt="VISROSLOT" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_ifYeFbSUWrH6tz6h4Ucw_zphbPb_5BctE1WtfAny6ntNlTjUFvCd5_ff3BWgYzrU-7UfdEpCAGMGsGt86Y9WLvZHWIQUKX-ilFPmZbC_ugasbHtmd7IIo8j9Ykt8_14Ickg8vn1syqMMYFAIc5juitYifAnTNcUHY74rgRhCGzzjDaTlxTwc0RMFkRBWAKfBLuFaBqLBkiOzF1l7R-HXvdEHqyvttNUwFhpdlARKiXDGS1sWxFTaUA"/>
+</div>
+<span class="font-manrope font-bold text-base text-white">VISROSLOT</span>
+</div>
+<p class="text-white/60 leading-relaxed text-[11px]">
+            Every Slot. Simplified. Modern appointment management platform designed for service-driven teams.
+          </p>
+<div class="pt-1">
+<a class="text-orange-brand font-medium hover:underline inline-flex items-center gap-1.5" href="tel:+919391354003">
+<span class="material-symbols-outlined text-[15px]">call</span>
+<span>+91 93913 54003</span>
+</a>
+</div>
+</div>
+<!-- Navigation Col -->
+<div>
+<span class="font-mono uppercase tracking-wider text-white text-[11px] font-semibold block mb-3">Navigation</span>
+<ul class="space-y-2 text-white/70">
+<li><a class="hover:text-white transition-colors" href="#features">Features</a></li>
+<li><a class="hover:text-white transition-colors" href="#how-it-works">How It Works</a></li>
+<li><a class="hover:text-white transition-colors" href="#industries">Industries</a></li>
+<li><a class="hover:text-white transition-colors" href="#pricing">Pricing Plans</a></li>
+<li><a class="hover:text-white transition-colors" href="#faq">FAQ</a></li>
+</ul>
+</div>
+<!-- Policies Col -->
+<div>
+<span class="font-mono uppercase tracking-wider text-white text-[11px] font-semibold block mb-3">Policies &amp; Legal</span>
+<ul class="space-y-2 text-white/70">
+<li><a class="hover:text-white transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Cancellation Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Security Standards</a></li>
+</ul>
+</div>
+<!-- Official Contact Col -->
+<div>
+<span class="font-mono uppercase tracking-wider text-white text-[11px] font-semibold block mb-3">Support &amp; Helpline</span>
+<p class="text-white/60 text-[11px] leading-relaxed mb-3">
+            Have questions about setup or custom multi-location deployments? Talk directly with our team.
+          </p>
+<div class="space-y-1.5 font-mono text-[11px] text-white/80">
+<div>Phone: +91 93913 54003</div>
+<div>Hours: Mon – Sat (9 AM – 7 PM IST)</div>
+</div>
+</div>
+</div>
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-white/50 text-[11px]">
+<div>
+          © 2026 VISROSLOT. Every Slot. Simplified. All rights reserved.
+        </div>
+<div class="flex items-center gap-6">
+<a class="hover:text-white transition-colors" href="#">Privacy</a>
+<a class="hover:text-white transition-colors" href="#">Terms</a>
+<a class="hover:text-white transition-colors" href="#">Back to top ↑</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Accordion Interactive Script -->
+<script>
+    function toggleFaq(id) {
+      const content = document.getElementById('faq-content-' + id);
+      const icon = document.getElementById('faq-icon-' + id);
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        content.classList.add('block');
+        icon.style.transform = 'rotate(180deg)';
+      } else {
+        content.classList.remove('block');
+        content.classList.add('hidden');
+        icon.style.transform = 'rotate(0deg)';
+      }
+    }
+  </script>
+</body></html>

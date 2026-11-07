@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RestoFlow SaaS - Live Order Command Center</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Verbatim Tailwind Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed": "#131b2e",
+            "surface-container": "#e5eeff",
+            "on-tertiary-fixed-variant": "#3f465c",
+            "surface-container-low": "#eff4ff",
+            "outline": "#737686",
+            "inverse-surface": "#213145",
+            "background": "#f8f9ff",
+            "tertiary-container": "#656d84",
+            "inverse-primary": "#b4c5ff",
+            "on-tertiary-container": "#eef0ff",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#fffbff",
+            "secondary-fixed": "#eaddff",
+            "on-secondary-fixed-variant": "#5a00c6",
+            "tertiary": "#4d556b",
+            "on-tertiary": "#ffffff",
+            "error": "#ba1a1a",
+            "on-error-container": "#93000a",
+            "primary": "#004ac6",
+            "secondary-container": "#8a4cfc",
+            "on-error": "#ffffff",
+            "inverse-on-surface": "#eaf1ff",
+            "secondary": "#712ae2",
+            "on-primary-fixed": "#00174b",
+            "on-background": "#0b1c30",
+            "on-primary-container": "#eeefff",
+            "outline-variant": "#c3c6d7",
+            "primary-fixed-dim": "#b4c5ff",
+            "surface-dim": "#cbdbf5",
+            "on-surface": "#0b1c30",
+            "tertiary-fixed-dim": "#bec6e0",
+            "secondary-fixed-dim": "#d2bbff",
+            "primary-fixed": "#dbe1ff",
+            "surface-bright": "#f8f9ff",
+            "primary-container": "#2563eb",
+            "surface-container-highest": "#d3e4fe",
+            "surface": "#f8f9ff",
+            "on-surface-variant": "#434655",
+            "surface-variant": "#d3e4fe",
+            "surface-tint": "#0053db",
+            "surface-container-lowest": "#ffffff",
+            "on-primary": "#ffffff",
+            "on-primary-fixed-variant": "#003ea8",
+            "surface-container-high": "#dce9ff",
+            "on-secondary-fixed": "#25005a",
+            "tertiary-fixed": "#dae2fd",
+            "error-container": "#ffdad6"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "1.5rem",
+            "gutter": "1.25rem",
+            "gutter-sm": "0.75rem",
+            "space-xl": "2rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-sm": "1rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin-lg": "2rem",
+            "gutter-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "display-hero": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "body-sm": ["Inter"],
+            "title-md": ["Plus Jakarta Sans"],
+            "label-xs": ["Inter"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-md": ["Inter"],
+            "metric-kpi": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-hero": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "display-hero-mobile": ["30px", { lineHeight: "38px", letterSpacing: "-0.015em", fontWeight: "700" }],
+            "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+            "title-md": ["16px", { lineHeight: "24px", fontWeight: "600" }],
+            "label-xs": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "700" }],
+            "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-sm": ["18px", { lineHeight: "26px", letterSpacing: "-0.005em", fontWeight: "600" }],
+            "body-lg": ["16px", { lineHeight: "26px", fontWeight: "400" }],
+            "label-lg": ["14px", { lineHeight: "20px", fontWeight: "600" }],
+            "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+            "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "600" }],
+            "metric-kpi": ["28px", { lineHeight: "34px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-lg-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 0; }
+      100% { transform: scale(0.95); opacity: 0; }
+    }
+    .live-pulse::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 9999px;
+      background: currentColor;
+      animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes audio-wave {
+      0%, 100% { height: 6px; }
+      50% { height: 22px; }
+    }
+    .wave-bar:nth-child(1) { animation: audio-wave 1s ease-in-out infinite 0.1s; }
+    .wave-bar:nth-child(2) { animation: audio-wave 1s ease-in-out infinite 0.25s; }
+    .wave-bar:nth-child(3) { animation: audio-wave 1s ease-in-out infinite 0.4s; }
+    .wave-bar:nth-child(4) { animation: audio-wave 1s ease-in-out infinite 0.15s; }
+    .wave-bar:nth-child(5) { animation: audio-wave 1s ease-in-out infinite 0.3s; }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased flex h-screen overflow-hidden font-body-md text-body-md select-none">
+<!-- ========================================================================= -->
+<!-- 1. LEFT SIDE NAV DOCK (Shared Component: SideNavBar)                      -->
+<!-- ========================================================================= -->
+<aside class="fixed top-0 left-0 h-screen w-64 flex flex-col shrink-0 z-40 bg-on-background shadow-sm border-r border-outline-variant/20">
+<div class="w-64 h-full flex flex-col justify-between p-space-md bg-on-background">
+<!-- Top Brand & Branch Context -->
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center gap-space-sm pb-space-sm border-b border-outline-variant/10">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary font-bold shadow-sm">
+<span class="material-symbols-outlined text-on-primary">soup_kitchen</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="font-headline-sm text-headline-sm font-bold text-surface-container-lowest truncate">Bistro Grande Central</span>
+<span class="font-label-xs text-label-xs text-surface-dim truncate">Tenant: Branch #104 (Live Sync)</span>
+</div>
+</div>
+<!-- Quick Branch Selector Dropdown Trigger -->
+<button class="w-full flex items-center justify-between px-space-sm py-1.5 rounded-lg bg-surface-variant/10 text-surface-dim hover:text-surface-container-lowest text-label-xs font-label-xs transition-colors border border-outline-variant/10">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-fixed-dim relative live-pulse text-primary-fixed-dim"></span>
+<span>Bistro Grande - Downtown #104</span>
+</div>
+<span class="material-symbols-outlined text-surface-dim text-sm">unfold_more</span>
+</button>
+<!-- Fast CTA from Blueprint -->
+<button class="w-full py-2.5 px-space-md rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-space-sm shadow-sm active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">add_circle</span>
+<span>New Quick Order</span>
+</button>
+<!-- Navigation Tabs (7 tabs per Blueprint) -->
+<nav class="flex flex-col gap-1 mt-space-xs">
+<!-- Active: Live Orders -->
+<a class="flex items-center gap-space-sm bg-primary text-on-primary rounded-lg px-space-md py-space-sm font-label-lg text-label-lg shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span class="flex-1">Live Orders</span>
+<span class="px-1.5 py-0.5 rounded-full bg-on-error text-error text-label-xs font-label-xs animate-pulse">4 New</span>
+</a>
+<!-- Inactive tabs -->
+<a class="flex items-center gap-space-sm text-surface-dim hover:text-surface-container-lowest hover:bg-surface-variant/10 rounded-lg px-space-md py-space-sm font-label-md text-label-md transition-colors active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">soup_kitchen</span>
+<span>Kitchen Display</span>
+</a>
+<a class="flex items-center gap-space-sm text-surface-dim hover:text-surface-container-lowest hover:bg-surface-variant/10 rounded-lg px-space-md py-space-sm font-label-md text-label-md transition-colors active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span>Menu &amp; Items</span>
+</a>
+<a class="flex items-center gap-space-sm text-surface-dim hover:text-surface-container-lowest hover:bg-surface-variant/10 rounded-lg px-space-md py-space-sm font-label-md text-label-md transition-colors active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">qr_code_2</span>
+<span>Tables &amp; QR</span>
+</a>
+<a class="flex items-center gap-space-sm text-surface-dim hover:text-surface-container-lowest hover:bg-surface-variant/10 rounded-lg px-space-md py-space-sm font-label-md text-label-md transition-colors active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">point_of_sale</span>
+<span class="flex-1">Counter Cashier</span>
+<span class="text-label-xs font-label-xs text-primary-fixed-dim bg-primary/30 px-1 rounded">$842</span>
+</a>
+<a class="flex items-center gap-space-sm text-surface-dim hover:text-surface-container-lowest hover:bg-surface-variant/10 rounded-lg px-space-md py-space-sm font-label-md text-label-md transition-colors active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Inventory</span>
+</a>
+<a class="flex items-center gap-space-sm text-surface-dim hover:text-surface-container-lowest hover:bg-surface-variant/10 rounded-lg px-space-md py-space-sm font-label-md text-label-md transition-colors active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Analytics</span>
+</a>
+</nav>
+</div>
+<!-- Realtime Engine & Footer Settings Section -->
+<div class="flex flex-col gap-space-sm pt-space-sm border-t border-outline-variant/10">
+<!-- Live Connection & Audio Horn Widget -->
+<div class="p-space-sm rounded-lg bg-surface-variant/5 border border-outline-variant/10 flex flex-col gap-2">
+<div class="flex items-center justify-between text-label-xs font-label-xs text-surface-dim">
+<span class="flex items-center gap-1.5 text-emerald-400">
+<span class="w-2 h-2 rounded-full bg-emerald-400 relative live-pulse"></span>
+              Realtime Connected
+            </span>
+<span class="font-mono text-[10px] text-surface-dim/70">WSS: 12ms</span>
+</div>
+<div class="flex items-center justify-between bg-surface-variant/10 px-2 py-1 rounded text-label-xs font-label-xs text-surface-container-lowest">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary-fixed-dim">volume_up</span>
+<span>Audio Horn: ON (85dB)</span>
+</div>
+<button class="text-error hover:underline text-[10px]">Mute</button>
+</div>
+</div>
+<!-- Footer Tabs from Blueprint -->
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-space-sm text-surface-dim hover:text-surface-container-lowest hover:bg-surface-variant/10 rounded-lg px-space-md py-1.5 font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Platform Settings</span>
+</a>
+<a class="flex items-center gap-space-sm text-surface-dim hover:text-surface-container-lowest hover:bg-surface-variant/10 rounded-lg px-space-md py-1.5 font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined">volume_up</span>
+<span>Audio Alerts On</span>
+</a>
+</div>
+</div>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- 2. MAIN APPLICATION WORKSPACE (Canvas)                                   -->
+<!-- ========================================================================= -->
+<main class="ml-64 flex-1 flex flex-col h-full overflow-hidden bg-background">
+<!-- TopNavBar (Shared Component implementation) -->
+<header class="flex justify-between items-center w-full px-space-lg py-2.5 bg-surface-container-lowest border-b border-outline-variant shadow-sm shrink-0 z-30">
+<!-- Left: Title & Quick Search -->
+<div class="flex items-center gap-space-lg">
+<div class="flex items-center gap-space-xs">
+<span class="font-title-md text-title-md font-bold text-on-surface">RestoFlow SaaS</span>
+<span class="mx-2 text-outline-variant">/</span>
+<span class="font-label-lg text-label-lg text-primary bg-surface-container-low px-2 py-0.5 rounded-full border border-primary/20">Live Command Center</span>
+</div>
+<!-- Top Navigation Links from Shared Blueprint -->
+<nav class="hidden lg:flex items-center gap-space-md pl-space-md border-l border-outline-variant/50">
+<a class="text-primary border-b-2 border-primary font-label-lg text-label-lg pb-1" href="#">Orders Feed</a>
+<a class="text-on-surface-variant hover:text-on-surface font-label-md text-label-md pb-1 transition-colors" href="#">KDS Screen</a>
+<a class="text-on-surface-variant hover:text-on-surface font-label-md text-label-md pb-1 transition-colors" href="#">Counter Audit</a>
+</nav>
+<!-- Command Palette / Search Field -->
+<div class="relative w-64 xl:w-80">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-sm">search</span>
+<input class="w-full h-9 pl-9 pr-9 text-body-sm font-body-sm rounded-lg bg-surface border border-outline-variant focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Press / to filter tables, orders..." type="text"/>
+<kbd class="absolute right-2.5 top-2 px-1.5 py-0.5 text-[10px] font-mono bg-surface-container rounded border border-outline-variant text-on-surface-variant">⌘K</kbd>
+</div>
+</div>
+<!-- Right: Operational Controls & Cash Register Status -->
+<div class="flex items-center gap-space-md">
+<!-- Counter Cash Register KPI -->
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/40">
+<span class="material-symbols-outlined text-primary text-base">point_of_sale</span>
+<div class="flex flex-col text-left">
+<span class="text-[10px] uppercase font-bold text-on-surface-variant tracking-wider">Register #01</span>
+<span class="text-label-xs font-label-xs font-bold text-on-surface">$842 Pending Collection</span>
+</div>
+</div>
+<!-- Emergency Order Pause Button -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-error-container hover:bg-error/20 text-on-error-container font-label-md text-label-md border border-error/30 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-error text-base">pause_circle</span>
+<span class="font-semibold">Emergency Stop</span>
+</button>
+<!-- Shift Report Action -->
+<button class="px-3 py-1.5 rounded-lg bg-surface hover:bg-surface-variant/20 text-on-surface font-label-md text-label-md border border-outline-variant active:scale-[0.98] transition-all">
+          Shift Report
+        </button>
+<!-- Trailing Icon Actions -->
+<div class="flex items-center gap-1 border-l border-outline-variant/40 pl-space-sm text-on-surface-variant">
+<button class="p-2 rounded-lg hover:bg-surface-container-low transition-colors relative" title="Notifications">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-low transition-colors" title="Sensors &amp; Printer Sync">
+<span class="material-symbols-outlined text-emerald-600">sensors</span>
+</button>
+</div>
+<!-- Manager Portrait & Active Identity -->
+<div class="flex items-center gap-2 pl-space-sm border-l border-outline-variant/40">
+<img class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="A portrait of Shift Manager Alex Vance in restaurant hospitality uniform against modern warm ambient lighting in high resolution, natural warm light, clean professional setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOXZlcKScUkWNhMjvCM2NtGgQV55i39kCX2wJ6QKkC136sbHka0sZSScFYWLzctTl4NSu3Z2NZffBF3YxeA5wH8vTKsepMmZaBKfoAeuq0tUXeb4wqrVuoCUaVe34ehnuPwaE_nMYcygy2QG3GmFlECDVbFhgw-2_6hgV5WlfXq3T6rXgMhNNt0kmLgPigJCgi0DorU-xNQyshGGxdicbyS_odeeiJaPtdv9QQIg5pOxV-BqcChxJn"/>
+<div class="hidden xl:flex flex-col text-left">
+<span class="font-label-md text-label-md text-on-surface leading-tight">Alex Vance</span>
+<span class="text-[10px] text-on-surface-variant leading-tight">Floor Shift Lead</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Scrollable Operations Canvas Area -->
+<div class="flex-1 overflow-y-auto px-space-lg py-space-md flex flex-col gap-space-md">
+<!-- ========================================================================= -->
+<!-- SECTION 1: TOP METRICS BAR (KPIs)                                         -->
+<!-- ========================================================================= -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Metric 1: Live Active Orders -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl border border-outline-variant/60 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Live Active Orders</span>
+<span class="p-1.5 rounded-lg bg-primary-fixed text-primary">
+<span class="material-symbols-outlined text-sm">receipt</span>
+</span>
+</div>
+<div class="mt-2 flex items-baseline gap-2">
+<span class="font-metric-kpi text-metric-kpi text-on-surface">14</span>
+<span class="text-label-xs font-label-xs text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">+3 vs 30m ago</span>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/30 flex items-center justify-between text-label-xs font-label-xs text-on-surface-variant">
+<span><strong class="text-amber-700">8</strong> Preparing</span>
+<span>•</span>
+<span><strong class="text-error">4</strong> Unacknowledged</span>
+<span>•</span>
+<span><strong class="text-emerald-700">2</strong> Ready</span>
+</div>
+</div>
+<!-- Metric 2: Pending Counter Unpaid Amount -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl border border-outline-variant/60 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Pending Counter Unpaid</span>
+<span class="p-1.5 rounded-lg bg-amber-100 text-amber-800">
+<span class="material-symbols-outlined text-sm">point_of_sale</span>
+</span>
+</div>
+<div class="mt-2 flex items-baseline gap-2">
+<span class="font-metric-kpi text-metric-kpi text-on-surface">$418.50</span>
+<span class="text-[10px] font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200">COUNTER ONLY</span>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/30 text-label-xs font-label-xs text-on-surface-variant truncate">
+            No Online Gateway • Settle at Cashier Register
+          </div>
+</div>
+<!-- Metric 3: Today Scans & QR Traffic -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl border border-outline-variant/60 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Today QR Traffic</span>
+<span class="p-1.5 rounded-lg bg-secondary-fixed text-secondary">
+<span class="material-symbols-outlined text-sm">qr_code_scanner</span>
+</span>
+</div>
+<div class="mt-2 flex items-baseline gap-2">
+<span class="font-metric-kpi text-metric-kpi text-on-surface">312 Scans</span>
+<span class="text-label-xs font-label-xs text-primary font-bold">68.4% Conv</span>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/30 flex items-center justify-between text-label-xs font-label-xs text-on-surface-variant">
+<span>28 active table sessions</span>
+<span class="text-emerald-700 font-semibold">100% Zero-Drop</span>
+</div>
+</div>
+<!-- Metric 4: Avg Kitchen Prep Time -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl border border-outline-variant/60 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Avg Kitchen Prep Time</span>
+<span class="p-1.5 rounded-lg bg-surface-container-high text-on-surface">
+<span class="material-symbols-outlined text-sm">timer</span>
+</span>
+</div>
+<div class="mt-2 flex items-baseline gap-2">
+<span class="font-metric-kpi text-metric-kpi text-on-surface">14.2 min</span>
+<span class="text-label-xs font-label-xs text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">Target &lt; 18m</span>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/30 flex items-center justify-between text-label-xs font-label-xs text-on-surface-variant">
+<span>Hot Line: 12.8m</span>
+<span>•</span>
+<span>Grill: 15.6m</span>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 2: PROMINENT REAL-TIME INCOMING ORDER ALERT BANNER                 -->
+<!-- ========================================================================= -->
+<section class="relative overflow-hidden rounded-xl bg-on-background text-surface-container-lowest p-space-md border-2 border-primary-container shadow-lg flex flex-col md:flex-row items-center justify-between gap-space-md">
+<!-- Visual Accent Glow -->
+<div class="absolute -top-12 -left-12 w-48 h-48 bg-primary-container/20 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center gap-space-md z-10 w-full md:w-auto">
+<!-- Audio Waves Indicator -->
+<div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center gap-1 px-2 shrink-0">
+<div class="w-1 bg-surface-container-lowest rounded-full wave-bar"></div>
+<div class="w-1 bg-surface-container-lowest rounded-full wave-bar"></div>
+<div class="w-1 bg-surface-container-lowest rounded-full wave-bar"></div>
+<div class="w-1 bg-surface-container-lowest rounded-full wave-bar"></div>
+<div class="w-1 bg-surface-container-lowest rounded-full wave-bar"></div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-error text-on-error font-label-xs text-label-xs uppercase tracking-wider animate-pulse">Loud Chime Playing</span>
+<span class="text-surface-dim text-label-xs font-label-xs">Incoming WebSocket Event • Just now</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-surface-container-lowest flex items-center gap-2 mt-0.5">
+<span>🔔 NEW ORDER #TB-884 RECEIVED (Table 07)</span>
+<span class="text-primary-fixed text-title-md font-semibold">• 4 Items ($76.00)</span>
+</h2>
+</div>
+</div>
+<!-- Banner Acceptance Actions -->
+<div class="flex items-center gap-space-sm z-10 w-full md:w-auto justify-end">
+<button class="px-space-md py-2.5 rounded-lg bg-surface-variant/20 hover:bg-surface-variant/30 text-surface-dim hover:text-surface-container-lowest text-label-md font-label-md border border-outline-variant/30 transition-colors">
+            Inspect Payload
+          </button>
+<button class="px-space-lg py-2.5 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-lg text-label-lg shadow-md active:scale-[0.98] transition-all flex items-center gap-2 font-bold ring-2 ring-primary-container/40">
+<span class="material-symbols-outlined text-base">check_circle</span>
+<span>ACKNOWLEDGE &amp; ACCEPT (F2)</span>
+</button>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 3: LIVE KANBAN PIPELINE / REALTIME ORDER STREAMS                  -->
+<!-- ========================================================================= -->
+<section class="flex-1 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md min-h-[580px]">
+<!-- COLUMN 1: NEW / PENDING -->
+<div class="flex flex-col bg-surface-container-low/60 rounded-xl border border-outline-variant/60 overflow-hidden">
+<div class="p-3 bg-surface-container-lowest border-b border-outline-variant/60 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-error animate-ping"></span>
+<span class="font-title-md text-title-md font-bold text-on-surface">NEW / PENDING</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-error text-label-xs font-label-xs font-bold">2 Orders</span>
+</div>
+<div class="p-space-sm flex-1 overflow-y-auto flex flex-col gap-space-sm">
+<!-- Order Card 1: ORD-1092 (Flashing red attention) -->
+<article class="p-space-md rounded-xl bg-surface-container-lowest border-2 border-error shadow-sm flex flex-col gap-2.5 relative">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md font-bold text-on-surface">#ORD-1092</span>
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-xs text-label-xs font-bold">Table 04</span>
+</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Customer: Liam Ross</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-error/10 text-error font-label-xs text-label-xs font-bold animate-pulse">1m ago</span>
+</div>
+<!-- Item Breakdown & Kitchen Special Request -->
+<div class="py-2 border-y border-outline-variant/20 flex flex-col gap-1.5 text-body-sm font-body-sm">
+<div class="flex justify-between">
+<span>2x Truffle Rigatoni</span>
+<span class="font-semibold">$38.00</span>
+</div>
+<div class="px-2 py-1 bg-amber-50 border border-amber-200 rounded text-amber-900 text-label-xs font-label-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">info</span>
+<span>Kitchen Note: NO GARLIC (Severe Allergy)</span>
+</div>
+<div class="flex justify-between">
+<span>1x Artisanal Burrata</span>
+<span>$16.00</span>
+</div>
+<div class="flex justify-between text-on-surface-variant text-xs">
+<span>2x Sparkling Water</span>
+<span>Complimentary</span>
+</div>
+</div>
+<!-- Price & Flag -->
+<div class="flex items-center justify-between">
+<span class="text-label-xs font-label-xs px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold border border-amber-300">
+                  UNPAID (Pay at Counter)
+                </span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">$54.00</span>
+</div>
+<!-- Interactive Triggers -->
+<div class="grid grid-cols-3 gap-2 pt-1">
+<button class="col-span-2 py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md active:scale-98 transition-all flex items-center justify-center gap-1 font-bold">
+<span class="material-symbols-outlined text-sm">send</span>
+<span>Send to KDS</span>
+</button>
+<button class="py-2 rounded-lg bg-surface border border-outline-variant hover:bg-error-container hover:text-error text-on-surface-variant font-label-md text-label-md transition-colors text-center">
+                  Reject
+                </button>
+</div>
+</article>
+<!-- Order Card 2: ORD-1095 -->
+<article class="p-space-md rounded-xl bg-surface-container-lowest border border-outline-variant/60 shadow-sm flex flex-col gap-2.5">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md font-bold text-on-surface">#ORD-1095</span>
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-xs text-label-xs font-bold">Table 12</span>
+</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Customer: Priya Patel</span>
+</div>
+<span class="text-label-xs font-label-xs text-on-surface-variant">3m ago</span>
+</div>
+<div class="py-2 border-y border-outline-variant/20 flex flex-col gap-1 text-body-sm font-body-sm">
+<div class="flex justify-between">
+<span>1x Wagyu Smash Burger</span>
+<span class="font-semibold">$22.00</span>
+</div>
+<div class="flex justify-between">
+<span>1x Crispy Polenta Fries</span>
+<span class="font-semibold">$10.50</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-label-xs font-label-xs px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold border border-amber-300">
+                  UNPAID
+                </span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">$32.50</span>
+</div>
+<button class="w-full py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-all flex items-center justify-center gap-1 font-bold">
+<span class="material-symbols-outlined text-sm">send</span>
+<span>Accept &amp; Send to KDS</span>
+</button>
+</article>
+</div>
+</div>
+<!-- COLUMN 2: PREPARING (In Kitchen / KDS) -->
+<div class="flex flex-col bg-surface-container-low/60 rounded-xl border border-outline-variant/60 overflow-hidden">
+<div class="p-3 bg-surface-container-lowest border-b border-outline-variant/60 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+<span class="font-title-md text-title-md font-bold text-on-surface">PREPARING (KDS)</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-label-xs font-label-xs font-bold">2 Orders</span>
+</div>
+<div class="p-space-sm flex-1 overflow-y-auto flex flex-col gap-space-sm">
+<!-- Order Card: ORD-1088 -->
+<article class="p-space-md rounded-xl bg-surface-container-lowest border border-amber-300 shadow-sm flex flex-col gap-2.5">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md font-bold text-on-surface">#ORD-1088</span>
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-xs text-label-xs font-bold">Table 02</span>
+</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Customer: Marcus E.</span>
+</div>
+<div class="text-right">
+<span class="px-2 py-0.5 rounded bg-amber-100 text-amber-900 font-label-xs text-label-xs font-bold">11m 40s</span>
+<div class="text-[10px] text-on-surface-variant">Target 15m</div>
+</div>
+</div>
+<!-- Station Signal -->
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface px-2 py-1 rounded border border-outline-variant/20">
+<span class="material-symbols-outlined text-xs text-primary">skillet</span>
+<span>Station: <strong>Hot Line 1 &amp; Grill</strong></span>
+</div>
+<div class="py-2 border-y border-outline-variant/20 flex flex-col gap-1 text-body-sm font-body-sm">
+<div class="flex justify-between">
+<span>1x Wood-fired Margherita</span>
+<span>$22.00</span>
+</div>
+<div class="flex justify-between">
+<span>1x Smoked Hot Wings</span>
+<span>$18.00</span>
+</div>
+<div class="flex justify-between text-on-surface-variant text-xs">
+<span>2x Craft Cola</span>
+<span>$8.00</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-label-xs font-label-xs text-on-surface-variant">Prepped items: 2/3</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">$48.00</span>
+</div>
+<button class="w-full py-2 rounded-lg bg-surface border border-outline-variant hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-300 text-on-surface font-label-md text-label-md transition-all flex items-center justify-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-sm text-emerald-600">done_all</span>
+<span>Mark Food Ready</span>
+</button>
+</article>
+<!-- Order Card: ORD-1085 (Overdue prep alert) -->
+<article class="p-space-md rounded-xl bg-surface-container-lowest border-2 border-error/70 shadow-sm flex flex-col gap-2.5">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md font-bold text-on-surface">#ORD-1085</span>
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-xs text-label-xs font-bold">Table 09</span>
+</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Customer: Sarah J.</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-error-container text-error font-label-xs text-label-xs font-bold">16m 10s OVERDUE</span>
+</div>
+<div class="py-2 border-y border-outline-variant/20 flex flex-col gap-1 text-body-sm font-body-sm">
+<div class="flex justify-between">
+<span>1x Wild Mushroom Risotto</span>
+<span class="font-semibold">$26.00</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-label-xs font-label-xs text-error font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">warning</span>
+                  KDS Expediter Paged
+                </span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">$26.00</span>
+</div>
+<button class="w-full py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-label-md text-label-md transition-all flex items-center justify-center gap-1 font-bold shadow-sm">
+<span class="material-symbols-outlined text-sm">notifications_active</span>
+<span>Mark Food Ready &amp; Expedite</span>
+</button>
+</article>
+</div>
+</div>
+<!-- COLUMN 3: READY FOR SERVING -->
+<div class="flex flex-col bg-surface-container-low/60 rounded-xl border border-outline-variant/60 overflow-hidden">
+<div class="p-3 bg-surface-container-lowest border-b border-outline-variant/60 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+<span class="font-title-md text-title-md font-bold text-on-surface">READY FOR SERVING</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-label-xs font-label-xs font-bold">1 Ready</span>
+</div>
+<div class="p-space-sm flex-1 overflow-y-auto flex flex-col gap-space-sm">
+<!-- Order Card: ORD-1081 -->
+<article class="p-space-md rounded-xl bg-surface-container-lowest border border-emerald-300 shadow-sm flex flex-col gap-2.5">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md font-bold text-on-surface">#ORD-1081</span>
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-xs text-label-xs font-bold">Table 06</span>
+</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Server: David (Runner)</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-label-xs text-label-xs font-bold">Hot Pass (2m)</span>
+</div>
+<div class="py-2 border-y border-outline-variant/20 flex flex-col gap-1 text-body-sm font-body-sm">
+<div class="flex justify-between">
+<span>1x Chilean Sea Bass</span>
+<span class="font-semibold">$52.00</span>
+</div>
+<div class="flex justify-between">
+<span>1x Berry Panna Cotta</span>
+<span class="font-semibold">$16.00</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-label-xs font-label-xs text-emerald-800 font-medium">Plated at Pass #2</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">$68.00</span>
+</div>
+<button class="w-full py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-label-md text-label-md transition-all flex items-center justify-center gap-1 font-bold shadow-sm">
+<span class="material-symbols-outlined text-sm">room_service</span>
+<span>Mark Served to Table</span>
+</button>
+</article>
+</div>
+</div>
+<!-- COLUMN 4: SERVED & AWAITING COUNTER PAYMENT -->
+<div class="flex flex-col bg-surface-container-low/60 rounded-xl border border-outline-variant/60 overflow-hidden">
+<div class="p-3 bg-surface-container-lowest border-b border-outline-variant/60 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-title-md text-title-md font-bold text-on-surface">AWAITING PAYMENT</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-primary text-label-xs font-label-xs font-bold">1 Table</span>
+</div>
+<div class="p-space-sm flex-1 overflow-y-auto flex flex-col gap-space-sm">
+<!-- Order Card: ORD-1077 -->
+<article class="p-space-md rounded-xl bg-surface-container-lowest border-2 border-outline-variant shadow-sm flex flex-col gap-2.5">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md font-bold text-on-surface">#ORD-1077</span>
+<span class="px-2 py-0.5 rounded bg-on-surface text-surface-container-lowest font-label-xs text-label-xs font-bold">Table 08</span>
+</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Customer: Elena Rostova</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed-variant font-label-xs text-label-xs font-bold">Dining Complete</span>
+</div>
+<!-- Counter Payment Notification -->
+<div class="p-2 rounded bg-amber-50 border border-amber-200 text-amber-900 text-label-xs font-label-xs flex flex-col gap-1">
+<span class="font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">point_of_sale</span>
+                  Collect at Cashier Counter Only
+                </span>
+<span class="text-[10px] text-amber-800">QR scanned checkout requested by diner</span>
+</div>
+<div class="py-2 border-y border-outline-variant/20 flex justify-between items-baseline">
+<span class="font-body-sm text-on-surface-variant">Total Bill Payable</span>
+<span class="font-headline-md text-headline-md font-extrabold text-on-surface">$92.50</span>
+</div>
+<!-- Quick Cashier Collect Trigger -->
+<button class="w-full py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-all flex items-center justify-center gap-1.5 font-bold shadow-md">
+<span class="material-symbols-outlined text-base">payments</span>
+<span>Collect Cash / UPI / Card</span>
+</button>
+</article>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 4: SLIDE-OUT QUICK CASHIER & REALTIME INSPECTOR DRAWER             -->
+<!-- ========================================================================= -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant/60 p-space-lg shadow-sm">
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-md pb-space-md border-b border-outline-variant/30">
+<div>
+<div class="flex items-center gap-2">
+<span class="p-1 rounded bg-primary-fixed text-primary">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Realtime Table Inspector &amp; Cashier Pass</h3>
+<span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-mono text-label-xs font-label-xs">Active Session: Table 04</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">
+              Zero-gateway operational verification: Table QR generated tokens synced with Supabase Realtime broadcast channel.
+            </p>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="px-space-md py-2 rounded-lg bg-surface border border-outline-variant hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">print</span>
+<span>Print Thermal Kitchen Slip</span>
+</button>
+<button class="px-space-md py-2 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md shadow-sm hover:bg-primary transition-colors flex items-center gap-1.5 font-bold">
+<span class="material-symbols-outlined text-sm">receipt_long</span>
+<span>Print Tax Invoice (Counter)</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-md mt-space-md">
+<!-- Payload Json Preview -->
+<div class="p-space-sm rounded-lg bg-on-background text-surface-dim font-mono text-[11px] leading-relaxed overflow-x-auto border border-outline-variant/20">
+<div class="text-surface-container-lowest font-bold text-xs pb-1 mb-1 border-b border-outline-variant/20 flex justify-between">
+<span>SUPABASE REALTIME PAYLOAD (CHANNEL: dining_table_04)</span>
+<span class="text-emerald-400">STATUS: 200 OK</span>
+</div>
+<pre>{
+  "event": "ORDER_SUBMITTED",
+  "table_number": "04",
+  "session_uuid": "7b2c90e1-45a8-4399-bf91",
+  "payment_flow": "OFFLINE_COUNTER_SETTLEMENT",
+  "total_cents": 5400,
+  "requires_kitchen_ack": true
+}</pre>
+</div>
+<!-- Table Order Itemized Breakdown -->
+<div class="p-space-sm rounded-lg bg-surface border border-outline-variant/30 flex flex-col justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface pb-1 border-b border-outline-variant/20">Table 04 Itemized Breakdown</span>
+<div class="flex flex-col gap-1.5 py-2 text-body-sm font-body-sm">
+<div class="flex justify-between">
+<span>2x Truffle Rigatoni (Custom: No Garlic)</span>
+<span class="font-semibold">$38.00</span>
+</div>
+<div class="flex justify-between">
+<span>1x Artisanal Burrata</span>
+<span class="font-semibold">$16.00</span>
+</div>
+<div class="flex justify-between text-on-surface-variant text-xs">
+<span>Subtotal: $54.00 | Tax (8.25%): $4.45</span>
+<span class="font-bold text-on-surface">Total: $58.45</span>
+</div>
+</div>
+<div class="text-[11px] text-on-surface-variant italic">
+              Verification: Physical table QR code confirmed via diner browser location check.
+            </div>
+</div>
+<!-- Cashier Terminal Settle Box -->
+<div class="p-space-sm rounded-lg bg-surface-container border border-primary/30 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface">Quick Settle (Counter Cashier)</span>
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-bold text-label-xs font-label-xs">$58.45 Due</span>
+</div>
+<p class="text-label-xs font-label-xs text-on-surface-variant mt-1">Select method to complete table release:</p>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-2">
+<button class="py-2 rounded bg-surface-container-lowest border border-outline-variant hover:border-primary text-label-xs font-label-xs font-bold text-on-surface transition-all">
+                Cash Tender
+              </button>
+<button class="py-2 rounded bg-surface-container-lowest border border-outline-variant hover:border-primary text-label-xs font-label-xs font-bold text-on-surface transition-all">
+                POS Card Tap
+              </button>
+<button class="py-2 rounded bg-surface-container-lowest border border-outline-variant hover:border-primary text-label-xs font-label-xs font-bold text-on-surface transition-all">
+                Counter UPI
+              </button>
+</div>
+<button class="mt-2 w-full py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-label-md text-label-md font-bold transition-all shadow-sm">
+              Confirm Receipt &amp; Vacate Table 04
+            </button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- ========================================================================= -->
+<!-- 3. MOBILE DOCKED NAVIGATION (Shared Component: BottomNavBar)               -->
+<!-- Responsive Pivot: Shown only on mobile screens (md:hidden)                -->
+<!-- ========================================================================= -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-sm py-space-xs bg-surface-container-lowest shadow-lg">
+<!-- Active: Digital Menu (Mapped to order browsing context) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-space-md py-space-xs font-label-xs text-label-xs active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">restaurant_menu</span>
+<span>Digital Menu</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-md py-space-xs font-label-xs text-label-xs hover:bg-surface-container-low transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span>My Tray</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-md py-space-xs font-label-xs text-label-xs hover:bg-surface-container-low transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">receipt</span>
+<span>Unpaid Bill</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-space-md py-space-xs font-label-xs text-label-xs hover:bg-surface-container-low transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">room_service</span>
+<span>Call Staff</span>
+</a>
+</nav>
+</body></html>

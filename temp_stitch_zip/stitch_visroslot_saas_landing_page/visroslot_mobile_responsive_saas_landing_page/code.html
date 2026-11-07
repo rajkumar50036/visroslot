@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VISROSLOT — Every Slot. Simplified.</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed": "#002117",
+            "tertiary-container": "#35483d",
+            "on-secondary-fixed": "#00201d",
+            "primary-fixed-dim": "#95d3ba",
+            "on-tertiary-container": "#a1b6a8",
+            "on-primary-fixed-variant": "#0b513d",
+            "background": "#e7fff5",
+            "outline": "#707974",
+            "on-background": "#0b1f19",
+            "error": "#ba1a1a",
+            "on-secondary-fixed-variant": "#00504a",
+            "secondary-fixed": "#9cf2e8",
+            "on-error-container": "#93000a",
+            "surface-tint": "#2b6954",
+            "primary-fixed": "#b0f0d6",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#80bea6",
+            "surface-container-lowest": "#ffffff",
+            "on-primary": "#ffffff",
+            "secondary": "#006a63",
+            "surface-container-highest": "#d0e8de",
+            "surface-dim": "#c8dfd6",
+            "surface-container": "#dcf3e9",
+            "on-tertiary-fixed-variant": "#384b40",
+            "primary": "#003527",
+            "tertiary-fixed-dim": "#b6ccbd",
+            "on-secondary-container": "#006f67",
+            "error-container": "#ffdad6",
+            "tertiary": "#1f3228",
+            "inverse-surface": "#20342e",
+            "surface-bright": "#e7fff5",
+            "outline-variant": "#bfc9c3",
+            "on-error": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "surface-variant": "#d0e8de",
+            "on-surface": "#0b1f19",
+            "on-tertiary-fixed": "#0d1f16",
+            "primary-container": "#064e3b",
+            "surface": "#e7fff5",
+            "secondary-fixed-dim": "#80d5cb",
+            "surface-container-high": "#d6ede4",
+            "surface-container-low": "#e1f9ef",
+            "inverse-on-surface": "#dff6ec",
+            "secondary-container": "#99efe5",
+            "inverse-primary": "#95d3ba",
+            "tertiary-fixed": "#d2e8d9",
+            "on-surface-variant": "#404944"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-lg": "3rem",
+            "gutter": "1.5rem",
+            "space-xl": "2rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem",
+            "gutter-lg": "2rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "gutter-sm": "1rem",
+            "margin-sm": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Manrope"],
+            "label-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-xl": ["Manrope"],
+            "display-lg-mobile": ["Manrope"],
+            "label-lg": ["Inter"],
+            "headline-xl-mobile": ["Manrope"],
+            "body-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-sm": ["Manrope"],
+            "headline-md": ["Manrope"],
+            "headline-lg": ["Manrope"]
+          },
+          "fontSize": {
+            "display-lg": ["3rem", { lineHeight: "3.5rem", letterSpacing: "-0.025em", fontWeight: "700" }],
+            "label-sm": ["0.6875rem", { lineHeight: "0.875rem", letterSpacing: "0.03em", fontWeight: "500" }],
+            "label-md": ["0.75rem", { lineHeight: "1rem", letterSpacing: "0.02em", fontWeight: "600" }],
+            "body-md": ["0.875rem", { lineHeight: "1.375rem", letterSpacing: "0em", fontWeight: "400" }],
+            "headline-xl": ["2.25rem", { lineHeight: "2.75rem", letterSpacing: "-0.02em", fontWeight: "600" }],
+            "display-lg-mobile": ["2rem", { lineHeight: "2.5rem", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "label-lg": ["0.875rem", { lineHeight: "1.25rem", letterSpacing: "0.01em", fontWeight: "600" }],
+            "headline-xl-mobile": ["1.75rem", { lineHeight: "2.25rem", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "body-lg": ["1rem", { lineHeight: "1.5rem", letterSpacing: "0em", fontWeight: "400" }],
+            "body-sm": ["0.8125rem", { lineHeight: "1.25rem", letterSpacing: "0.005em", fontWeight: "400" }],
+            "headline-sm": ["1.125rem", { lineHeight: "1.625rem", letterSpacing: "-0.005em", fontWeight: "600" }],
+            "headline-md": ["1.375rem", { lineHeight: "1.875rem", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "headline-lg": ["1.75rem", { lineHeight: "2.25rem", letterSpacing: "-0.015em", fontWeight: "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Shared Component: TopAppBar -->
+<header class="sticky top-0 z-50 flex items-center justify-between px-margin-sm w-full h-16 bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none transition-all">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Open Navigation Drawer" class="p-space-xs text-primary dark:text-inverse-primary hover:bg-surface-container dark:hover:bg-surface-variant rounded-lg active:scale-95 transition-transform duration-150" id="drawer-toggle">
+<span class="material-symbols-outlined text-headline-sm" data-icon="menu">menu</span>
+</button>
+<div class="flex items-center gap-space-xs">
+<img alt="VISROSLOT" class="w-8 h-8 rounded-lg object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACj2EeERnz-XTcOxjeaKx4tnFb6ncBurHT5W5oyxLEYLlOWLMIUI9neKNjdruHm2anc6SNLtawzjZXzaeLQXJJGLG-NOi9kOTuKuVmMxhv5eqc6-D3u79MgV214vcXKu2rfOwuogYb4raRig6gs2PoHwWQRDKL6U_ANO8aC9aEuhLXyR-h-5dp02TrmDMEKpcwUvbXOXx64LhF-atvGjfX2gA2Dwc-rZXFlCV4NPzyZK9n2NzCAjdr-Q"/>
+<span class="font-headline-md text-headline-md font-bold tracking-tight text-primary dark:text-inverse-primary">VISROSLOT</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<a class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg border border-outline-variant text-primary font-label-md text-label-md hover:bg-surface-container active:scale-95 transition-all" href="tel:+919391354003">
+<span class="material-symbols-outlined text-body-md text-secondary" data-icon="call">call</span>
+<span class="hidden sm:inline">+91 93913 54003</span>
+</a>
+<a class="bg-primary-container text-on-primary font-label-md text-label-md px-space-md py-2 rounded-lg hover:bg-secondary active:scale-95 transition-all" href="#trial">
+        Get Started
+      </a>
+</div>
+</header>
+<!-- Shared Component: NavigationDrawer (Off-Canvas Modal Structure) -->
+<div class="fixed inset-0 bg-primary/40 z-50 hidden opacity-0 transition-opacity duration-200" id="drawer-scrim"></div>
+<aside class="fixed inset-y-0 left-0 w-80 max-w-full z-50 flex flex-col p-space-lg bg-surface-container-lowest dark:bg-inverse-surface border-r border-outline-variant dark:border-outline shadow-xl dark:shadow-none -translate-x-full transition-transform duration-200" id="nav-drawer">
+<div class="flex items-center justify-between pb-space-lg border-b border-outline-variant">
+<div class="flex items-center gap-space-xs">
+<img alt="VISROSLOT Logo" class="w-8 h-8 rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACj2EeERnz-XTcOxjeaKx4tnFb6ncBurHT5W5oyxLEYLlOWLMIUI9neKNjdruHm2anc6SNLtawzjZXzaeLQXJJGLG-NOi9kOTuKuVmMxhv5eqc6-D3u79MgV214vcXKu2rfOwuogYb4raRig6gs2PoHwWQRDKL6U_ANO8aC9aEuhLXyR-h-5dp02TrmDMEKpcwUvbXOXx64LhF-atvGjfX2gA2Dwc-rZXFlCV4NPzyZK9n2NzCAjdr-Q"/>
+<span class="font-headline-md text-headline-md font-bold tracking-tight text-primary dark:text-inverse-primary">VISROSLOT</span>
+</div>
+<button class="p-space-xs text-on-surface-variant hover:bg-surface-container rounded-lg" id="drawer-close">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<nav class="flex flex-col gap-space-xs py-space-lg flex-1">
+<a class="flex items-center gap-space-md bg-secondary-container dark:bg-primary-container text-on-secondary-container dark:text-on-primary-container rounded-lg px-space-md py-space-sm font-semibold" href="#features">
+<span class="material-symbols-outlined" data-icon="apps">apps</span>
+<span class="font-label-lg text-label-lg">Features</span>
+</a>
+<a class="flex items-center gap-space-md text-on-surface-variant dark:text-outline-variant rounded-lg px-space-md py-space-sm hover:bg-surface-container dark:hover:bg-surface-variant" href="#solutions">
+<span class="material-symbols-outlined" data-icon="domain">domain</span>
+<span class="font-label-lg text-label-lg">Solutions</span>
+</a>
+<a class="flex items-center gap-space-md text-on-surface-variant dark:text-outline-variant rounded-lg px-space-md py-space-sm hover:bg-surface-container dark:hover:bg-surface-variant" href="#onboarding">
+<span class="material-symbols-outlined" data-icon="timeline">timeline</span>
+<span class="font-label-lg text-label-lg">Onboarding</span>
+</a>
+<a class="flex items-center gap-space-md text-on-surface-variant dark:text-outline-variant rounded-lg px-space-md py-space-sm hover:bg-surface-container dark:hover:bg-surface-variant" href="#pricing">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-lg text-label-lg">Pricing</span>
+</a>
+<a class="flex items-center gap-space-md text-on-surface-variant dark:text-outline-variant rounded-lg px-space-md py-space-sm hover:bg-surface-container dark:hover:bg-surface-variant" href="#faq">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="font-label-lg text-label-lg">FAQ</span>
+</a>
+<a class="flex items-center gap-space-md text-on-surface-variant dark:text-outline-variant rounded-lg px-space-md py-space-sm hover:bg-surface-container dark:hover:bg-surface-variant" href="#contact">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span class="font-label-lg text-label-lg">Contact</span>
+</a>
+</nav>
+<div class="pt-space-md border-t border-outline-variant flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-secondary" data-icon="call">call</span>
+<span>+91 93913 54003</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Executive Appointment Architecture</p>
+</div>
+</aside>
+<!-- Hero Section -->
+<section class="px-margin-sm py-space-xl bg-surface-container-low border-b border-outline-variant">
+<div class="max-w-xl mx-auto flex flex-col items-center text-center">
+<!-- Eyebrow Pill -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-highest border border-outline-variant mb-space-md">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-sm text-label-sm font-semibold tracking-wider text-primary">ENTERPRISE APPOINTMENT ARCHITECTURE</span>
+</div>
+<!-- Main Headline -->
+<h1 class="font-headline-xl-mobile text-headline-xl-mobile sm:font-display-lg sm:text-display-lg text-primary tracking-tight mb-space-md">
+        Your Business. Your Time. <span class="text-primary-container">Better Bookings.</span>
+</h1>
+<!-- Subhead -->
+<p class="font-body-md text-body-md sm:font-body-lg sm:text-body-lg text-on-surface-variant mb-space-lg leading-relaxed">
+        Take control of appointments, staff schedules, and customer relationships with an executive-grade platform engineered for flawless daily operations.
+      </p>
+<!-- CTA Buttons -->
+<div class="flex flex-col sm:flex-row w-full gap-space-sm mb-space-lg">
+<a class="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-space-xs bg-primary-container hover:bg-secondary text-on-primary font-label-lg text-label-lg px-space-lg py-3 rounded-lg shadow-sm active:scale-98 transition-all" href="#pricing">
+<span>Start 7-Day Free Trial</span>
+<span class="material-symbols-outlined text-body-md" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<a class="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-space-xs bg-surface-container-lowest hover:bg-surface-container border border-outline-variant text-primary font-label-lg text-label-lg px-space-lg py-3 rounded-lg active:scale-98 transition-all" href="#demo">
+<span class="material-symbols-outlined text-body-md text-secondary" data-icon="terminal">terminal</span>
+<span>Explore Live Console</span>
+</a>
+</div>
+<!-- Trust Badges -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-y-2 gap-x-4 text-left w-full pt-space-xs border-t border-outline-variant/60">
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+<span>7-Day Free Trial Included</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary" data-icon="lock_clock">lock_clock</span>
+<span>Automated Conflict Lock</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span>Dedicated Booking Link &amp; QR</span>
+</div>
+</div>
+</div>
+<!-- Mobile Interactive Dashboard Card Preview -->
+<div class="mt-space-lg max-w-lg mx-auto bg-surface-container-lowest rounded-xl border border-outline-variant p-space-md shadow-sm" id="demo">
+<div class="flex items-center justify-between pb-space-sm border-b border-outline-variant mb-space-sm">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<span class="font-label-sm text-label-sm text-primary font-bold tracking-tight">OPERATIONAL CONSOLE LIVE</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container">visroslot.app/salon</span>
+</div>
+<!-- Live metrics snippet -->
+<div class="grid grid-cols-3 gap-2 mb-space-md text-center">
+<div class="bg-surface-container-low rounded-lg p-2 border border-outline-variant/60">
+<p class="font-label-sm text-label-sm text-outline">Today's Bookings</p>
+<p class="font-headline-sm text-headline-sm font-bold text-primary">14</p>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2 border border-outline-variant/60">
+<p class="font-label-sm text-label-sm text-outline">Active Staff</p>
+<p class="font-headline-sm text-headline-sm font-bold text-primary">3</p>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2 border border-outline-variant/60">
+<p class="font-label-sm text-label-sm text-outline">Audio Alerts</p>
+<p class="font-headline-sm text-headline-sm font-bold text-secondary">ON</p>
+</div>
+</div>
+<!-- Live appointment preview cards -->
+<div class="space-y-2">
+<!-- Card 1 -->
+<div class="p- space-sm p-3 rounded-lg border border-outline-variant bg-surface-container-lowest flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center font-label-md text-primary font-bold">PS</div>
+<div>
+<p class="font-label-lg text-label-lg font-bold text-on-surface">Priya Sharma</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Hair Spa &amp; Blow Dry • ₹1,450</p>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-primary/10 text-primary border border-primary/20">Confirmed</span>
+<p class="font-label-sm text-label-sm text-outline mt-0.5">10:00 AM</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p- space-sm p-3 rounded-lg border border-outline-variant bg-surface-container-lowest flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center font-label-md text-primary font-bold">RM</div>
+<div>
+<p class="font-label-lg text-label-lg font-bold text-on-surface">Rahul Mehta</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Executive Consultation</p>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-secondary/10 text-secondary border border-secondary/20">In Progress</span>
+<p class="font-label-sm text-label-sm text-outline mt-0.5">11:15 AM</p>
+</div>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs border-t border-outline-variant/60 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm text-secondary" data-icon="notifications_active">notifications_active</span>
+          Push chime enabled
+        </span>
+<span class="text-secondary font-semibold">Zero Double-Bookings</span>
+</div>
+</div>
+</section>
+<!-- Synchronization Statement & Industry Pills -->
+<section class="px-margin-sm py-space-lg bg-surface-container-lowest border-b border-outline-variant">
+<div class="max-w-xl mx-auto">
+<div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm mb-space-xs">
+<span class="material-symbols-outlined text-label-md text-secondary" data-icon="sync">sync</span>
+<span>REAL-TIME ENGINE</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-primary mb-space-sm">
+        Total operational control. Zero administrative friction.
+      </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+        VISROSLOT standardizes appointments across diversified sectors, giving staff and patrons crystal-clear coordination.
+      </p>
+<!-- Scrollable Industry Filter Chips -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2">
+<button class="whitespace-nowrap px-3.5 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md">
+          Salons &amp; Grooming
+        </button>
+<button class="whitespace-nowrap px-3.5 py-1.5 rounded-full bg-surface-container-low text-on-surface font-label-md text-label-md border border-outline-variant hover:bg-surface-container">
+          Dental &amp; Clinical
+        </button>
+<button class="whitespace-nowrap px-3.5 py-1.5 rounded-full bg-surface-container-low text-on-surface font-label-md text-label-md border border-outline-variant hover:bg-surface-container">
+          Spas &amp; Wellness
+        </button>
+<button class="whitespace-nowrap px-3.5 py-1.5 rounded-full bg-surface-container-low text-on-surface font-label-md text-label-md border border-outline-variant hover:bg-surface-container">
+          Private Athletic Studios
+        </button>
+<button class="whitespace-nowrap px-3.5 py-1.5 rounded-full bg-surface-container-low text-on-surface font-label-md text-label-md border border-outline-variant hover:bg-surface-container">
+          Advisory &amp; Consultancies
+        </button>
+</div>
+</div>
+</section>
+<!-- 8 Core Platform Capabilities (Touch Bento-Grid) -->
+<section class="px-margin-sm py-space-xl bg-surface-container-low" id="features">
+<div class="max-w-xl mx-auto">
+<div class="mb-space-lg text-center">
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Engineered For Reliability</span>
+<h2 class="font-headline-xl-mobile text-headline-xl-mobile font-bold text-primary mt-1">
+          8 Core Platform Capabilities
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+          Modular executive scheduling tools tailored to streamline high-throughput business units.
+        </p>
+</div>
+<div class="grid grid-cols-1 gap-space-md">
+<!-- 1. Online Booking -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant shadow-sm flex flex-col justify-between">
+<div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined" data-icon="link">link</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary mb-1">1. Online Booking</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+              24/7 self-service booking link and QR code. Customers select staff, service, and slot with zero app download required.
+            </p>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-secondary font-semibold">
+<span class="material-symbols-outlined text-body-sm" data-icon="check_circle">check_circle</span>
+<span>Eliminates daytime phone tag &amp; manual chats</span>
+</div>
+</div>
+<!-- 2. Appointment Calendar -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant shadow-sm flex flex-col justify-between">
+<div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary mb-1">2. Appointment Calendar</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+              Conflict-free schedule matrix with automated double-booking lock. Instant reschedule and status triage from your mobile phone.
+            </p>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-secondary font-semibold">
+<span class="material-symbols-outlined text-body-sm" data-icon="lock">lock</span>
+<span>Real-time concurrency conflict prevention</span>
+</div>
+</div>
+<!-- 3. Customer CRM & Directory -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant shadow-sm flex flex-col justify-between">
+<div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined" data-icon="contacts">contacts</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary mb-1">3. Customer CRM &amp; Directory</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+              Organized customer records with lifetime visit counts, transaction ledgers, styling formulas, and private clinical service notes.
+            </p>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-secondary font-semibold">
+<span class="material-symbols-outlined text-body-sm" data-icon="history">history</span>
+<span>Automatic customer profiling &amp; historical ledger</span>
+</div>
+</div>
+<!-- 4. Staff Scheduling & Rosters -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant shadow-sm flex flex-col justify-between">
+<div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined" data-icon="badge">badge</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary mb-1">4. Staff Scheduling &amp; Rosters</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+              Set individual shifts, lunch intervals, leave dates, and specialized task assignments with intelligent workload distribution.
+            </p>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-secondary font-semibold">
+<span class="material-symbols-outlined text-body-sm" data-icon="group">group</span>
+<span>Rosters sync instantly with client slot picker</span>
+</div>
+</div>
+<!-- 5. Service & Buffer Control -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant shadow-sm flex flex-col justify-between">
+<div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined" data-icon="more_time">more_time</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary mb-1">5. Service &amp; Buffer Control</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+              Configurable buffer intervals (5–30 min) between visits for sanitization, station prep, and rest intervals.
+            </p>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-secondary font-semibold">
+<span class="material-symbols-outlined text-body-sm" data-icon="timelapse">timelapse</span>
+<span>Precise turnaround pacing &amp; cleanup gaps</span>
+</div>
+</div>
+<!-- 6. Business Analytics -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant shadow-sm flex flex-col justify-between">
+<div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary mb-1">6. Business Analytics</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+              Evaluate real-time booking trends, staff capacity utilisation, high-ticket services, and cancellation frequencies.
+            </p>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-secondary font-semibold">
+<span class="material-symbols-outlined text-body-sm" data-icon="trending_up">trending_up</span>
+<span>Actionable operational insights for owners</span>
+</div>
+</div>
+<!-- 7. Customer Reviews -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant shadow-sm flex flex-col justify-between">
+<div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined" data-icon="reviews">reviews</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary mb-1">7. Customer Reviews</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+              Collect organic star ratings and testimonials immediately following service completion, without commission fees.
+            </p>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-secondary font-semibold">
+<span class="material-symbols-outlined text-body-sm" data-icon="verified">verified</span>
+<span>Build genuine word-of-mouth trust</span>
+</div>
+</div>
+<!-- 8. VISROSLOT AI Preview -->
+<div class="bg-gradient-to-br from-surface-container-lowest to-surface-container p-space-lg rounded-xl border border-secondary/30 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold px-2 py-0.5 rounded-full bg-secondary text-on-secondary">AI PREVIEW</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary mb-1">8. VISROSLOT AI Preview</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+              Conversational client booking concierge, autonomous FAQ respondent, and owner morning briefings analyzing scheduled load.
+            </p>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-primary font-semibold">
+<span class="material-symbols-outlined text-body-sm text-secondary" data-icon="auto_awesome">auto_awesome</span>
+<span>Next-generation schedule automation</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Supported Industries Section -->
+<section class="px-margin-sm py-space-xl bg-surface-container-lowest border-b border-outline-variant" id="solutions">
+<div class="max-w-xl mx-auto">
+<div class="mb-space-lg">
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Tailored Solutions</span>
+<h2 class="font-headline-xl-mobile text-headline-xl-mobile font-bold text-primary mt-1">
+          Built for Appointment-Based Businesses
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+          VISROSLOT adapts natively to custom booking rhythms across premium service environments.
+        </p>
+</div>
+<div class="space-y-space-md">
+<!-- Industry 1: Salons & Barbershops -->
+<div class="rounded-xl border border-outline-variant overflow-hidden bg-surface-container-lowest shadow-sm">
+<div class="h-44 w-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A sunlit, minimalist high-end hair salon with warm light oak trim, arched mirrors with soft ambient backlight, leather styling chairs, polished concrete floor, and professional stylists attending clients in an elegant architectural setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6EzxtDLl9Gna58Fh1ugXt_TVd6Jk-rQSzMzZh2_zYaFpJBangOdGPMaTx20RIy5NGfe483XAFPAiyL5zZIyT1ywJ2FTCqPqG4kUhXO2rpzY1UQJfE2Y31Wj8OuCJ3OOxMyqBgGs9rPgftN25JD5RVu1HPPAc4kgU7PF669iltnfTzbTsJ3ve3wBK46N_zA0kifZHJ6PQmkbEtfJzTAd1t5tjIP0XOFgimlg241IsK"/>
+</div>
+<div class="p-space-md">
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Salons &amp; Barbershops</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Manage client appointments, stylist stations, wash basin availability, and repeat customer grooming records.
+            </p>
+</div>
+</div>
+<!-- Industry 2: Clinics & Dental Practices -->
+<div class="rounded-xl border border-outline-variant overflow-hidden bg-surface-container-lowest shadow-sm">
+<div class="h-44 w-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Modern serene dental clinic examination room featuring an ergonomic patient recliner, state-of-the-art dental equipment, light timber cabinetry, clean white walls, and bright natural morning light streaming through large floor-to-ceiling windows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfwFFH4wUwBQSwpsUgm2ps4Pgs5C4OMRLXTr11zIVh5LOAUEvjFgXKGukFnk4YlTSkd1TuriaKxUTd1JRstSrwcxwNKCDMcryoVnY01AmgldjjDCqntxqvif90OAFKwI8WZCMk07V1gEWUWks00jh7SN1PXkYiiIcOfBiaaP-iLKr4uCbWlcnkRiVjhawfracUd9k2w4qvC5AgwoBN0vLc9pVW68jQUNNY7vclTyUp"/>
+</div>
+<div class="p-space-md">
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Clinics &amp; Dental Practices</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Organize consultation timeframes, sterilization intervals, room assignment, and doctor shift rotations.
+            </p>
+</div>
+</div>
+<!-- Industry 3: Spas & Wellness Centres -->
+<div class="rounded-xl border border-outline-variant overflow-hidden bg-surface-container-lowest shadow-sm">
+<div class="h-44 w-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Tranquil luxury spa sanctuary with rustic stone masonry, draped linen massage table, fresh eucalyptus leaves hanging from exposed beam ceilings, soft glowing candle lanterns, and relaxing aromatherapy diffuser." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ0u5FnUqbxqD1CzvWTqHf6Tf_jsnNDiprOdPq6anIw91siJNpQpGMFahMIe_HrmMbmlcrhnJ5E3kER90N9jVaCIu4jVKBqUmmm7hop8Fj0R91UPbAup7x7Cn8llcFOPTpdDpGlQgxp9o1bGFmqZJSaaL_Zq0EfjEYywvoKxZlRqMAT0zh3pTjZsbRRi6D1z72LCVoteyU_0e7PAOH_xQrBOZws1ewq2OJ1EtQhuOz"/>
+</div>
+<div class="p-space-md">
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Spas &amp; Wellness Centres</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Coordinate massage therapy suites, hydrothermal baths, and bundled wellness package itineraries smoothly.
+            </p>
+</div>
+</div>
+<!-- Industry 4: Fitness Studios & Personal Trainers -->
+<div class="rounded-xl border border-outline-variant overflow-hidden bg-surface-container-lowest shadow-sm">
+<div class="h-44 w-full overflow-hidden">
+<img alt="Boutique Fitness Studio" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1Wzwhv6qFQBw-ozCcr9UDnl6zv2f_c6isHy6ImWN2MCrxYe_P7-K2a3g7apZAbcvt1pfz9xuMobKA0BZgfd8NgAQJJfGJVECRhd3cISFZKraqV3cahqa6P9qnWgZfzQlI9gwIbul6-I4qdD-mPtqjC6ncjK193V-9xIJLUBaKxsfVcSyHuJc4O3xMcMuUDADZQ-uvdReMBJaq6Z3LBmYkPEFX2BG0ffnbxRIkE0oS8c"/>
+</div>
+<div class="p-space-md">
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Fitness Studios &amp; Trainers</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Schedule personal training slots, pilates reformers, and high-intensity private physical coaching sessions.
+            </p>
+</div>
+</div>
+<!-- Industry 5: Consultants & Advisory Suites -->
+<div class="rounded-xl border border-outline-variant overflow-hidden bg-surface-container-lowest shadow-sm">
+<div class="h-44 w-full overflow-hidden">
+<img alt="Executive Advisory Suite" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1V9LMNHNQOnBdC2Llrk33fdfdKQj-quNGbB8WzNJ-AfCGtolBwh_1_YDl8nU36Ghi4ibEWWre6-Yo4PrTCkEW9DkrY05TKXhyvkcgbj9C4lF50bM4_y0skSxhoUylMm8Xrx-rQXSVi-iouf1WGsXVC2KtXmQ1h_N34ljU9LRtow5mO1KYNLl2pN4p65kuhCpQd_lhqRi4iLuldGC3-Sm2nNkPhSvqLGkoTW76BNVOgv-w"/>
+</div>
+<div class="p-space-md">
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Consultants &amp; Advisory Suites</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Enable clients to reserve private meeting rooms for executive legal, financial, tax, or business strategy discussions.
+            </p>
+</div>
+</div>
+<!-- Industry 6: Tutors & Academies -->
+<div class="rounded-xl border border-outline-variant p-space-md bg-surface-container-lowest shadow-sm flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-headline-sm" data-icon="school">school</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Tutors &amp; Academies</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+              1-on-1 private lessons, student progress logs, term scheduling, and classroom allocation.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3 Simple Onboarding Steps -->
+<section class="px-margin-sm py-space-xl bg-surface-container-low border-b border-outline-variant" id="onboarding">
+<div class="max-w-xl mx-auto">
+<div class="text-center mb-space-lg">
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Rapid Setup</span>
+<h2 class="font-headline-xl-mobile text-headline-xl-mobile font-bold text-primary mt-1">
+          Get Started in 3 Simple Steps
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+          Activate your public digital reception in under five minutes.
+        </p>
+</div>
+<div class="space-y-space-md relative">
+<!-- Step 1 -->
+<div class="flex gap-space-md bg-surface-container-lowest p-space-md rounded-xl border border-outline-variant shadow-sm items-start">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-label-lg flex-shrink-0">
+            01
+          </div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Establish Business Profile</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Select your tier, enter business hours, and activate your full-access 7-day trial without upfront commitments.
+            </p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex gap-space-md bg-surface-container-lowest p-space-md rounded-xl border border-outline-variant shadow-sm items-start">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-label-lg flex-shrink-0">
+            02
+          </div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Configure Services &amp; Staff</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Input treatments, consult durations, buffer buffers (5-30 min), pricing, and team member working rosters.
+            </p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex gap-space-md bg-surface-container-lowest p-space-md rounded-xl border border-outline-variant shadow-sm items-start">
+<div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold text-label-lg flex-shrink-0">
+            03
+          </div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Distribute Booking URL &amp; QR</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Publish your branded link to your Instagram bio, WhatsApp catalog, Google Maps card, or print table tents.
+            </p>
+</div>
+</div>
+</div>
+<div class="mt-space-lg text-center">
+<a class="inline-flex items-center gap-space-xs bg-primary-container text-on-primary font-label-lg text-label-lg px-space-lg py-3 rounded-lg hover:bg-secondary active:scale-98 transition-all" href="#pricing">
+<span>Start 7-Day Free Trial</span>
+<span class="material-symbols-outlined text-body-md" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Mobile Pricing Section -->
+<section class="px-margin-sm py-space-xl bg-surface-container-lowest border-b border-outline-variant" id="pricing">
+<div class="max-w-xl mx-auto">
+<div class="text-center mb-space-lg">
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Transparent Architecture</span>
+<h2 class="font-headline-xl-mobile text-headline-xl-mobile font-bold text-primary mt-1">
+          Predictable Investment for Growing Service Practices
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+          Both tiers include automated scheduling, conflict prevention, and 7 days complimentary access.
+        </p>
+</div>
+<!-- Monthly / Annual Toggle -->
+<div class="flex items-center justify-center gap-3 mb-space-lg">
+<span class="font-label-md text-label-md font-bold text-primary" id="label-monthly">Monthly</span>
+<button aria-label="Toggle Billing Frequency" class="w-12 h-6 rounded-full bg-surface-container-highest p-0.5 border border-outline-variant transition-colors relative flex items-center" id="billing-toggle">
+<div class="w-5 h-5 rounded-full bg-primary-container transform transition-transform" id="toggle-knob"></div>
+</button>
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1" id="label-annual">
+<span>Annual</span>
+<span class="bg-secondary-container text-on-secondary-container px-1.5 py-0.2 rounded-full font-label-sm text-[10px]">SAVE 17%</span>
+</span>
+</div>
+<!-- Pricing Cards -->
+<div class="space-y-space-md">
+<!-- Plan 1: Professional -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-space-lg shadow-sm">
+<div class="flex justify-between items-start mb-space-sm">
+<div>
+<h3 class="font-headline-md text-headline-md font-bold text-primary">Professional</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Suitable for growing businesses and solo professionals</p>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-primary font-semibold">STANDARD</span>
+</div>
+<div class="my-space-md flex items-baseline gap-1">
+<span class="font-headline-xl text-headline-xl font-bold text-primary price-professional">₹499</span>
+<span class="font-body-sm text-body-sm text-outline">/month</span>
+</div>
+<div class="p-2 rounded bg-surface-container-low border border-outline-variant/60 font-label-sm text-label-sm text-primary mb-space-md flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-body-md" data-icon="check_circle">check_circle</span>
+<span>Includes 7-Day Free Trial • Cancel Anytime</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mb-space-md p-3 bg-surface-container-low/50 rounded-lg border border-outline-variant/50">
+<div>
+<p class="font-label-sm text-label-sm text-outline">Staff Capacity</p>
+<p class="font-label-md text-label-md font-bold text-primary">Up to 3 Staff</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline">Monthly Volume</p>
+<p class="font-label-md text-label-md font-bold text-primary">300 Bookings / mo</p>
+</div>
+</div>
+<ul class="space-y-2 mb-space-lg font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-label-md" data-icon="check">check</span>
+<span>Dedicated public booking page &amp; QR code</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-label-md" data-icon="check">check</span>
+<span>Conflict-free calendar matrix</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-label-md" data-icon="check">check</span>
+<span>Customer CRM directory &amp; appointment history</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-label-md" data-icon="check">check</span>
+<span>Basic analytics &amp; operational metrics</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-label-md" data-icon="check">check</span>
+<span>Professional VISROSLOT AI allowance</span>
+</li>
+</ul>
+<a class="w-full flex items-center justify-center py-2.5 rounded-lg border border-primary text-primary hover:bg-surface-container font-label-lg text-label-lg active:scale-98 transition-all" href="#trial">
+            Get Started
+          </a>
+</div>
+<!-- Plan 2: Business (Most Popular) -->
+<div class="bg-surface-container-lowest rounded-xl border-2 border-primary-container p-space-lg shadow-md relative">
+<div class="absolute -top-3 right-6 bg-primary-container text-on-primary font-label-sm text-label-sm font-bold px-3 py-0.5 rounded-full">
+            MOST POPULAR • UNLIMITED
+          </div>
+<div class="flex justify-between items-start mb-space-sm">
+<div>
+<h3 class="font-headline-md text-headline-md font-bold text-primary">Business</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Suitable for established businesses and growing teams</p>
+</div>
+</div>
+<div class="my-space-md flex items-baseline gap-1">
+<span class="font-headline-xl text-headline-xl font-bold text-primary price-business">₹999</span>
+<span class="font-body-sm text-body-sm text-outline">/month</span>
+</div>
+<div class="p-2 rounded bg-surface-container-low border border-outline-variant/60 font-label-sm text-label-sm text-primary mb-space-md flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-body-md" data-icon="verified">verified</span>
+<span>Includes 7-Day Free Trial • Unlimited Appointments</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mb-space-md p-3 bg-surface-container-low/50 rounded-lg border border-outline-variant/50">
+<div>
+<p class="font-label-sm text-label-sm text-outline">Staff Capacity</p>
+<p class="font-label-md text-label-md font-bold text-primary">Up to 10 Staff</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline">Monthly Volume</p>
+<p class="font-label-md text-label-md font-bold text-secondary">UNLIMITED</p>
+</div>
+</div>
+<ul class="space-y-2 mb-space-lg font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-label-md" data-icon="check">check</span>
+<span class="font-semibold text-primary">Unlimited appointment bookings</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-label-md" data-icon="check">check</span>
+<span>Advanced CRM with customer retention notes</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-label-md" data-icon="check">check</span>
+<span>Multi-specialist shift &amp; break controls</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-label-md" data-icon="check">check</span>
+<span>Advanced operational analytics &amp; reports</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-label-md" data-icon="check">check</span>
+<span>Dedicated priority phone &amp; email support</span>
+</li>
+</ul>
+<a class="w-full flex items-center justify-center py-2.5 rounded-lg bg-primary-container text-on-primary hover:bg-secondary font-label-lg text-label-lg active:scale-98 transition-all" href="#trial">
+            Get Started
+          </a>
+</div>
+</div>
+<!-- Security Trust Guarantee -->
+<div class="mt-space-md p-space-md rounded-lg bg-surface-container-low border border-outline-variant flex items-center gap-3">
+<span class="material-symbols-outlined text-headline-sm text-primary" data-icon="shield">shield</span>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-primary">Enterprise Security Baseline</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Bank-grade data encryption, zero commissions, zero surprise fees. Cancel trial or plan anytime with 1-click.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Touch FAQ Accordion -->
+<section class="px-margin-sm py-space-xl bg-surface-container-low border-b border-outline-variant" id="faq">
+<div class="max-w-xl mx-auto">
+<div class="text-center mb-space-lg">
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Clarity &amp; Answers</span>
+<h2 class="font-headline-xl-mobile text-headline-xl-mobile font-bold text-primary mt-1">
+          Frequently Asked Questions
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+          Everything you need to know about VISROSLOT operations and billing.
+        </p>
+</div>
+<div class="space-y-space-sm" id="faq-accordion">
+<!-- FAQ 1 -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant overflow-hidden">
+<button class="w-full p-space-md text-left flex items-center justify-between font-label-lg text-label-lg font-bold text-primary focus:outline-none">
+<span>What is VISROSLOT?</span>
+<span class="material-symbols-outlined text-outline transition-transform duration-200" data-icon="expand_more">expand_more</span>
+</button>
+<div class="faq-content px-space-md pb-space-md hidden font-body-sm text-body-sm text-on-surface-variant border-t border-outline-variant/40 pt-2">
+            VISROSLOT is a dedicated appointment booking and customer scheduling platform built for service businesses like salons, dental clinics, spas, fitness studios, and independent consultants. It replaces phone-call coordination with an automated booking link, staff scheduling calendar, and customer directory.
+          </div>
+</div>
+<!-- FAQ 2 -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant overflow-hidden">
+<button class="w-full p-space-md text-left flex items-center justify-between font-label-lg text-label-lg font-bold text-primary focus:outline-none">
+<span>How does the 7-day free trial operate?</span>
+<span class="material-symbols-outlined text-outline transition-transform duration-200" data-icon="expand_more">expand_more</span>
+</button>
+<div class="faq-content px-space-md pb-space-md hidden font-body-sm text-body-sm text-on-surface-variant border-t border-outline-variant/40 pt-2">
+            Eligible businesses receive 7 days of full platform access with live customer bookings, services setup, and calendar management. You can review operations risk-free with zero billing surprises during the trial window.
+          </div>
+</div>
+<!-- FAQ 3 -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant overflow-hidden">
+<button class="w-full p-space-md text-left flex items-center justify-between font-label-lg text-label-lg font-bold text-primary focus:outline-none">
+<span>Can I use my booking link on WhatsApp &amp; Instagram?</span>
+<span class="material-symbols-outlined text-outline transition-transform duration-200" data-icon="expand_more">expand_more</span>
+</button>
+<div class="faq-content px-space-md pb-space-md hidden font-body-sm text-body-sm text-on-surface-variant border-t border-outline-variant/40 pt-2">
+            Yes! Your custom VISROSLOT URL and generated QR code operate across any browser on mobile or desktop. Simply paste it into your Instagram bio, WhatsApp auto-replies, Google Business profile, or print it for your front reception desk.
+          </div>
+</div>
+<!-- FAQ 4 -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant overflow-hidden">
+<button class="w-full p-space-md text-left flex items-center justify-between font-label-lg text-label-lg font-bold text-primary focus:outline-none">
+<span>Are customer records and appointments stored securely?</span>
+<span class="material-symbols-outlined text-outline transition-transform duration-200" data-icon="expand_more">expand_more</span>
+</button>
+<div class="faq-content px-space-md pb-space-md hidden font-body-sm text-body-sm text-on-surface-variant border-t border-outline-variant/40 pt-2">
+            All data is encrypted in transit and at rest with strict access control. You retain complete, uninterrupted ownership of your customer database, transaction history, and client interaction notes at all times.
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- High-Contrast Final Call To Action -->
+<section class="px-margin-sm py-space-xl bg-surface-container-lowest" id="trial">
+<div class="max-w-xl mx-auto rounded-2xl bg-tertiary-container text-on-primary p-space-lg sm:p-space-xl relative overflow-hidden shadow-xl border border-outline">
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-xl bg-primary-container flex items-center justify-center mb-space-md border border-outline-variant/30">
+<img alt="Logo" class="w-8 h-8 rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACj2EeERnz-XTcOxjeaKx4tnFb6ncBurHT5W5oyxLEYLlOWLMIUI9neKNjdruHm2anc6SNLtawzjZXzaeLQXJJGLG-NOi9kOTuKuVmMxhv5eqc6-D3u79MgV214vcXKu2rfOwuogYb4raRig6gs2PoHwWQRDKL6U_ANO8aC9aEuhLXyR-h-5dp02TrmDMEKpcwUvbXOXx64LhF-atvGjfX2gA2Dwc-rZXFlCV4NPzyZK9n2NzCAjdr-Q"/>
+</div>
+<h2 class="font-headline-xl-mobile text-headline-xl-mobile sm:font-headline-xl sm:text-headline-xl font-bold tracking-tight text-surface-bright mb-space-sm">
+          Appointments Made Simple for Your Business.
+        </h2>
+<p class="font-body-md text-body-md text-on-tertiary-container mb-space-lg max-w-md">
+          Join salon directors, medical clinics, wellness practices and advisory offices saving hours every week with automated online scheduling.
+        </p>
+<div class="flex flex-col sm:flex-row w-full gap-space-sm mb-space-md">
+<a class="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-space-xs bg-primary-fixed text-on-primary-fixed hover:bg-surface-tint font-label-lg text-label-lg px-space-lg py-3 rounded-lg font-bold active:scale-98 transition-all" href="#pricing">
+            Start 7-Day Free Trial
+          </a>
+<a class="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-space-xs bg-transparent border border-outline text-surface-bright hover:bg-primary-container font-label-lg text-label-lg px-space-lg py-3 rounded-lg active:scale-98 transition-all" href="tel:+919391354003">
+<span class="material-symbols-outlined text-body-md text-secondary-fixed" data-icon="call">call</span>
+<span>Call +91 93913 54003</span>
+</a>
+</div>
+<div class="flex items-center gap-space-md text-on-tertiary-container font-label-sm text-label-sm">
+<span>✓ Zero setup charge</span>
+<span>✓ Dedicated URL &amp; QR</span>
+<span>✓ Instant live test</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Shared Component: Footer -->
+<footer class="w-full px-margin-sm py-space-xl flex flex-col gap-space-lg bg-primary-container dark:bg-primary text-on-primary dark:text-on-primary border-t border-on-primary-container dark:border-surface-variant" id="contact">
+<div class="max-w-xl mx-auto w-full flex flex-col gap-space-lg">
+<!-- Brand & Headline -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<img alt="VISROSLOT" class="w-8 h-8 rounded-lg brightness-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACj2EeERnz-XTcOxjeaKx4tnFb6ncBurHT5W5oyxLEYLlOWLMIUI9neKNjdruHm2anc6SNLtawzjZXzaeLQXJJGLG-NOi9kOTuKuVmMxhv5eqc6-D3u79MgV214vcXKu2rfOwuogYb4raRig6gs2PoHwWQRDKL6U_ANO8aC9aEuhLXyR-h-5dp02TrmDMEKpcwUvbXOXx64LhF-atvGjfX2gA2Dwc-rZXFlCV4NPzyZK9n2NzCAjdr-Q"/>
+<span class="font-headline-lg text-headline-lg font-bold tracking-tight text-on-primary dark:text-on-primary">VISROSLOT</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-primary-container dark:text-primary-fixed-dim leading-relaxed">
+          Appointments made simple for your business. Let your customers book online while you manage appointments, staff, and customer details in one place.
+        </p>
+</div>
+<!-- Direct Contact Cluster -->
+<div class="flex flex-col gap-2 pt-2 border-t border-primary/40">
+<a class="flex items-center gap-space-xs text-primary-fixed font-label-md text-label-md hover:text-on-primary" href="tel:+919391354003">
+<span class="material-symbols-outlined text-body-md" data-icon="phone_in_talk">phone_in_talk</span>
+<span>+91 93913 54003</span>
+</a>
+<a class="flex items-center gap-space-xs text-primary-fixed-dim font-label-md text-label-md hover:text-on-primary" href="https://instagram.com/visroslot" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-body-md" data-icon="alternate_email">alternate_email</span>
+<span>@visroslot</span>
+</a>
+</div>
+<!-- Links Cluster from JSON -->
+<div class="flex flex-wrap gap-x-space-md gap-y-2 pt-space-sm border-t border-primary/40 font-label-md text-label-md">
+<a class="text-on-primary-container dark:text-primary-fixed-dim hover:text-on-primary dark:hover:text-primary-fixed transition-colors duration-150" href="#privacy">Privacy Policy</a>
+<a class="text-on-primary-container dark:text-primary-fixed-dim hover:text-on-primary dark:hover:text-primary-fixed transition-colors duration-150" href="#terms">Terms of Service</a>
+<a class="text-on-primary-container dark:text-primary-fixed-dim hover:text-on-primary dark:hover:text-primary-fixed transition-colors duration-150" href="#security">Security</a>
+<a class="text-on-primary-container dark:text-primary-fixed-dim hover:text-on-primary dark:hover:text-primary-fixed transition-colors duration-150" href="#hipaa">HIPAA Compliance</a>
+<a class="text-primary-fixed dark:text-primary-fixed font-semibold underline underline-offset-4 active:opacity-80 transition-opacity duration-150" href="tel:+919391354003">Contact Support</a>
+</div>
+<!-- Copyright Statement -->
+<div class="pt-space-sm text-center sm:text-left font-body-sm text-body-sm text-on-primary-container dark:text-primary-fixed-dim">
+        © 2025 VISROSLOT Technologies Inc. All rights reserved.
+      </div>
+</div>
+</footer>
+<!-- Light Vanilla Script for Drawer Toggle, Billing Switcher, FAQ Accordion -->
+<script>
+    // Navigation Drawer Logic
+    const toggleBtn = document.getElementById('drawer-toggle');
+    const closeBtn = document.getElementById('drawer-close');
+    const drawer = document.getElementById('nav-drawer');
+    const scrim = document.getElementById('drawer-scrim');
+
+    function openDrawer() {
+      drawer.classList.remove('-translate-x-full');
+      scrim.classList.remove('hidden');
+      setTimeout(() => scrim.classList.remove('opacity-0'), 10);
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.add('-translate-x-full');
+      scrim.classList.add('opacity-0');
+      setTimeout(() => {
+        scrim.classList.add('hidden');
+        document.body.style.overflow = '';
+      }, 200);
+    }
+
+    if (toggleBtn) toggleBtn.addEventListener('click', openDrawer);
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    if (scrim) scrim.addEventListener('click', closeDrawer);
+
+    // Close drawer when clicking nav links
+    drawer.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', closeDrawer);
+    });
+
+    // Billing Switcher Logic
+    let isAnnual = false;
+    const billingToggle = document.getElementById('billing-toggle');
+    const toggleKnob = document.getElementById('toggle-knob');
+    const labelMonthly = document.getElementById('label-monthly');
+    const labelAnnual = document.getElementById('label-annual');
+    const proPrice = document.querySelector('.price-professional');
+    const bizPrice = document.querySelector('.price-business');
+
+    if (billingToggle) {
+      billingToggle.addEventListener('click', () => {
+        isAnnual = !isAnnual;
+        if (isAnnual) {
+          toggleKnob.classList.add('translate-x-6');
+          labelMonthly.classList.remove('font-bold', 'text-primary');
+          labelMonthly.classList.add('text-on-surface-variant');
+          labelAnnual.classList.add('font-bold', 'text-primary');
+          labelAnnual.classList.remove('text-on-surface-variant');
+          if (proPrice) proPrice.textContent = '₹415';
+          if (bizPrice) bizPrice.textContent = '₹829';
+        } else {
+          toggleKnob.classList.remove('translate-x-6');
+          labelMonthly.classList.add('font-bold', 'text-primary');
+          labelMonthly.classList.remove('text-on-surface-variant');
+          labelAnnual.classList.remove('font-bold', 'text-primary');
+          labelAnnual.classList.add('text-on-surface-variant');
+          if (proPrice) proPrice.textContent = '₹499';
+          if (bizPrice) bizPrice.textContent = '₹999';
+        }
+      });
+    }
+
+    // Touch FAQ Accordion
+    const faqContainer = document.getElementById('faq-accordion');
+    if (faqContainer) {
+      faqContainer.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const content = btn.nextElementSibling;
+          const icon = btn.querySelector('.material-symbols-outlined');
+          const isHidden = content.classList.contains('hidden');
+
+          // Close all others
+          faqContainer.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+          faqContainer.querySelectorAll('.material-symbols-outlined').forEach(i => i.classList.remove('rotate-180'));
+
+          if (isHidden) {
+            content.classList.remove('hidden');
+            icon.classList.add('rotate-180');
+          }
+        });
+      });
+    }
+  </script>
+</body></html>

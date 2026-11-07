@@ -1,5 +1,3 @@
-import https from "https";
-
 const API_KEY =
   process.env.NEXT_PUBLIC_FIREBASE_API_KEY ||
   process.env.FIREBASE_API_KEY ||
@@ -83,27 +81,19 @@ export function toFirestoreFields(obj: Record<string, any>): Record<string, any>
 }
 
 /**
- * Fetch all documents in a collection via Firestore REST API (fast, zero service-account required)
+ * Fetch all documents in a collection via Firestore REST API (native fetch, edge-ready)
  */
 export async function fetchCollectionRest(collectionName: string): Promise<any[]> {
   const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/${collectionName}?key=${API_KEY}`;
-  return new Promise((resolve) => {
-    https
-      .get(url, (res) => {
-        let b = "";
-        res.on("data", (chunk) => (b += chunk));
-        res.on("end", () => {
-          try {
-            const json = JSON.parse(b);
-            const docs = json.documents || [];
-            resolve(docs.map((d: any) => cleanFirestoreDoc(d)));
-          } catch {
-            resolve([]);
-          }
-        });
-      })
-      .on("error", () => resolve([]));
-  });
+  try {
+    const res = await fetch(url, { headers: { "Accept": "application/json" } });
+    if (!res.ok) return [];
+    const json: any = await res.json();
+    const docs = json.documents || [];
+    return docs.map((d: any) => cleanFirestoreDoc(d));
+  } catch {
+    return [];
+  }
 }
 
 /**
@@ -111,25 +101,14 @@ export async function fetchCollectionRest(collectionName: string): Promise<any[]
  */
 export async function getDocumentRest(collectionName: string, docId: string): Promise<any | null> {
   const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/${collectionName}/${encodeURIComponent(docId)}?key=${API_KEY}`;
-  return new Promise((resolve) => {
-    https
-      .get(url, (res) => {
-        let b = "";
-        res.on("data", (chunk) => (b += chunk));
-        res.on("end", () => {
-          if (res.statusCode !== 200) {
-            return resolve(null);
-          }
-          try {
-            const json = JSON.parse(b);
-            resolve(cleanFirestoreDoc(json));
-          } catch {
-            resolve(null);
-          }
-        });
-      })
-      .on("error", () => resolve(null));
-  });
+  try {
+    const res = await fetch(url, { headers: { "Accept": "application/json" } });
+    if (!res.ok) return null;
+    const json: any = await res.json();
+    return cleanFirestoreDoc(json);
+  } catch {
+    return null;
+  }
 }
 
 /**
@@ -144,33 +123,20 @@ export async function setDocumentRest(
   const payload = JSON.stringify({ fields });
   const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/${collectionName}/${encodeURIComponent(docId)}?key=${API_KEY}`;
   
-  return new Promise((resolve) => {
-    const req = https.request(
-      url,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          "Content-Length": Buffer.byteLength(payload),
-        },
+  try {
+    const res = await fetch(url, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
       },
-      (res) => {
-        let b = "";
-        res.on("data", (chunk) => (b += chunk));
-        res.on("end", () => {
-          try {
-            const json = JSON.parse(b);
-            resolve(cleanFirestoreDoc(json));
-          } catch {
-            resolve(null);
-          }
-        });
-      }
-    );
-    req.on("error", () => resolve(null));
-    req.write(payload);
-    req.end();
-  });
+      body: payload,
+    });
+    if (!res.ok) return null;
+    const json: any = await res.json();
+    return cleanFirestoreDoc(json);
+  } catch {
+    return null;
+  }
 }
 
 /**
@@ -206,19 +172,12 @@ export async function findBusinessBySlugRest(targetSlug: string): Promise<any | 
  */
 export async function deleteDocumentRest(collectionName: string, docId: string): Promise<boolean> {
   const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/${collectionName}/${encodeURIComponent(docId)}?key=${API_KEY}`;
-  return new Promise((resolve) => {
-    const req = https.request(
-      url,
-      {
-        method: "DELETE",
-      },
-      (res) => {
-        resolve(res.statusCode === 200 || res.statusCode === 204);
-      }
-    );
-    req.on("error", () => resolve(false));
-    req.end();
-  });
+  try {
+    const res = await fetch(url, { method: "DELETE" });
+    return res.ok;
+  } catch {
+    return false;
+  }
 }
 
 /**
@@ -398,17 +357,17 @@ export function createRestFirestoreDb(): any {
           return this;
         },
         async commit() {
-          await Promise.all(operations.map((op) => op()));
+          for (const op of operations) {
+            await op();
+          }
         },
       };
     },
   };
+
   return dbInstance;
 }
 
-/**
- * Starter fallback services if business has not added custom services yet
- */
 export function getStarterServicesForBusiness(businessId: string, businessName: string) {
   return [
     {
@@ -443,3 +402,4 @@ export function getStarterServicesForBusiness(businessId: string, businessName: 
     },
   ];
 }
+

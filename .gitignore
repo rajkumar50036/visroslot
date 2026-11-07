@@ -2,6 +2,8 @@
 /node_modules
 functions/node_modules
 functions/lib
+# Cloudflare & OpenNext
+.open-next
 .wrangler
 .bin
 /.pnp

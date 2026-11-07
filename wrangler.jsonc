@@ -6,11 +6,22 @@
   "compatibility_flags": [
     "nodejs_compat"
   ],
-  "build": {
-    "command": "npx @opennextjs/cloudflare build"
-  },
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
+  },
+  "vars": {
+    "NEXT_PUBLIC_APP_URL": "https://visroslot.pages.dev",
+    "NEXT_PUBLIC_FIREBASE_API_KEY": "AIzaSyDi1cHQO9OIuPJlr2qdERVJOjtp8sTv75c",
+    "NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN": "visroslot.firebaseapp.com",
+    "NEXT_PUBLIC_FIREBASE_PROJECT_ID": "visroslot",
+    "NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET": "visroslot.firebasestorage.app",
+    "FIREBASE_PROJECT_ID": "visroslot",
+    "RAZORPAY_KEY_ID": "rzp_live_TvNjsnYOY9mDa8",
+    "RAZORPAY_KEY_SECRET": "q5G3JDDvpvbpdw31rDJqTd6Y",
+    "RAZORPAY_PRO_MONTHLY_PLAN_ID": "plan_Twc9lFpxSRFc23",
+    "RAZORPAY_PRO_YEARLY_PLAN_ID": "plan_Twc9vMU8YEJwiz",
+    "RAZORPAY_BUSINESS_MONTHLY_PLAN_ID": "plan_TwcA6JbcglDJ9F",
+    "RAZORPAY_BUSINESS_YEARLY_PLAN_ID": "plan_TwcAFFJynRRG8t"
   }
 }

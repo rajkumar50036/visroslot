@@ -1,17 +1,14 @@
 /**
  * VISROSLOT Centralized Domain & Hostname Resolver
- * Dynamically resolves the active platform domain whether hosted on Firebase (visroslot.web.app),
- * custom domain, or cloud edge.
+ * Dynamically resolves the active platform domain on Cloudflare (visroslot.pages.dev),
+ * custom domain, or active request host.
  */
 
 export function getPlatformBaseUrl(): string {
   if (typeof window !== "undefined" && window.location?.origin) {
     return window.location.origin;
   }
-  return (
-    process.env.NEXT_PUBLIC_APP_URL ||
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://visroslot.web.app")
-  );
+  return process.env.NEXT_PUBLIC_APP_URL || "https://visroslot.pages.dev";
 }
 
 export function getPlatformDisplayHost(): string {

@@ -62,7 +62,6 @@ export default function RootLayout({
         {/* Speed Boost: Preconnect critical infrastructure */}
         <link rel="preconnect" href="https://firestore.googleapis.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://firestore.googleapis.com" />
-        <link rel="preload" href="/sounds/booking-chime.wav" as="audio" />
         <link rel="preload" href="/assets/visroslot-logo.png" as="image" type="image/png" />
 
         {/* Synchronous Default Light Theme Enforcer */}

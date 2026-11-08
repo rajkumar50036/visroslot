@@ -382,6 +382,58 @@ function SubscriptionContent() {
     }
   };
 
+  const handleTestSimulatedUpgrade = async (targetPlan: "professional" | "business") => {
+    setCheckoutLoading(targetPlan);
+    setPaymentErrorMessage(null);
+    setPaymentSuccessMessage(null);
+    try {
+      const { auth } = getFirebaseClient();
+      const activeBusId = business?.id;
+      const uid =
+        auth?.currentUser?.uid ||
+        (typeof document !== "undefined" &&
+          (document.cookie.match(/visroslot_session=([^;]+)/)?.[1] ||
+            document.cookie.match(/slotora_session=([^;]+)/)?.[1]));
+
+      const fakePaymentId = `pay_test_${Date.now()}`;
+      const fakeOrderId = `order_test_${Date.now()}`;
+      const verifyRes = await fetch("/api/subscription/verify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          businessId: activeBusId,
+          userId: uid,
+          plan: targetPlan,
+          cycle: billingCycle,
+          subscriptionId: `sub_test_${Date.now()}`,
+          orderId: fakeOrderId,
+          paymentId: fakePaymentId,
+          signature: "simulated_test_mode_signature",
+          isSimulated: true,
+          isTrial: false,
+        }),
+      });
+      const verifyData = await verifyRes.json();
+      if (!verifyRes.ok) throw new Error(verifyData.error || "Simulation failed");
+      setPaymentSuccessMessage(
+        `🧪 Test Mode Payment Verified! Plan updated to ${targetPlan === "business" ? "Business Suite" : "Professional Plan"} without charges.`
+      );
+      setBusiness((prev: any) => ({
+        ...prev,
+        plan: targetPlan,
+        subscription_status: "active",
+        subscriptionStatus: "ACTIVE",
+        publicBookingStatus: "ACTIVE",
+        booking_quota_reached: false,
+        is_unlimited: targetPlan === "business",
+      }));
+      setCheckoutLoading(null);
+    } catch (err: any) {
+      setCheckoutLoading(null);
+      setPaymentErrorMessage(err.message);
+    }
+  };
+
   // Auto-launch checkout if plan query param is passed
   useEffect(() => {
     if (autoPlan && !loading && !checkoutLoading) {
@@ -804,7 +856,7 @@ function SubscriptionContent() {
               </ul>
             </div>
 
-            <div className="pt-4 border-t border-slate-100 dark:border-navy-800">
+            <div className="pt-4 border-t border-slate-100 dark:border-navy-800 space-y-2">
               <button
                 type="button"
                 onClick={() => handleCheckout("professional", false)}
@@ -822,6 +874,16 @@ function SubscriptionContent() {
                     <span>Pay ₹{billingCycle === "monthly" ? "499" : "4,990"} via Razorpay</span>
                   </>
                 )}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => handleTestSimulatedUpgrade("professional")}
+                disabled={checkoutLoading !== null}
+                className="w-full py-2.5 px-4 rounded-xl font-mono text-[11px] font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-300 border border-amber-300 dark:border-amber-700/60 hover:bg-amber-100 dark:hover:bg-amber-900/40 shadow-xs"
+                title="Test Mode: Instantly activate Professional plan in sandbox"
+              >
+                <span>🧪 Test Mode (Simulate Activation)</span>
               </button>
             </div>
           </div>
@@ -894,7 +956,7 @@ function SubscriptionContent() {
               </ul>
             </div>
 
-            <div className="pt-4 border-t border-slate-100 dark:border-navy-800">
+            <div className="pt-4 border-t border-slate-100 dark:border-navy-800 space-y-2">
               <button
                 type="button"
                 onClick={() => handleCheckout("business", false)}
@@ -912,6 +974,16 @@ function SubscriptionContent() {
                     <span>Pay ₹{billingCycle === "monthly" ? (isProfessionalPlan ? "500" : "999") : (isProfessionalPlan ? "5,000" : "9,990")} via Razorpay</span>
                   </>
                 )}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => handleTestSimulatedUpgrade("business")}
+                disabled={checkoutLoading !== null}
+                className="w-full py-2.5 px-4 rounded-xl font-mono text-[11px] font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-300 border border-amber-300 dark:border-amber-700/60 hover:bg-amber-100 dark:hover:bg-amber-900/40 shadow-xs"
+                title="Test Mode: Instantly activate Business Suite in sandbox"
+              >
+                <span>🧪 Test Mode (Simulate Activation)</span>
               </button>
             </div>
           </div>

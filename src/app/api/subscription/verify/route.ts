@@ -321,7 +321,7 @@ export async function POST(req: NextRequest) {
         } catch (e) {}
       }
 
-      if (targetRefundId && !String(targetRefundId).startsWith("pay_sim_") && !alreadyRefunded) {
+      if (targetRefundId && !String(targetRefundId).startsWith("pay_sim_") && !String(targetRefundId).startsWith("pay_test_") && !isSimulated && !alreadyRefunded) {
         try {
           refundData = await refundRazorpayPayment({
             paymentId: targetRefundId,

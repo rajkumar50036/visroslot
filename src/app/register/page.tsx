@@ -499,14 +499,8 @@ function RegisterForm() {
 export default function RegisterPage() {
   return (
     <div className="min-h-screen bg-[#FAF9F3] dark:bg-[#10251D] text-[#10251D] dark:text-[#FFFFFF] flex flex-col justify-between py-6 px-4 sm:px-6 lg:px-8 transition-colors duration-200">
-      <header className="w-full max-w-md mx-auto flex items-center justify-between pb-2">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 text-xs font-mono text-[#707974] hover:text-[#10251D] dark:text-[#A7B9AA] dark:hover:text-[#FFFFFF] transition-colors"
-        >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Home</span>
-        </Link>
+      <header className="w-full max-w-md mx-auto flex items-center justify-between pb-3">
+        <VisroSlotLogo size="sm" href="/" />
         <ThemeToggle variant="segmented" size="sm" />
       </header>
 

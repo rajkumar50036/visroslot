@@ -46,14 +46,8 @@ export default function ForgotPasswordPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-navy-950 text-slate-900 dark:text-white flex flex-col justify-between py-6 px-4 sm:px-6 lg:px-8 transition-colors duration-200">
-      <header className="w-full max-w-md mx-auto flex items-center justify-between pb-2">
-        <Link
-          href="/login"
-          className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-500 hover:text-slate-900 dark:text-navy-400 dark:hover:text-white transition-colors"
-        >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Back to Sign In</span>
-        </Link>
+      <header className="w-full max-w-md mx-auto flex items-center justify-between pb-3">
+        <VisroSlotLogo size="sm" href="/" />
         <ThemeToggle variant="segmented" size="sm" />
       </header>
 

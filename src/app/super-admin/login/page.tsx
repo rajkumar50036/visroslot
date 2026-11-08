@@ -106,13 +106,7 @@ export default function SuperAdminLoginPage() {
     <div className="min-h-screen bg-[#101A2B] text-slate-100 flex flex-col justify-between py-10 px-4 sm:px-6 lg:px-8 font-sans selection:bg-[#C49A46] selection:text-white">
       {/* Top Header */}
       <header className="max-w-md w-full mx-auto flex items-center justify-between pb-4">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-white transition-colors"
-        >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Return to VisroSlot</span>
-        </Link>
+        <VisroSlotLogo size="sm" href="/" />
         <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-navy-900 border border-navy-700 text-[11px] font-mono text-gold-warm">
           <ShieldCheck className="w-3.5 h-3.5 text-[#C49A46]" />
           <span>Restricted Portal</span>

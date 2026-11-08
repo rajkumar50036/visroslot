@@ -2,6 +2,8 @@
 /node_modules
 functions/node_modules
 functions/lib
+firebase_functions/node_modules
+firebase_functions/lib
 # Cloudflare & OpenNext
 .open-next
 .wrangler

@@ -453,6 +453,17 @@ function OnboardingContent() {
 
       const orderData = await res.json();
 
+      // If user already has an active subscription, trial, or founder access, unlock Step 3 immediately!
+      if (orderData.alreadySubscribed || (orderData.success && (orderData.isFounder || orderData.isOwner))) {
+        setIsPaymentVerified(true);
+        setIsTrialActive(true);
+        setFeedbackSuccess(orderData.message || "Your subscription is already active! Step 3 unlocked.");
+        setMaxUnlockedStep((prev) => Math.max(prev, 3));
+        advanceToStep(3);
+        setPaymentProcessing(false);
+        return;
+      }
+
       if (!res.ok || (!orderData.subscriptionId && !orderData.orderId)) {
         throw new Error(
           orderData.error ||
@@ -1602,18 +1613,7 @@ function OnboardingContent() {
                 ← Back to Account
               </button>
 
-              <div className="flex flex-col sm:flex-row items-end sm:items-center gap-3">
-                <button
-                  type="button"
-                  disabled={paymentProcessing}
-                  onClick={handleConfirmPlanDirectly}
-                  className="px-5 py-3.5 rounded-full text-xs font-mono font-bold text-amber-900 dark:text-amber-200 bg-amber-50 dark:bg-amber-950/60 border border-amber-300 dark:border-amber-700 hover:bg-amber-100 dark:hover:bg-amber-900/40 transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
-                  title="Test Mode: Instantly verify and unlock Step 3 without card/UPI charges"
-                >
-                  <Sparkles className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
-                  <span>Test Mode (Instant Unlock)</span>
-                </button>
-
+              <div className="flex items-center gap-3">
                 <button
                   type="button"
                   disabled={paymentProcessing}

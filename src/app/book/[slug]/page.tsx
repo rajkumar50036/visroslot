@@ -38,7 +38,6 @@ import { CustomerAiMyAppointments } from "@/components/booking/CustomerAiMyAppoi
 import { CustomerAiReschedule } from "@/components/booking/CustomerAiReschedule";
 import { CustomerAiCancel } from "@/components/booking/CustomerAiCancel";
 import { CustomerAiChat } from "@/components/booking/CustomerAiChat";
-import { playBookingChime } from "@/lib/sound/soundEffects";
 
 interface SlotItem {
   startTime: string;
@@ -332,7 +331,6 @@ export default function PublicBookingPage({ params }: { params: { slug: string }
 
       setConfirmationData(data);
       setStep(5);
-      playBookingChime({ volume: 0.8 });
     } catch (err: any) {
       setSubmitError(err.message || "Something went wrong. Please try again.");
     } finally {
@@ -1343,19 +1341,6 @@ export default function PublicBookingPage({ params }: { params: { slug: string }
                   <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 max-w-md mx-auto">
                     We have saved your booking details.
                   </p>
-                  <div className="flex items-center justify-center gap-2 pt-2.5">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
-                      <Volume2 className="w-3.5 h-3.5 text-emerald-600" />
-                      <span>Booking Chime Played</span>
-                    </span>
-                    <button
-                      onClick={() => playBookingChime({ volume: 0.8 })}
-                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-mono text-slate-500 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700 transition-colors cursor-pointer"
-                      title="Replay notification sound"
-                    >
-                      <span>Replay Sound</span>
-                    </button>
-                  </div>
                 </div>
 
                 {/* Booking summary */}

@@ -875,16 +875,6 @@ function SubscriptionContent() {
                   </>
                 )}
               </button>
-
-              <button
-                type="button"
-                onClick={() => handleTestSimulatedUpgrade("professional")}
-                disabled={checkoutLoading !== null}
-                className="w-full py-2.5 px-4 rounded-xl font-mono text-[11px] font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-300 border border-amber-300 dark:border-amber-700/60 hover:bg-amber-100 dark:hover:bg-amber-900/40 shadow-xs"
-                title="Test Mode: Instantly activate Professional plan in sandbox"
-              >
-                <span>🧪 Test Mode (Simulate Activation)</span>
-              </button>
             </div>
           </div>
 
@@ -974,16 +964,6 @@ function SubscriptionContent() {
                     <span>Pay ₹{billingCycle === "monthly" ? (isProfessionalPlan ? "500" : "999") : (isProfessionalPlan ? "5,000" : "9,990")} via Razorpay</span>
                   </>
                 )}
-              </button>
-
-              <button
-                type="button"
-                onClick={() => handleTestSimulatedUpgrade("business")}
-                disabled={checkoutLoading !== null}
-                className="w-full py-2.5 px-4 rounded-xl font-mono text-[11px] font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-300 border border-amber-300 dark:border-amber-700/60 hover:bg-amber-100 dark:hover:bg-amber-900/40 shadow-xs"
-                title="Test Mode: Instantly activate Business Suite in sandbox"
-              >
-                <span>🧪 Test Mode (Simulate Activation)</span>
               </button>
             </div>
           </div>

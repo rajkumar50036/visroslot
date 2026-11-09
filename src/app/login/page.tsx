@@ -48,8 +48,24 @@ function LoginForm() {
     // For Business Owner: inspect onboarding completion
     const resume = await getOnboardingResumeState(db, uid, userEmail);
 
-    if (resume.hasBusiness && resume.hasServices && resume.hasStaff) {
-      return rawNext && rawNext !== "/" ? rawNext : "/app/overview";
+    // If customer already has active plan and has completed business onboarding:
+    // Go straight to dashboard overview (never ask to pay again or restart onboarding)
+    if (resume.onboardingComplete || (resume.hasSubscription && resume.hasBusiness && (resume.hasServices || resume.hasStaff))) {
+      return rawNext && !rawNext.startsWith("/onboarding") ? rawNext : "/app/overview";
+    }
+
+    // If customer has active plan and already has business created:
+    if (resume.hasSubscription && resume.hasBusiness) {
+      if (resume.nextRoute && !resume.nextRoute.includes("step=plan")) {
+        return resume.nextRoute;
+      }
+      return "/app/overview";
+    }
+
+    // If customer has active plan but no business profile created yet:
+    // Direct them to Step 3 (Business Profile) - NEVER Step 2 (plan payment)
+    if (resume.hasSubscription) {
+      return "/onboarding?step=profile";
     }
 
     return resume.nextRoute.startsWith("/onboarding") ? resume.nextRoute : "/onboarding";

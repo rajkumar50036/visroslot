@@ -400,21 +400,40 @@ function OnboardingContent() {
           }
         }
 
-        // Step routing after verification
+        // If user already has an active verified plan AND finished business setup:
+        // Automatically redirect to /app/overview so they are NEVER asked to pay or repeat onboarding!
+        const hasFinishedOnboarding = Boolean(
+          uData?.onboarding_complete === true ||
+          (loadedBusId && (services.length > 0 || staff.length > 0))
+        );
+        if (isUserVerified && hasFinishedOnboarding && initialStepParam !== "review") {
+          router.replace("/app/overview");
+          return;
+        }
+
+        // Step routing after verification (NEVER send a verified subscriber to Step 2 to pay again!)
         let resolvedStep = 3;
-        if (initialStepParam === "plan") resolvedStep = 2;
-        else if (initialStepParam === "profile") resolvedStep = 3;
-        else if (initialStepParam === "services") resolvedStep = 4;
-        else if (initialStepParam === "staff") resolvedStep = 5;
-        else if (initialStepParam === "hours") resolvedStep = 6;
-        else if (initialStepParam === "settings") resolvedStep = 7;
-        else if (initialStepParam === "review") resolvedStep = 8;
-        else {
+        if (initialStepParam === "plan") {
+          // User already has an active plan / verified payment! Advance past Step 2
+          resolvedStep = loadedBusId ? 4 : 3;
+        } else if (initialStepParam === "profile") {
+          resolvedStep = 3;
+        } else if (initialStepParam === "services") {
+          resolvedStep = 4;
+        } else if (initialStepParam === "staff") {
+          resolvedStep = 5;
+        } else if (initialStepParam === "hours") {
+          resolvedStep = 6;
+        } else if (initialStepParam === "settings") {
+          resolvedStep = 7;
+        } else if (initialStepParam === "review") {
+          resolvedStep = 8;
+        } else {
           if (!loadedBusId) {
             resolvedStep = 3;
-          } else if (servicesList.length === 0) {
+          } else if (services.length === 0) {
             resolvedStep = 4;
-          } else if (staffList.length === 0) {
+          } else if (staff.length === 0) {
             resolvedStep = 5;
           } else {
             resolvedStep = 6;
@@ -424,7 +443,8 @@ function OnboardingContent() {
         const savedProgress = uData?.onboarding_step ? Number(uData.onboarding_step) : 3;
         const initialMax = Math.max(savedProgress, resolvedStep, 3);
         setMaxUnlockedStep(initialMax);
-        setCurrentStep(Math.min(resolvedStep, initialMax));
+        // Guaranteed: Any customer with an active plan resumes at Step 3 or later, NEVER asked to pay again!
+        setCurrentStep(Math.max(3, Math.min(resolvedStep, initialMax)));
       } catch (err: any) {
         console.warn("Init onboarding warning:", err);
       } finally {

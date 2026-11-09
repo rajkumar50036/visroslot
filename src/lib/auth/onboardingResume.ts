@@ -93,14 +93,6 @@ export async function getOnboardingResumeState(
     }
 
     // 3. Inspect Subscription / Plan Selection
-    const hasPlanSelected = Boolean(
-      userData?.plan ||
-      userData?.selected_plan ||
-      userData?.subscription_status === "TRIALING" ||
-      userData?.subscription_status === "active" ||
-      userData?.payment_verified === true
-    );
-
     let subDocData: any = null;
     if (result.businessId) {
       const subSnap = await getDocs(
@@ -120,29 +112,42 @@ export async function getOnboardingResumeState(
       }
     }
 
-    const now = new Date();
-    const isSubActive = Boolean(
-      hasPlanSelected ||
-      (subDocData &&
-        (subDocData.status === "active" ||
-          subDocData.status === "ACTIVE" ||
-          subDocData.status === "TRIALING" ||
-          subDocData.status === "trialing") &&
-        (!subDocData.expires_at || new Date(subDocData.expires_at) >= now))
+    const rawSubStatus = String(userData?.subscription_status || userData?.subscriptionStatus || "").toLowerCase();
+    const rawAccountStatus = String(userData?.accountStatus || "").toLowerCase();
+    const subDocStatus = String(subDocData?.status || subDocData?.subscriptionStatus || "").toLowerCase();
+
+    const isSubDocActive = Boolean(
+      subDocData &&
+      ["active", "trialing", "authenticated"].includes(subDocStatus) &&
+      (!subDocData.expires_at || new Date(subDocData.expires_at) >= new Date())
     );
 
-    result.hasSubscription = hasPlanSelected || Boolean(subDocData);
-    result.isSubscriptionActive = isSubActive;
+    const hasActivePlan = Boolean(
+      isPlatformOwner ||
+      isSubDocActive ||
+      userData?.payment_verified === true ||
+      userData?.payment_verified === "true" ||
+      userData?.payment_verified === "verified" ||
+      userData?.paymentVerified === true ||
+      userData?.paymentVerified === "true" ||
+      rawAccountStatus === "trial_active" ||
+      rawAccountStatus === "active" ||
+      ["active", "trialing", "authenticated"].includes(rawSubStatus) ||
+      Boolean(userData?.plan && (userData?.payment_verified || userData?.paymentVerified || rawSubStatus === "trialing" || rawSubStatus === "active"))
+    );
 
-    // Step 2: Plan Selection
-    if (!hasPlanSelected && !subDocData) {
+    result.hasSubscription = hasActivePlan;
+    result.isSubscriptionActive = hasActivePlan;
+
+    // Step 2: Plan Selection (ONLY for unverified users without an active plan)
+    if (!hasActivePlan) {
       result.nextStep = "plan";
       result.nextRoute = "/onboarding?step=plan";
       result.stepNumber = 2;
       return result;
     }
 
-    // Step 3: Business Profile
+    // Step 3: Business Profile (if user has active plan but hasn't created business yet)
     if (!result.hasBusiness || !result.businessSlug) {
       result.nextStep = "profile";
       result.nextRoute = "/onboarding?step=profile";

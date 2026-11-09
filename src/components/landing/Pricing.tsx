@@ -45,7 +45,7 @@ export default function Pricing() {
   const handleGetStarted = (plan: "starter" | "premium" | "professional" | "business") => {
     const canonicalPlan = plan === "premium" || plan === "business" ? "business" : "professional";
     if (isLoggedIn) {
-      router.push(`/onboarding?step=plan&plan=${canonicalPlan}&cycle=${billingCycle}`);
+      router.push("/app/overview");
     } else {
       router.push(`/register?step=plan&plan=${canonicalPlan}&cycle=${billingCycle}`);
     }

@@ -285,11 +285,39 @@ function OnboardingContent() {
           setBillingCycle(initialCycleParam);
         }
 
+        // Check subscriptions collection if user doc doesn't have it explicitly
+        let hasActiveSub = false;
+        try {
+          const subQuery = await getDocs(
+            query(
+              collection(db, "subscriptions"),
+              where("user_id", "==", uid)
+            )
+          );
+          if (!subQuery.empty) {
+            hasActiveSub = subQuery.docs.some((sDoc) => {
+              const d = sDoc.data();
+              const st = String(d.status || d.subscriptionStatus || "").toLowerCase();
+              return ["active", "trialing", "authenticated"].includes(st);
+            });
+          }
+        } catch (subErr) {
+          console.warn("Sub collection check non-fatal:", subErr);
+        }
+
+        const rawSubStatus = String(uData?.subscription_status || uData?.subscriptionStatus || "").toLowerCase();
+        const rawAccountStatus = String(uData?.accountStatus || "").toLowerCase();
+
         const isUserVerified = Boolean(
+          hasActiveSub ||
           uData?.payment_verified === true ||
+          uData?.payment_verified === "true" ||
+          uData?.payment_verified === "verified" ||
           uData?.paymentVerified === true ||
-          (uData?.subscription_status === "active" && (uData?.payment_verified === true || uData?.paymentVerified === true)) ||
-          (uData?.subscription_status === "TRIALING" && (uData?.autopay_verified === true || uData?.payment_verified === true))
+          uData?.paymentVerified === "true" ||
+          rawAccountStatus === "trial_active" ||
+          rawAccountStatus === "active" ||
+          ["active", "trialing", "authenticated"].includes(rawSubStatus)
         );
         setIsPaymentVerified(isUserVerified);
 
@@ -416,12 +444,16 @@ function OnboardingContent() {
     try {
       const { db } = getFirebaseClient();
       if (!db) return;
-      await updateDoc(doc(db, "users", currentUser.uid), {
-        onboarding_step: isPaymentVerified ? stepToSave : Math.min(stepToSave, 2),
-        plan: selectedPlan,
-        billing_cycle: billingCycle,
-        updatedAt: new Date().toISOString(),
-      });
+      await setDoc(
+        doc(db, "users", currentUser.uid),
+        {
+          onboarding_step: isPaymentVerified ? stepToSave : Math.min(stepToSave, 2),
+          plan: selectedPlan,
+          billing_cycle: billingCycle,
+          updatedAt: new Date().toISOString(),
+        },
+        { merge: true }
+      );
     } catch (e) {
       console.warn("Could not persist onboarding step:", e);
     }
@@ -1604,6 +1636,28 @@ function OnboardingContent() {
               </div>
             )}
 
+            {/* Verified Mandate Banner */}
+            {isPaymentVerified && (
+              <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-900 dark:text-emerald-200 flex items-center justify-between gap-3 shadow-xs">
+                <div className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-5 h-5 text-[#046A38] shrink-0" />
+                  <div className="space-y-0.5">
+                    <p className="font-bold text-xs">Payment &amp; AutoPay Mandate Verified!</p>
+                    <p className="text-[11px] text-emerald-800 dark:text-emerald-300">
+                      Your 7-day free trial is now active. Step 3 (Business Profile Setup) has been unlocked.
+                    </p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => advanceToStep(3)}
+                  className="px-4 py-2 rounded-full bg-[#046A38] text-white font-mono font-bold text-xs uppercase shadow hover:bg-[#043D2E] transition-all whitespace-nowrap cursor-pointer shrink-0"
+                >
+                  Proceed to Step 3 →
+                </button>
+              </div>
+            )}
+
             <div className="pt-4 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 dark:border-white/10">
               <button
                 type="button"
@@ -1614,21 +1668,35 @@ function OnboardingContent() {
               </button>
 
               <div className="flex items-center gap-3">
-                <button
-                  type="button"
-                  disabled={paymentProcessing}
-                  onClick={() => handleAuthorizePlanGateway(false)}
-                  className="px-8 py-3.5 rounded-full text-xs font-bold font-mono uppercase text-white bg-[#046A38] hover:bg-[#043D2E] shadow-md transition-all flex items-center gap-2 disabled:opacity-60 cursor-pointer"
-                >
-                  {paymentProcessing ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin text-white" />
-                      <span>Connecting...</span>
-                    </>
-                  ) : (
-                    <span>Continue via Razorpay</span>
-                  )}
-                </button>
+                {isPaymentVerified ? (
+                  <button
+                    type="button"
+                    onClick={() => advanceToStep(3)}
+                    className="px-8 py-3.5 rounded-full text-xs font-bold font-mono uppercase text-white bg-[#046A38] hover:bg-[#043D2E] shadow-md transition-all flex items-center gap-2 cursor-pointer ring-2 ring-emerald-400"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-emerald-300" />
+                    <span>Payment Verified • Unlock Step 3 →</span>
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    disabled={paymentProcessing}
+                    onClick={() => handleAuthorizePlanGateway(false)}
+                    className="px-8 py-3.5 rounded-full text-xs font-bold font-mono uppercase text-white bg-[#046A38] hover:bg-[#043D2E] shadow-md transition-all flex items-center gap-2 disabled:opacity-60 cursor-pointer"
+                  >
+                    {paymentProcessing ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin text-white" />
+                        <span>Connecting Razorpay...</span>
+                      </>
+                    ) : (
+                      <>
+                        <ShieldCheck className="w-4 h-4 text-white" />
+                        <span>Authorize &amp; Activate 7-Day Trial →</span>
+                      </>
+                    )}
+                  </button>
+                )}
               </div>
             </div>
           </div>

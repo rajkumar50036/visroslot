@@ -1,16 +1,54 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { VisroSlotSidebar } from "@/components/dashboard/VisroSlotSidebar";
 import { VisroSlotLogo } from "@/components/brand/VisroSlotLogo";
 import { Menu, LayoutDashboard, CalendarCheck2, CalendarDays, Layers, MoreHorizontal } from "lucide-react";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
+import { RealtimeAppointmentAlerts } from "@/components/dashboard/RealtimeAppointmentAlerts";
+import { getFirebaseClient } from "@/lib/firebase/client";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { getUserPersonalBusiness } from "@/lib/auth/userBusiness";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [businessId, setBusinessId] = useState<string | null>(null);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const { auth, db, isConfigured } = getFirebaseClient();
+    if (!isConfigured || !db) return;
+
+    const unsubscribe = auth?.onAuthStateChanged(async (user) => {
+      const uid =
+        user?.uid ||
+        (typeof document !== "undefined"
+          ? document.cookie.match(/visroslot_session=([^;]+)/)?.[1] ||
+            document.cookie.match(/slotora_session=([^;]+)/)?.[1]
+          : null);
+      if (!uid) return;
+
+      try {
+        const userCtx = await getUserPersonalBusiness(db, uid, user?.email);
+        if (userCtx.business?.id) {
+          setBusinessId(userCtx.business.id);
+        } else {
+          const busSnap = await getDocs(
+            query(collection(db, "businesses"), where("owner_id", "==", uid))
+          );
+          if (!busSnap.empty) {
+            setBusinessId(busSnap.docs[0].id);
+          }
+        }
+      } catch (e) {
+        console.warn("AppLayout business lookup error:", e);
+      }
+    });
+
+    return () => unsubscribe?.();
+  }, []);
 
   const mobileTabs = [
     { href: "/app/overview", label: "Overview", icon: LayoutDashboard },
@@ -76,6 +114,9 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           <span className="text-[10px] mt-0.5 tracking-tight">More</span>
         </button>
       </nav>
+
+      {/* Real-time Web Audio Booking Chime and In-App Alert for Owner */}
+      {businessId && <RealtimeAppointmentAlerts businessId={businessId} />}
     </div>
   );
 }

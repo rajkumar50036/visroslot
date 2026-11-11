@@ -2,29 +2,29 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Sliders, Globe } from "lucide-react";
+import { ArrowRight, CheckCircle2, CreditCard, Globe, Sparkles } from "lucide-react";
 
 export default function HowItWorks() {
   const steps = [
     {
       num: "01",
       badgeColor: "bg-[#10251D] text-[#FFFFFF]",
-      title: "Create your account",
-      description: "Pick your plan and activate your 7-day complimentary full access. No initial payment or credit card required upfront.",
+      title: "Choose 7-Day Free Trial Plan",
+      description: "Pick Starter (₹499/mo) or Premium (₹999/mo). Test all booking features risk-free with ₹0 charged today.",
       icon: CheckCircle2,
     },
     {
       num: "02",
       badgeColor: "bg-[#046A38] text-[#FFFFFF]",
-      title: "Add services and staff",
-      description: "Define your service menus, slot pricing, duration buffers, and assign your specialist team with custom working hours.",
-      icon: Sliders,
+      title: "1-Click AutoPay Mandate Setup",
+      description: "Authorize your trial securely via Razorpay. The ₹2 verification token is automatically refunded to your bank account immediately.",
+      icon: CreditCard,
     },
     {
       num: "03",
       badgeColor: "bg-[#043D2E] text-[#FFFFFF]",
-      title: "Share your booking page",
-      description: "Publish your direct booking URL to Instagram bio, WhatsApp, or Google Maps. Print your storefront QR code.",
+      title: "Create Business Profile & Launch",
+      description: "Enter your business name, get your dedicated live booking link and instant storefront QR code, and start taking appointments!",
       icon: Globe,
     },
   ];
@@ -76,13 +76,13 @@ export default function HowItWorks() {
         </div>
 
         <div className="text-center pt-4">
-          <Link
-            href="/pricing"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-md text-xs sm:text-sm font-bold text-[#FFFFFF] bg-[#046A38] hover:bg-[#043D2E] shadow-sm transition-all duration-150 active:scale-95"
+          <a
+            href="#pricing"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-md text-xs sm:text-sm font-bold text-[#FFFFFF] bg-[#046A38] hover:bg-[#03522b] shadow-md transition-all duration-150 active:scale-95 cursor-pointer"
           >
-            <span>Start 7-Day Free Trial</span>
+            <span>Start 7-Day Free Trial (₹0 Today)</span>
             <ArrowRight className="w-4 h-4" />
-          </Link>
+          </a>
         </div>
       </div>
     </section>

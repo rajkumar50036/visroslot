@@ -2,9 +2,47 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Volume2, ShieldCheck, Clock, Sparkles } from "lucide-react";
+import { useRouter } from "next/navigation";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Volume2,
+  ShieldCheck,
+  Clock,
+  Sparkles,
+  Zap,
+} from "lucide-react";
 
 export default function Hero() {
+  const router = useRouter();
+
+  const handleScrollToPricing = () => {
+    const el = document.getElementById("pricing");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      el.classList.add("ring-4", "ring-[#046A38]", "shadow-2xl", "transition-all", "duration-500");
+      setTimeout(() => {
+        el.classList.remove("ring-4", "ring-[#046A38]", "shadow-2xl");
+      }, 1800);
+    } else {
+      router.push("/pricing");
+    }
+  };
+
+  const handleSelectQuickPlan = (plan: "starter" | "premium") => {
+    const canonicalPlan = plan === "premium" ? "business" : "professional";
+    const hasSession =
+      typeof document !== "undefined" &&
+      (document.cookie.includes("visroslot_session=") ||
+        document.cookie.includes("slotora_session="));
+
+    if (hasSession) {
+      router.push(`/onboarding?step=plan&plan=${canonicalPlan}&cycle=monthly`);
+    } else {
+      router.push(`/register?step=plan&plan=${canonicalPlan}&cycle=monthly`);
+    }
+  };
+
   return (
     <section className="bg-[#043D2E] text-[#FFFFFF] pt-28 pb-16 md:pt-36 md:pb-24 border-b border-[#D8DED8]/20 relative overflow-hidden transition-colors">
       {/* Subtle architectural ambient background */}
@@ -17,8 +55,10 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Hero Column */}
           <div className="lg:col-span-6 flex flex-col items-start space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#A7B9AA]/15 border border-[#A7B9AA]/30 text-[#A7B9AA] text-[11px] font-mono tracking-widest uppercase">
-              <span>Smart Appointment Management Platform</span>
+            {/* Prominent 7-Day Free Trial Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#046A38]/40 border border-[#9EF6B6]/40 text-[#9EF6B6] text-[11px] font-mono font-bold tracking-widest uppercase shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-[#9EF6B6] animate-pulse" />
+              <span>7-Day Free Trial • ₹0 Charged Today • Cancel Anytime</span>
             </div>
 
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-[#FFFFFF] tracking-tight leading-[1.08]">
@@ -27,41 +67,101 @@ export default function Hero() {
             </h1>
 
             <p className="text-base sm:text-lg text-[#D8DED8] max-w-xl font-normal leading-relaxed">
-              Your appointments, staff and customers — seamlessly connected. VISROSLOT brings your entire booking operation into one beautifully organised platform.
+              Your appointments, staff and customers — seamlessly connected. VISROSLOT brings your entire booking operation into one beautifully organised platform with instant audio booking alerts.
             </p>
 
-            <div className="flex flex-wrap items-center gap-3.5 pt-2 w-full sm:w-auto">
-              <Link
-                href="/pricing"
-                className="w-full sm:w-auto bg-[#046A38] hover:bg-[#10251D] text-[#FFFFFF] px-6 py-3.5 rounded-md text-xs sm:text-sm font-bold transition-all duration-150 active:scale-95 shadow-md flex items-center justify-center gap-2 group cursor-pointer"
+            {/* Fast Action CTA Buttons */}
+            <div className="flex flex-wrap items-center gap-3.5 pt-1 w-full sm:w-auto">
+              <button
+                type="button"
+                onClick={handleScrollToPricing}
+                className="w-full sm:w-auto bg-[#046A38] hover:bg-[#03522b] text-[#FFFFFF] px-6 py-3.5 rounded-md text-xs sm:text-sm font-bold transition-all duration-200 active:scale-95 shadow-md flex items-center justify-center gap-2 group cursor-pointer ring-2 ring-[#9EF6B6]/30"
               >
-                <span>Start Your 7-Day Free Trial</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              </Link>
+                <span>Claim 7-Day Free Trial (₹0 Today)</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
 
-              <Link
-                href="/#features"
-                className="w-full sm:w-auto bg-[#FFFFFF]/10 hover:bg-[#FFFFFF]/20 border border-[#FFFFFF]/30 text-[#FFFFFF] px-6 py-3.5 rounded-md text-xs sm:text-sm font-semibold transition-all flex items-center justify-center cursor-pointer"
+              <a
+                href="#how-it-works"
+                className="w-full sm:w-auto bg-[#FFFFFF]/10 hover:bg-[#FFFFFF]/20 border border-[#FFFFFF]/30 text-[#FFFFFF] px-5 py-3.5 rounded-md text-xs sm:text-sm font-semibold transition-all flex items-center justify-center cursor-pointer"
               >
-                <span>Explore the Platform</span>
-              </Link>
+                <span>3 Simple Steps</span>
+              </a>
+            </div>
+
+            {/* Fast Interactive Plan Selectors (Starter vs Premium) */}
+            <div className="pt-2 w-full space-y-2">
+              <div className="text-[11px] font-mono uppercase text-[#A7B9AA] flex items-center gap-1.5 font-bold">
+                <Zap className="w-3.5 h-3.5 text-[#9EF6B6]" />
+                <span>Select Your 7-Day Free Trial Plan (₹0 Today):</span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
+                {/* Starter Plan Mini-Card */}
+                <div
+                  onClick={() => handleSelectQuickPlan("starter")}
+                  className="p-3.5 rounded-lg bg-[#FFFFFF]/5 hover:bg-[#FFFFFF]/10 border border-[#D8DED8]/20 hover:border-[#9EF6B6]/50 transition-all cursor-pointer group flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-xs text-white">Starter Plan</span>
+                      <span className="text-[10px] font-mono bg-[#046A38] text-white px-2 py-0.5 rounded font-bold">
+                        ₹0 Today
+                      </span>
+                    </div>
+                    <div className="text-base font-black text-[#9EF6B6] mt-0.5">
+                      ₹499
+                      <span className="text-[10px] text-[#A7B9AA] font-normal">/mo</span>
+                    </div>
+                    <p className="text-[11px] text-[#D8DED8] mt-1">Up to 3 Staff • 300 Bookings</p>
+                  </div>
+                  <div className="mt-2 text-[11px] font-bold text-[#9EF6B6] flex items-center gap-1 group-hover:underline">
+                    <span>Start 7-Day Trial →</span>
+                  </div>
+                </div>
+
+                {/* Premium Plan Mini-Card */}
+                <div
+                  onClick={() => handleSelectQuickPlan("premium")}
+                  className="p-3.5 rounded-lg bg-[#046A38]/30 hover:bg-[#046A38]/45 border-2 border-[#9EF6B6]/60 transition-all cursor-pointer relative group flex flex-col justify-between"
+                >
+                  <div className="absolute -top-2.5 right-3 bg-[#9EF6B6] text-[#043D2E] text-[9px] font-mono font-bold px-2 py-0.5 rounded-full uppercase shadow-xs">
+                    Most Popular
+                  </div>
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-xs text-white">Premium Plan</span>
+                      <span className="text-[10px] font-mono bg-[#9EF6B6] text-[#043D2E] font-bold px-2 py-0.5 rounded">
+                        ₹0 Today
+                      </span>
+                    </div>
+                    <div className="text-base font-black text-white mt-0.5">
+                      ₹999
+                      <span className="text-[10px] text-[#A7B9AA] font-normal">/mo</span>
+                    </div>
+                    <p className="text-[11px] text-[#D8DED8] mt-1">Up to 10 Staff • UNLIMITED Bookings</p>
+                  </div>
+                  <div className="mt-2 text-[11px] font-bold text-[#9EF6B6] flex items-center gap-1 group-hover:underline">
+                    <span>Start 7-Day Trial →</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Value Pills */}
             <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[#D8DED8]/15 w-full text-xs text-[#A7B9AA]">
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-[#9EF6B6]" />
-                <span className="text-[#F7F6F0]">Simple Setup</span>
+                <span className="text-[#F7F6F0]">₹0 Charged Today</span>
               </div>
               <span className="w-1 h-1 rounded-full bg-[#A7B9AA]/40"></span>
               <div className="flex items-center gap-1.5">
                 <Clock className="w-4 h-4 text-[#9EF6B6]" />
-                <span className="text-[#F7F6F0]">Smart Scheduling</span>
+                <span className="text-[#F7F6F0]">2-Minute Setup</span>
               </div>
               <span className="w-1 h-1 rounded-full bg-[#A7B9AA]/40"></span>
               <div className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-[#9EF6B6]" />
-                <span className="text-[#F7F6F0]">Data Sovereignty</span>
+                <span className="text-[#F7F6F0]">Cancel Anytime</span>
               </div>
             </div>
           </div>

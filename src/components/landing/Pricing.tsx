@@ -45,7 +45,34 @@ export default function Pricing() {
   const handleGetStarted = (plan: "starter" | "premium" | "professional" | "business") => {
     const canonicalPlan = plan === "premium" || plan === "business" ? "business" : "professional";
     if (isLoggedIn) {
-      router.push("/app/overview");
+      const { auth, db } = getFirebaseClient();
+      const currentUser = auth?.currentUser;
+      if (currentUser && db) {
+        import("firebase/firestore").then(({ doc, getDoc }) => {
+          getDoc(doc(db, "users", currentUser.uid))
+            .then((snap) => {
+              const data = snap.data();
+              const isVerified = Boolean(
+                data?.payment_verified ||
+                data?.paymentVerified ||
+                data?.subscription_status === "active" ||
+                data?.subscription_status === "trialing" ||
+                data?.lifetime_free ||
+                data?.is_owner
+              );
+              if (isVerified) {
+                router.push("/app/overview");
+              } else {
+                router.push(`/onboarding?step=plan&plan=${canonicalPlan}&cycle=${billingCycle}`);
+              }
+            })
+            .catch(() => {
+              router.push(`/onboarding?step=plan&plan=${canonicalPlan}&cycle=${billingCycle}`);
+            });
+        });
+        return;
+      }
+      router.push(`/onboarding?step=plan&plan=${canonicalPlan}&cycle=${billingCycle}`);
     } else {
       router.push(`/register?step=plan&plan=${canonicalPlan}&cycle=${billingCycle}`);
     }
@@ -140,6 +167,17 @@ export default function Pricing() {
           </div>
         </div>
 
+        {/* 7-Day Free Trial AutoPay Mandate Explanation */}
+        <div className="max-w-3xl mx-auto p-4 rounded-xl bg-[#046A38]/10 border border-[#046A38]/30 dark:border-[#9EF6B6]/30 text-center space-y-1 shadow-xs">
+          <div className="flex items-center justify-center gap-2 text-xs font-mono font-bold text-[#046A38] dark:text-[#9EF6B6] uppercase">
+            <Sparkles className="w-4 h-4 text-[#046A38] dark:text-[#9EF6B6]" />
+            <span>AutoPay 7-Day Free Trial: ₹0 Charged Today</span>
+          </div>
+          <p className="text-xs text-[#404944] dark:text-[#D8DED8] leading-relaxed">
+            A temporary ₹2 verification token is debited and automatically refunded back to your bank account immediately. Recurring debit begins on Day 8 only according to your selected plan. Cancel anytime with 1 click.
+          </p>
+        </div>
+
         {/* 2 Official Server-Controlled Subscription Plans */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
           {/* PLAN 1: STARTER */}
@@ -229,9 +267,12 @@ export default function Pricing() {
               <button
                 type="button"
                 onClick={() => handleGetStarted("starter")}
-                className="w-full bg-[#FFFFFF] hover:bg-[#F7F6F0] border-2 border-[#10251D] text-[#10251D] dark:bg-[#10251D] dark:hover:bg-[#10251D]/80 dark:border-[#FFFFFF] dark:text-[#FFFFFF] py-3.5 rounded-md text-xs sm:text-sm font-bold text-center transition-all cursor-pointer"
+                className="w-full bg-[#046A38] hover:bg-[#03522b] text-white py-3.5 rounded-md text-xs sm:text-sm font-bold text-center transition-all shadow-md active:scale-95 cursor-pointer flex flex-col items-center justify-center gap-0.5"
               >
-                Continue
+                <span>Start 7-Day Free Trial (₹0 Today)</span>
+                <span className="text-[10px] font-normal text-[#9EF6B6]">
+                  Razorpay AutoPay Setup • Cancel Anytime
+                </span>
               </button>
             </div>
           </div>
@@ -327,9 +368,12 @@ export default function Pricing() {
               <button
                 type="button"
                 onClick={() => handleGetStarted("premium")}
-                className="w-full bg-[#046A38] hover:bg-[#043D2E] text-[#FFFFFF] py-3.5 rounded-md text-xs sm:text-sm font-bold text-center transition-all shadow-md active:scale-95 cursor-pointer"
+                className="w-full bg-[#046A38] hover:bg-[#03522b] text-[#FFFFFF] py-3.5 rounded-md text-xs sm:text-sm font-bold text-center transition-all shadow-md active:scale-95 cursor-pointer ring-2 ring-[#9EF6B6]/50 flex flex-col items-center justify-center gap-0.5"
               >
-                Continue
+                <span>Start 7-Day Free Trial (₹0 Today)</span>
+                <span className="text-[10px] font-normal text-[#9EF6B6]">
+                  Razorpay AutoPay Setup • Cancel Anytime
+                </span>
               </button>
             </div>
           </div>

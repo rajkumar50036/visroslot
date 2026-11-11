@@ -10,10 +10,14 @@ function CreateBusinessProfileRedirectContent() {
 
   useEffect(() => {
     const params = new URLSearchParams(searchParams.toString());
+    if (!params.has("step")) {
+      params.set("step", "profile");
+    }
+    const targetUrl = `/onboarding?${params.toString()}`;
     if (typeof window !== "undefined") {
-      window.location.replace(`/onboarding?${params.toString()}`);
+      window.location.replace(targetUrl);
     } else {
-      router.replace(`/onboarding?${params.toString()}`);
+      router.replace(targetUrl);
     }
   }, [router, searchParams]);
 

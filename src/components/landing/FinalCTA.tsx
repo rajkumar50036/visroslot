@@ -27,13 +27,13 @@ export default function FinalCTA() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-          <Link
-            href="/pricing"
-            className="w-full sm:w-auto px-8 py-3.5 rounded-md text-xs sm:text-sm font-bold text-[#FFFFFF] bg-[#046A38] hover:bg-[#043D2E] shadow-lg transition-all duration-150 active:scale-95 flex items-center justify-center gap-2 group cursor-pointer"
+          <a
+            href="#pricing"
+            className="w-full sm:w-auto px-8 py-3.5 rounded-md text-xs sm:text-sm font-bold text-[#FFFFFF] bg-[#046A38] hover:bg-[#03522b] shadow-lg transition-all duration-150 active:scale-95 flex items-center justify-center gap-2 group cursor-pointer ring-2 ring-[#9EF6B6]/30"
           >
-            <span>Get Started Free</span>
+            <span>Start 7-Day Free Trial (₹0 Today)</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-          </Link>
+          </a>
           <a
             href="tel:+919391354003"
             className="w-full sm:w-auto px-7 py-3.5 rounded-md text-xs sm:text-sm font-semibold text-[#FFFFFF] bg-[#FFFFFF]/10 hover:bg-[#FFFFFF]/20 border border-[#FFFFFF]/20 transition-all flex items-center justify-center gap-2 cursor-pointer"

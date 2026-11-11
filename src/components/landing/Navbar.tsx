@@ -135,11 +135,9 @@ export default function Navbar() {
   };
 
   const navLinks = [
-    { label: "Features", href: "/#features" },
-    { label: "Industries", href: "/#industries" },
+    { label: "Plans & Trial", href: "/#pricing" },
     { label: "How It Works", href: "/#how-it-works" },
-    { label: "Pricing", href: "/#pricing" },
-    { label: "About Us", href: "/about" },
+    { label: "Features", href: "/#features" },
     { label: "Contact", href: "/contact" },
   ];
 
